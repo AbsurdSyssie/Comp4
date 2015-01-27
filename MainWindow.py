@@ -19,8 +19,6 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 # start of main
-# students = []
-teachers = []
 
 
 class teacher():
@@ -89,6 +87,12 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton_5.clicked.connect(self.close)
         self.pushButton_5.clicked.connect(self.showLoginPage)
         self.pushButton_2.clicked.connect(self.showNewq)
+        self.pushButton_3.clicked.connect(self.SetQuestions)
+
+    def SetQuestions(self):
+        global SetQuestions
+        SetQuestions = SetQuestions()
+        SetQuestions.show()
 
     def showLoginPage(self):
         global LogInPage
@@ -103,6 +107,79 @@ class Teacher_Main_Window(QtGui.QWidget):
         global newQForm
         newQForm = AddQuestion()
         newQForm.show()
+
+
+
+class SetQuestions(QtGui.QWidget):
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
+        self.setupUi(self)
+
+
+    def setupUi(self, Form):
+        Form.setObjectName(_fromUtf8("Form"))
+        Form.resize(682, 593)
+        self.verticalLayout = QtGui.QVBoxLayout(Form)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout()
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+        self.label = QtGui.QLabel(Form)
+        self.label.setObjectName(_fromUtf8("label"))
+        self.verticalLayout_2.addWidget(self.label)
+        self.FormBox = QtGui.QComboBox(Form)
+        self.FormBox.setObjectName(_fromUtf8("FormBox"))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.FormBox.addItem(_fromUtf8(""))
+        self.verticalLayout_2.addWidget(self.FormBox)
+        self.StudentBox = QtGui.QComboBox(Form)
+        self.StudentBox.setObjectName(_fromUtf8("StudentBox"))
+        self.verticalLayout_2.addWidget(self.StudentBox)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.label_2 = QtGui.QLabel(Form)
+        self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.verticalLayout_2.addWidget(self.label_2)
+        self.QuestionTypeBox = QtGui.QComboBox(Form)
+        self.QuestionTypeBox.setObjectName(_fromUtf8("QuestionTypeBox"))
+        self.verticalLayout_2.addWidget(self.QuestionTypeBox)
+        self.QuestionSetBox = QtGui.QComboBox(Form)
+        self.QuestionSetBox.setObjectName(_fromUtf8("QuestionSetBox"))
+        self.verticalLayout_2.addWidget(self.QuestionSetBox)
+        self.verticalLayout.addLayout(self.verticalLayout_2)
+        self.pushButton = QtGui.QPushButton(Form)
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.verticalLayout.addWidget(self.pushButton)
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(_translate("Form", "Form", None))
+        self.label.setText(_translate("Form", "Select Student:", None))
+        self.FormBox.setItemText(0, _translate("Form", "", None))
+        self.FormBox.setItemText(1, _translate("Form", "13DJH", None))
+        self.FormBox.setItemText(2, _translate("Form", "13DNG", None))
+        self.FormBox.setItemText(3, _translate("Form", "13EM", None))
+        self.FormBox.setItemText(4, _translate("Form", "13JMG", None))
+        self.FormBox.setItemText(5, _translate("Form", "13MJO", None))
+        self.label_2.setText(_translate("Form", "Select Question Set:", None))
+        self.pushButton.setText(_translate("Form", "Submit", None))
+        self.FormBox.activated[str].connect(self.populatepupils)
+#        self.QuestionTypeBox.activated[str].connect(self.populateQuestions())
+    def populatepupils(self, text):
+        self.StudentBox.clear()
+        for people in students:
+            if people.form == text:
+                self.StudentBox.addItem(people.username)
+
+
+#    def populateQuestions(self):
+
+
 
 class createaccount(QtGui.QWidget):
     def __init__(self):
