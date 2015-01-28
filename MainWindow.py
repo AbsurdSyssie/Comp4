@@ -170,6 +170,11 @@ class SetQuestions(QtGui.QWidget):
         self.pushButton.setText(_translate("Form", "Submit", None))
         self.FormBox.activated[str].connect(self.populatepupils)
 #        self.QuestionTypeBox.activated[str].connect(self.populateQuestions())
+    def populateforms(self):
+        for people in students:
+            for len(self.FormBox.index):
+                if people.form not in self.FormBox:
+                    self.FormBox.additem(people.form)
     def populatepupils(self, text):
         self.StudentBox.clear()
         for people in students:
