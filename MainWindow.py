@@ -633,8 +633,10 @@ class AddQuestion(QtGui.QWidget):
         self.Submit.setText(_translate("Form", "Submit", None))
         self.Cancel.setText(_translate("Form", "Cancel", None))
         self.QuestiontypeBox.activated[str].connect(self.typechosen)
-        self.Submit.clicked.connect(self.create)
+        self.Submit.clicked.connect(self.validate)
+            
         self.Cancel.clicked.connect(self.close)
+        
     def typechosen(self, text):
         self.questiontype = text
         if text == "Rate Constant":
@@ -666,8 +668,22 @@ class AddQuestion(QtGui.QWidget):
             self.label_5.setText(_translate("Form", " ", None))
             self.FifthValue.setVisible(False)            
         print(self.questiontype)
-    def create(self):
+    
+    def validate(self, text):
         valid = True
+        text = self.questiontype
+        if text == "Rate Constant":
+            try:
+                ThirdVal = int(self.thirdValue.text())
+                FourhtVal = (self.FourthValue.text())
+                
+            except:
+                reply = QtGui.QMessageBox()
+                reply.setText("Orders must be integers.")
+                reply.setIcon(3)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        
+                ret = reply.exec_()                 
         try:
             
             FirstVal = float(self.firstValue.text())
@@ -680,20 +696,24 @@ class AddQuestion(QtGui.QWidget):
             self.fieldsIncorrect()
             valid = False
         if valid == True:
-
-            QID = len(questions)+1
-            values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),convertTofloat(self.thirdValue.text()),convertTofloat(self.FourthValue.text()),convertTofloat(self.FifthValue.text()) ]
-            print("Making A Question with", QID, self.questiontype, values)
-            newQuestion = Question(QID, self.questiontype, values)
-            questions.append(newQuestion)
-            with open('questions.pickle', 'wb') as f:
-                pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
-            self.questionconfirmation()   
-            for question in questions:
-                try:
-                    print(question.ID, question.values)
-                except:
-                    print("Nope")
+            pass
+    
+    
+    
+    def create(self):
+        QID = len(questions)+1
+        values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),convertTofloat(self.thirdValue.text()),convertTofloat(self.FourthValue.text()),convertTofloat(self.FifthValue.text()) ]
+        print("Making A Question with", QID, self.questiontype, values)
+        newQuestion = Question(QID, self.questiontype, values)
+        questions.append(newQuestion)
+        with open('questions.pickle', 'wb') as f:
+            pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
+        self.questionconfirmation()   
+        for question in questions:
+            try:
+                print(question.ID, question.values)
+            except:
+                print("Nope")
                     
     def questionconfirmation(self):
         reply = QtGui.QMessageBox()
