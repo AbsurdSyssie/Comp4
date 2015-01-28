@@ -19,6 +19,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 # start of main
+# students = []
+teachers = []
 
 
 class teacher():
@@ -39,41 +41,41 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.setupUi(self)
 
     def setupUi(self, Form):
-            Form.setObjectName(_fromUtf8("Form"))
-            Form.resize(400, 324)
-            self.verticalLayout = QtGui.QVBoxLayout(Form)
-            self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-            self.pushButton_3 = QtGui.QPushButton(Form)
-            self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
-            self.verticalLayout.addWidget(self.pushButton_3)
-            spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-            self.verticalLayout.addItem(spacerItem)
-            self.pushButton_2 = QtGui.QPushButton(Form)
-            self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-            self.verticalLayout.addWidget(self.pushButton_2)
-            spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-            self.verticalLayout.addItem(spacerItem1)
-            self.pushButton = QtGui.QPushButton(Form)
-            self.pushButton.setObjectName(_fromUtf8("pushButton"))
-            self.verticalLayout.addWidget(self.pushButton)
-            spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-            self.verticalLayout.addItem(spacerItem2)
-            self.pushButton_4 = QtGui.QPushButton(Form)
-            self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
-            self.verticalLayout.addWidget(self.pushButton_4)
-            spacerItem3 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-            self.verticalLayout.addItem(spacerItem3)
-            self.editAcc = QtGui.QPushButton(Form)
-            self.editAcc.setObjectName(_fromUtf8("editAcc"))
-            self.verticalLayout.addWidget(self.editAcc)
-            spacerItem4 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-            self.verticalLayout.addItem(spacerItem4)
-            self.pushButton_5 = QtGui.QPushButton(Form)
-            self.pushButton_5.setObjectName(_fromUtf8("pushButton_5"))
-            self.verticalLayout.addWidget(self.pushButton_5)
-            
-            self.retranslateUi(Form)
-            QtCore.QMetaObject.connectSlotsByName(Form)            
+        Form.setObjectName(_fromUtf8("Form"))
+        Form.resize(400, 324)
+        self.verticalLayout = QtGui.QVBoxLayout(Form)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.pushButton_3 = QtGui.QPushButton(Form)
+        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
+        self.verticalLayout.addWidget(self.pushButton_3)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.pushButton_2 = QtGui.QPushButton(Form)
+        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+        self.verticalLayout.addWidget(self.pushButton_2)
+        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.pushButton = QtGui.QPushButton(Form)
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.verticalLayout.addWidget(self.pushButton)
+        spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem2)
+        self.pushButton_4 = QtGui.QPushButton(Form)
+        self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
+        self.verticalLayout.addWidget(self.pushButton_4)
+        spacerItem3 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem3)
+        self.editAcc = QtGui.QPushButton(Form)
+        self.editAcc.setObjectName(_fromUtf8("editAcc"))
+        self.verticalLayout.addWidget(self.editAcc)
+        spacerItem4 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem4)
+        self.pushButton_5 = QtGui.QPushButton(Form)
+        self.pushButton_5.setObjectName(_fromUtf8("pushButton_5"))
+        self.verticalLayout.addWidget(self.pushButton_5)
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)            
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
@@ -87,12 +89,11 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton_5.clicked.connect(self.close)
         self.pushButton_5.clicked.connect(self.showLoginPage)
         self.pushButton_2.clicked.connect(self.showNewq)
-        self.pushButton_3.clicked.connect(self.SetQuestions)
+        self.pushButton_3.clicked.connect(self.showSetQuestions)
 
-    def SetQuestions(self):
-        global SetQuestions
-        SetQuestions = SetQuestions()
-        SetQuestions.show()
+    def showSetQuestions(self):
+        Setquestions = SetQuestions()
+        Setquestions.exec_()
 
     def showLoginPage(self):
         global LogInPage
@@ -109,80 +110,122 @@ class Teacher_Main_Window(QtGui.QWidget):
         newQForm.show()
 
 
+class SetQuestions(QtGui.QDialog):
 
-class SetQuestions(QtGui.QWidget):
     def __init__(self):
-        QtGui.QWidget.__init__(self)
+
+        QtGui.QDialog.__init__(self)
+
         self.setupUi(self)
 
 
+
     def setupUi(self, Form):
+
         Form.setObjectName(_fromUtf8("Form"))
+
         Form.resize(682, 593)
+
         self.verticalLayout = QtGui.QVBoxLayout(Form)
+
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+
         self.verticalLayout_2 = QtGui.QVBoxLayout()
+
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+
         self.label = QtGui.QLabel(Form)
+
         self.label.setObjectName(_fromUtf8("label"))
+
         self.verticalLayout_2.addWidget(self.label)
+
         self.FormBox = QtGui.QComboBox(Form)
+
         self.FormBox.setObjectName(_fromUtf8("FormBox"))
+
         self.FormBox.addItem(_fromUtf8(""))
-        self.FormBox.addItem(_fromUtf8(""))
-        self.FormBox.addItem(_fromUtf8(""))
-        self.FormBox.addItem(_fromUtf8(""))
-        self.FormBox.addItem(_fromUtf8(""))
-        self.FormBox.addItem(_fromUtf8(""))
+
         self.verticalLayout_2.addWidget(self.FormBox)
+
         self.StudentBox = QtGui.QComboBox(Form)
+
         self.StudentBox.setObjectName(_fromUtf8("StudentBox"))
+
         self.verticalLayout_2.addWidget(self.StudentBox)
+
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+
         self.verticalLayout_2.addItem(spacerItem)
+
         self.label_2 = QtGui.QLabel(Form)
+
         self.label_2.setObjectName(_fromUtf8("label_2"))
+
         self.verticalLayout_2.addWidget(self.label_2)
+
         self.QuestionTypeBox = QtGui.QComboBox(Form)
+
         self.QuestionTypeBox.setObjectName(_fromUtf8("QuestionTypeBox"))
+
         self.verticalLayout_2.addWidget(self.QuestionTypeBox)
+
         self.QuestionSetBox = QtGui.QComboBox(Form)
+
         self.QuestionSetBox.setObjectName(_fromUtf8("QuestionSetBox"))
+
         self.verticalLayout_2.addWidget(self.QuestionSetBox)
+
         self.verticalLayout.addLayout(self.verticalLayout_2)
+
         self.pushButton = QtGui.QPushButton(Form)
+
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
+
         self.verticalLayout.addWidget(self.pushButton)
 
         self.retranslateUi(Form)
+
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+
+
     def retranslateUi(self, Form):
+
         Form.setWindowTitle(_translate("Form", "Form", None))
+
         self.label.setText(_translate("Form", "Select Student:", None))
+
         self.FormBox.setItemText(0, _translate("Form", "", None))
-        self.FormBox.setItemText(1, _translate("Form", "13DJH", None))
-        self.FormBox.setItemText(2, _translate("Form", "13DNG", None))
-        self.FormBox.setItemText(3, _translate("Form", "13EM", None))
-        self.FormBox.setItemText(4, _translate("Form", "13JMG", None))
-        self.FormBox.setItemText(5, _translate("Form", "13MJO", None))
+
         self.label_2.setText(_translate("Form", "Select Question Set:", None))
+
         self.pushButton.setText(_translate("Form", "Submit", None))
+
         self.FormBox.activated[str].connect(self.populatepupils)
-#        self.QuestionTypeBox.activated[str].connect(self.populateQuestions())
+        self.populateforms() 
+       # self.QuestionTypeBox.activated[str].connect(self.populateQuestions())
+
+
     def populateforms(self):
+
+        AllItems = []
         for people in students:
-            for len(self.FormBox.index):
-                if people.form not in self.FormBox:
-                    self.FormBox.additem(people.form)
+
+            if not people.form in AllItems:
+                self.FormBox.addItem(people.form)
+                AllItems.append(people.form)
+
     def populatepupils(self, text):
+
         self.StudentBox.clear()
+
         for people in students:
+
             if people.form == text:
+
                 self.StudentBox.addItem(people.username)
 
-
-#    def populateQuestions(self):
 
 
 
@@ -298,7 +341,7 @@ class createaccount(QtGui.QWidget):
         self.submitButton.setText(_translate("Form", "Submit", None))
         self.cancelButton.setText(_translate("Form", "Cancel", None))
         self.submitButton.clicked.connect(self.checktype)
-        
+
 
     def checktype(self):
         if (not self.studentCheck) and (not self.teacherCheck):
@@ -308,10 +351,10 @@ class createaccount(QtGui.QWidget):
                 if self.usernameBox.text() == people.username:
                     self.usernameinuse()
         if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
-                self.fieldsNotComplete()    
+            self.fieldsNotComplete()    
         else:
-                self.create_new_Student()
-                self.close()
+            self.create_new_Student()
+            self.close()
         if self.teacherCheck.isChecked() == True:
             if self.studentCheck.isChecked() == True:
                 for people in teachers:
@@ -335,10 +378,10 @@ class createaccount(QtGui.QWidget):
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
         ret = reply.exec_()
-        
-        
-        
-        
+
+
+
+
     def create_new_Student(self):
 
         student_id = len(students)+1
@@ -410,12 +453,12 @@ class Student_Main_Window(QtGui.QWidget):
         self.pushButton.clicked.connect(self.launchWindow2)
         self.pushButton_4.clicked.connect(self.close)
         self.pushButton_4.clicked.connect(self.showLoginPage)
-        
+
     def showLoginPage(self):
         global logInPage
         logInPage = LogInPage()
         logInPage.show()
-        
+
     def launchWindow2(self):
         global PracticeForm
         PracticeForm = Practice_Questions_Window()
@@ -474,7 +517,7 @@ class Practice_Questions_Window(QtGui.QWidget):
         self.pushButton_3.clicked.connect(self.launchPracticeQWindow)
         self.pushButton_5.clicked.connect(self.close)
         self.hardyweinberg.clicked.connect(self.launch_hardy_weinberg)
-        
+
     def launch_hardy_weinberg(self):
         global HWForm
         HWForm = hardy_weinberg()
@@ -515,7 +558,7 @@ class AddQuestion(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
         self.setupUi(self)    
-    
+
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(718, 659)
@@ -599,7 +642,7 @@ class AddQuestion(QtGui.QWidget):
             self.label_2.setText(_translate("Form", "Conc of B:", None))
             self.label_3.setText(_translate("Form", "Order of A:", None))
             self.thirdValue.setVisible(True)
-            
+
             self.FourthValue.setVisible(True)
             self.FifthValue.setVisible(True)            
             self.label_4.setText(_translate("Form", "Order of B:", None))
@@ -622,16 +665,36 @@ class AddQuestion(QtGui.QWidget):
             self.FourthValue.setVisible(True)
             self.label_5.setText(_translate("Form", " ", None))
             self.FifthValue.setVisible(False)            
-            
         print(self.questiontype)
     def create(self):
+        valid = True
+        try:
+            
+            FirstVal = float(self.firstValue.text())
+            Secondval = float(self.secondValue.text())
+            ThirdVal = float(self.thirdValue.text())
+            FourhtVal = float(self.FourthValue.text())
+            FifthVal = float(self.FifthValue.text())
+            
+        except:
+            self.fieldsIncorrect()
+            valid = False
+        if valid == True:
 
-        values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),convertTofloat(self.thirdValue.text()),convertTofloat(self.FourthValue.text()),convertTofloat(self.FifthValue.text()) ]
-        newQuestion = Question(self.questiontype, values)
-        questions.append(newQuestion)
-        with open('questions.pickle', 'wb') as f:
-            pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
-        self.questionconfirmation()        
+            QID = len(questions)+1
+            values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),convertTofloat(self.thirdValue.text()),convertTofloat(self.FourthValue.text()),convertTofloat(self.FifthValue.text()) ]
+            print("Making A Question with", QID, self.questiontype, values)
+            newQuestion = Question(QID, self.questiontype, values)
+            questions.append(newQuestion)
+            with open('questions.pickle', 'wb') as f:
+                pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
+            self.questionconfirmation()   
+            for question in questions:
+                try:
+                    print(question.ID, question.values)
+                except:
+                    print("Nope")
+                    
     def questionconfirmation(self):
         reply = QtGui.QMessageBox()
         reply.setText("Question Added Successfully.")
@@ -641,33 +704,49 @@ class AddQuestion(QtGui.QWidget):
         ret = reply.exec_()  
         self.close()
 
-class Question(object):
-    
-    def __init__(self,questiontype, values):
-        self.question_type = questiontype
-        self.values = values
-        if self.question_type == "k":
-            self.kQuestion()
-        if self.question_type == "HW":
-            self.hardy_weinberg()
-    def kQuestion(self):
+    def fieldsIncorrect(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("Some fields are not correct.")
+        reply.setIcon(3)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+        ret = reply.exec_()        
+    def typeNotSelected(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("Question Type Field is not complete.")
+        reply.setIcon(3)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+        ret = reply.exec_()        
         
+        
+        
+class Question(object):
+
+    def __init__(self, ID, questiontype, values):
+        self.question_type = questiontype
+        self.ID = ID
+        print("storing", self.ID)
         self.values = values
-        self.question = self.values
+        if self.question_type == "Rate Constant":
+            self.kQuestion()
+        if self.question_type == "Hardy-Weinberg":
+            self.hardy_weinberg()
+    
+    def kQuestion(self):
         self.conc_of_A = self.values[0]
         self.conc_of_B = self.values[1]
         self.rateOfReaction = self.values[2]
         self.order_of_A= self.values[3]
         self.order_of_B= self.values[4]
         y = findKreaction(self.conc_of_A, self.conc_of_B, self.order_of_A, self.order_of_B, self.rateOfReaction)
-    
-            
-    def hardy_weinberg(self):
-        self.values = values
-        self.totalpop = values[0]
-        self.q_sqrdaspop = values[1]    
 
-    
+
+    def hardy_weinberg(self):
+        self.totalpop = self.values[0]
+        self.q_sqrdaspop = self.values[1]    
+
+
 class Question_Set(object):
     questions = []
 
@@ -873,10 +952,10 @@ class findKreaction():
         print("To calculate the rate constant, k, we must first multiply the concentrations of our reactants together."
               "However the concentrations must be raised to the power of their orders."
               "The concentrations of A and B are", self.conc_of_A, "and", self.conc_of_B, "respectively."
-                                                                                          "The order of A is",
+              "The order of A is",
               self.order_of_A, "and the order of B is ", self.order_of_B, " .")
         print("This means our intermediary value is ", self.intermediary, "."
-                                                                          "We then divide our rate of reaction by this number. The reate of reaction is",
+              "We then divide our rate of reaction by this number. The reate of reaction is",
               self.rateOfReaction, ".")
         print("This equals", self.k)
         print("Next we must find the units of k \n")
@@ -901,9 +980,9 @@ class findKreaction():
         correct = False
         window.label.setText(_translate("Form", "The conc of reactant A is " + str(
             self.conc_of_A) + " moldm^-3. The conc of B is " + str(self.conc_of_B) + " moldm^-3\n"
-                                                                                     "The order of A is " + str(
-            self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
-            self.rateOfReaction), None))
+                                        "The order of A is " + str(
+                                            self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
+                                                self.rateOfReaction), None))
 
 
 
@@ -989,7 +1068,7 @@ class LogInPage(QtGui.QWidget):
         QtGui.QWidget.__init__(self)
         self.setupUi(self)
 
-    
+
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(400, 300)
@@ -1020,7 +1099,7 @@ class LogInPage(QtGui.QWidget):
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.verticalLayout.addWidget(self.pushButton_2)
-    
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -1036,25 +1115,25 @@ class LogInPage(QtGui.QWidget):
 
     def checkCredentials(self, Form):
         global username
-        
+
         self.isStudent = False
         self.isTeacher = False
         for people in students:
             if self.UsernameBox.text() == people.username and self.PasswordBox.text() == people.password:
                 if people.account_type == "S":
                     self.close()
-                    
+
                     username = people.username
-                    
+
                     global studentmainForm
                     studentmainForm = Student_Main_Window()
                     studentmainForm.show()
                     self.isStudent = True
         for people in teachers:
             if self.UsernameBox.text() == people.username and self.PasswordBox.text() == people.password:
-                
+
                 username = people.username
-                
+
                 if people.account_type == "T":
                     self.close()
                     global teacherMainForm
@@ -1065,20 +1144,20 @@ class LogInPage(QtGui.QWidget):
             self.incorrectID()
 
     def incorrectID(self):
-                    reply = QtGui.QMessageBox()
-                    reply.setText("Your Username or Password is incorrect. Please try again.")
-                    reply.setIcon(0)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        reply = QtGui.QMessageBox()
+        reply.setText("Your Username or Password is incorrect. Please try again.")
+        reply.setIcon(0)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-                    ret = reply.exec_()
-                    reply.close()
+        ret = reply.exec_()
+        reply.close()
 
 
 def loadTeachers():
     global teachers
     with open('teachers.pickle', 'rb') as t:
         teachers = pickle.load(t)
-        
+
         for people in teachers:
             print(people.username, people.password)
 
@@ -1087,7 +1166,7 @@ def loadStudents():
     global students
     with open('students.pickle', 'rb') as s:
         students = pickle.load(s)
-        
+
         for people in students:
             print(people.username, people.password, people.studentid)
 
@@ -1118,13 +1197,6 @@ username = "Test"
 
 
 
-concofA = 0.0023
-concofB = 0.023
-rateofreaction = 0.0000012
-order_of_A = 2
-order_of_B = 1
-values = [concofA, concofB, rateofreaction, order_of_A, order_of_B]
-question_type = "k"
 
 app = QtGui.QApplication(sys.argv)
 thisForm = Teacher_Main_Window()
