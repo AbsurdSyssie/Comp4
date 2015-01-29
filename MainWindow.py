@@ -54,6 +54,12 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.verticalLayout.addWidget(self.pushButton_2)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        spacerItem5 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem5)
+        
+        self.pushButton_6 = QtGui.QPushButton(Form)
+        self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
+        self.verticalLayout.addWidget(self.pushButton_6)        
         self.verticalLayout.addItem(spacerItem1)
         self.pushButton = QtGui.QPushButton(Form)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
@@ -84,13 +90,21 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton.setText(_translate("Form", "See Student Progress", None))
         self.pushButton_4.setText(_translate("Form", "Add New Account", None))
         self.editAcc.setText(_translate("Form", "Edit Accounts", None))
+        self.pushButton_6.setText(_translate("Form", "Make QSet", None))
         self.pushButton_5.setText(_translate("Form", "Log Out", None))
         self.pushButton_4.clicked.connect(self.showCreateNewAccountWindow)
         self.pushButton_5.clicked.connect(self.close)
         self.pushButton_5.clicked.connect(self.showLoginPage)
         self.pushButton_2.clicked.connect(self.showNewq)
         self.pushButton_3.clicked.connect(self.showSetQuestions)
+        self.pushButton_6.clicked.connect(self.makeQSet)
 
+
+
+    def makeQSet(self):
+        global MakeQSet
+        MakeQSet = MakeQSet(QSet)
+        MakeQSet.show()
     def showSetQuestions(self):
         Setquestions = SetQuestions()
         Setquestions.exec_()
@@ -553,6 +567,85 @@ def menu():
         print("Press q to quit. ")
         choice = getChoice()
 
+class MakeQSet(QtGui.QWidget):
+    def __init__(self, QSet):
+        QtGui.QWidget.__init__(self)
+        self.setupUi(self)
+        self.shownList = self.populateQuestions(questions)
+        self.newList = []
+        
+    def setupUi(self, Form):
+        Form.setObjectName(_fromUtf8("Form"))
+        Form.resize(627, 447)
+        self.label = QtGui.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(10, 30, 151, 16))
+        self.label.setObjectName(_fromUtf8("label"))
+        self.listWidget = QtGui.QListWidget(Form)
+        self.listWidget.setGeometry(QtCore.QRect(360, 60, 256, 341))
+        self.listWidget.setObjectName(_fromUtf8("listWidget"))
+        self.lineEdit = QtGui.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(442, 30, 161, 20))
+        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
+        self.label_2 = QtGui.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(360, 30, 71, 16))
+        self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.pushButton_3 = QtGui.QPushButton(Form)
+        self.pushButton_3.setGeometry(QtCore.QRect(480, 420, 75, 23))
+        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
+        self.listWidget1 = QtGui.QListWidget(Form)
+        self.listWidget1.setGeometry(QtCore.QRect(10, 60, 256, 341))
+        self.listWidget1.setObjectName(_fromUtf8("listWidget1"))
+        self.pushButton = QtGui.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(272, 270, 75, 23))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.pushButton_2 = QtGui.QPushButton(Form)
+        self.pushButton_2.setGeometry(QtCore.QRect(270, 180, 75, 23))
+        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(_translate("Form", "Form", None))
+        self.label.setText(_translate("Form", "All Questions", None))
+        self.label_2.setText(_translate("Form", "New Set:", None))
+        self.pushButton_3.setText(_translate("Form", "Save", None))
+        self.pushButton.setText(_translate("Form", "<", None))
+        self.pushButton_2.setText(_translate("Form", ">", None))
+        self.pushButton_2.clicked.connect(self.addQuestionToList)
+        self.pushButton.clicked.connect(self.removeQuestion)
+        
+    
+    def removeQuestion(self):
+        for item in self.listWidget.selectedIndexes():
+            thisIndex = item.row()
+            self.newList.pop(thisIndex)
+            self.listWidget.takeItem(thisIndex)
+        print("NewList now contains:")
+        printQList(self.newList)  
+        
+    def addQuestionToList(self):
+        for item in self.listWidget1.selectedIndexes():
+            thisIndex = item.row()
+            #add this question to the right hand list
+            if not self.shownList[thisIndex] in self.newList:
+                self.newList.append(self.shownList[thisIndex])
+                self.listWidget.addItem(self.listWidget1.item(thisIndex).text())
+        print("NewList now contains:")
+        printQList(self.newList)
+        
+    def populateQuestions(self, questions):
+        shownList = []
+        for question in questions:
+            shownList.append(question)
+            self.listWidget1.addItem(str(question.ID) + "  :  " + question.questionype)
+        return shownList
+    
+def printQList(qlist):
+    for q in qlist:
+        print(q.ID," ", q.questiontype)
+
+
 
 class AddQuestion(QtGui.QWidget):
     def __init__(self):
@@ -632,13 +725,20 @@ class AddQuestion(QtGui.QWidget):
         #self.label_5.setText(_translate("Form", "Fifth Value", None))
         self.Submit.setText(_translate("Form", "Submit", None))
         self.Cancel.setText(_translate("Form", "Cancel", None))
+        
         self.QuestiontypeBox.activated[str].connect(self.typechosen)
         self.Submit.clicked.connect(self.validate)
-            
+        self.clickedit = False
         self.Cancel.clicked.connect(self.close)
         
     def typechosen(self, text):
+        self.clickedit = True
         self.questiontype = text
+        if text == " ":
+            self.typeNotSelected()
+
+    
+                           
         if text == "Rate Constant":
             self.label.setText(_translate("Form", "Conc of A:", None))
             self.label_2.setText(_translate("Form", "Conc of B:", None))
@@ -670,33 +770,47 @@ class AddQuestion(QtGui.QWidget):
         print(self.questiontype)
     
     def validate(self, text):
-        valid = True
-        text = self.questiontype
-        if text == "Rate Constant":
-            try:
-                ThirdVal = int(self.thirdValue.text())
-                FourhtVal = (self.FourthValue.text())
+        if self.clickedit == False or self.questiontype == "":
+            self.typeNotSelected()
+
+        else:       
+                valid = True
+                text = self.questiontype
                 
-            except:
-                reply = QtGui.QMessageBox()
-                reply.setText("Orders must be integers.")
-                reply.setIcon(3)
-                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-        
-                ret = reply.exec_()                 
-        try:
-            
-            FirstVal = float(self.firstValue.text())
-            Secondval = float(self.secondValue.text())
-            ThirdVal = float(self.thirdValue.text())
-            FourhtVal = float(self.FourthValue.text())
-            FifthVal = float(self.FifthValue.text())
-            
-        except:
-            self.fieldsIncorrect()
-            valid = False
-        if valid == True:
-            pass
+                    
+                if text == "Rate Constant":
+                  try:
+                       FirstVal = float(self.firstValue.text())
+                       SecondVal = float(self.secondValue.text())
+                       ThirdVal = int(self.thirdValue.text())
+                       FourhtVal = int(self.FourthValue.text())
+                       FifthVal = float(self.FifthValue.text())
+                       
+                  except:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Orders must be integers.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+               
+                    ret = reply.exec_()                 
+                if text == "Hardy-Weinberg":
+                    try:
+                       
+                        FirstVal = float(self.firstValue.text())
+                        SecondVal = float(self.secondValue.text())
+                        if SecondVal > FirstVal:
+                            reply = QtGui.QMessageBox()
+                            reply.setText("First Value must be larger than Second Value.")
+                            reply.setIcon(3)
+                            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+                    
+                            ret = reply.exec_()   
+                            valid = False
+                    except:
+                        self.fieldsIncorrect()
+                        valid = False
+                if valid == True:
+                    self.create()
     
     
     
@@ -1207,11 +1321,16 @@ def loadQuestions():
         questions = pickle.load(q)
 
 
-
-
-
-loadStudents()
+def loadQSet():
+    global QSet
+    with open('QSets.pickle', 'rb') as q:
+        QSet=[]
+        QSet = pickle.load(q)
+    
+    
 loadQuestions()
+loadQSet()
+loadStudents()
 loadTeachers()
 username = "Test"
 
