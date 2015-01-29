@@ -215,10 +215,10 @@ class SetQuestions(QtGui.QDialog):
         self.label_2.setText(_translate("Form", "Select Question Set:", None))
 
         self.pushButton.setText(_translate("Form", "Submit", None))
-
+        self.populateQSets
         self.FormBox.activated[str].connect(self.populatepupils)
         self.populateforms() 
-       # self.QuestionTypeBox.activated[str].connect(self.populateQuestions())
+       #self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
 
 
     def populateforms(self):
@@ -233,13 +233,17 @@ class SetQuestions(QtGui.QDialog):
     def populatepupils(self, text):
 
         self.StudentBox.clear()
-
+        self.StudentBox.addItem("All")
         for people in students:
 
             if people.form == text:
 
                 self.StudentBox.addItem(people.username)
-
+    def populateQSets(self):
+        AllItems = []
+        for Set in QSet:
+            if not Set.name in AllItems:
+                self.QuestionSetBox.addItem(Set.name)
 
 
 
@@ -612,9 +616,10 @@ class MakeQSet(QtGui.QWidget):
         self.pushButton_3.setText(_translate("Form", "Save", None))
         self.pushButton.setText(_translate("Form", "<", None))
         self.pushButton_2.setText(_translate("Form", ">", None))
+        
         self.pushButton_2.clicked.connect(self.addQuestionToList)
         self.pushButton.clicked.connect(self.removeQuestion)
-        
+        self.pushButton_3.clicked.connect(self.makeNewSet)
     
     def removeQuestion(self):
         for item in self.listWidget.selectedIndexes():
@@ -624,6 +629,28 @@ class MakeQSet(QtGui.QWidget):
         print("NewList now contains:")
         printQList(self.newList)  
         
+    def makeNewSet(self):
+        ListID = len(QSet)+1
+        newQSet = self.newList
+        name = self.lineEdit.text()
+        owner = username
+        newQSet = Question_Set(ListID, name, newQSet, owner)
+        with open('QSets.pickle', 'wb') as f:
+            pickle.dump(newQSet, f, pickle.HIGHEST_PROTOCOL)
+        self.SetConfirmation()        
+     
+     
+    def SetConfirmation(self):
+        
+        reply = QtGui.QMessageBox()
+        reply.setText("Question Set Created Successfully.")
+        reply.setIcon(0)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+        ret = reply.exec_()  
+        self.close()
+     
+      
     def addQuestionToList(self):
         for item in self.listWidget1.selectedIndexes():
             thisIndex = item.row()
@@ -638,12 +665,12 @@ class MakeQSet(QtGui.QWidget):
         shownList = []
         for question in questions:
             shownList.append(question)
-            self.listWidget1.addItem(str(question.ID) + "  :  " + question.questionype)
+            self.listWidget1.addItem(str(question.ID) + "  :  " + question.question_type)
         return shownList
     
 def printQList(qlist):
     for q in qlist:
-        print(q.ID," ", q.questiontype)
+        print(q.ID," ", q.question_type)
 
 
 
@@ -882,7 +909,13 @@ class Question(object):
 
 
 class Question_Set(object):
-    questions = []
+    
+    def __init__(self, ID, name, newQList, owner):
+        self.QID = ID
+        self.name = name
+        self.QList = newQList
+        self.owner = owner
+        
 
 class Practice_Q_Window(QtGui.QWidget):
     def __init__(self):
@@ -1322,10 +1355,15 @@ def loadQuestions():
 
 
 def loadQSet():
+    QSets = []
     global QSet
     with open('QSets.pickle', 'rb') as q:
-        QSet=[]
+
         QSet = pickle.load(q)
+        for Set in QSet:
+            QSets.append(Set)
+    for Set in QSet.QList:
+        print(QSet.name)
     
     
 loadQuestions()
