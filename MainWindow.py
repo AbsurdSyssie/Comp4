@@ -551,31 +551,6 @@ class Practice_Questions_Window(QtGui.QWidget):
         PracticeQuestion = Practice_Q_Window()
         PracticeQuestion.show()
 
-
-def getChoice():
-    choice = (input("Please choose an option. "))
-
-    if choice == "1":
-        print("  ")
-        loadQuestion()
-    if choice == "2":
-        pass
-    if choice == "4":
-        pass
-    return (choice)
-
-
-def menu():
-    choice = 0
-
-    while choice != "q":
-        print("1.Do a practice K question.")
-        print("2.See a K example. ")
-        print("3. Find units of K. ")
-        print("4. Calculate the initial rate of reaction.")
-        print("Press q to quit. ")
-        choice = getChoice()
-
 class MakeQSet(QtGui.QWidget):
     def __init__(self, QSet):
         QtGui.QWidget.__init__(self)
