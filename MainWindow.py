@@ -178,12 +178,6 @@ class SetQuestions(QtGui.QDialog):
 
         self.verticalLayout_2.addWidget(self.label_2)
 
-        self.QuestionTypeBox = QtGui.QComboBox(Form)
-
-        self.QuestionTypeBox.setObjectName(_fromUtf8("QuestionTypeBox"))
-
-        self.verticalLayout_2.addWidget(self.QuestionTypeBox)
-
         self.QuestionSetBox = QtGui.QComboBox(Form)
 
         self.QuestionSetBox.setObjectName(_fromUtf8("QuestionSetBox"))
@@ -219,6 +213,7 @@ class SetQuestions(QtGui.QDialog):
         self.FormBox.activated[str].connect(self.populatepupils)
         self.populateforms()
         self.populateQSets()
+        self.pushButton.clicked.connect(self.giveQuestions)
        #self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
 
 
@@ -242,11 +237,34 @@ class SetQuestions(QtGui.QDialog):
                 self.StudentBox.addItem(people.username)
     def populateQSets(self):
         AllItems = []
-        for Sets in QSets:
-            if not Sets.name in AllItems:
-                AllItems.append(Sets.name)
-                self.QuestionSetBox.addItem(Sets.name)
+        for n in range(len(QSets)-1):
+            if not QSets[n+1].name in AllItems:
+                self.QuestionSetBox.addItem(QSets[n+1].name)
+                AllItems.append(QSets[n+1].name)
 
+    def giveQuestions(self):
+        if self.StudentBox.currentText() == "All":
+            for people in students:
+                if people.form == self.FormBox.currentText():
+                    for i in range(len(people.questionstoanswer)-1):
+                        if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
+                            print("oops")
+                        else:
+
+                            people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                            with open('students.pickle', 'wb') as f:
+                                 pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+
+        for people in students:
+            if people.username == self.StudentBox.currentText():
+                    for i in range(len(people.questionstoanswer)-1):
+                        if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
+                            print("oops")
+                        else:
+
+                            people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                            with open('students.pickle', 'wb') as f:
+                                pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
 
 class createaccount(QtGui.QWidget):
@@ -412,12 +430,11 @@ class createaccount(QtGui.QWidget):
         student_id = len(students)+1
         newstudent = student(student_id, self.usernameBox.text(), "S", self.passwordBox.text(), self.forenameBox.text(),
                              self.surnameBox.text(), self.middlenameBox.text(), self.formBox.text(),
-                             self.gradeBox.text(), [], 0, [])
+                             self.gradeBox.text(), [], [], [])
         students.append(newstudent)
         with open('students.pickle', 'wb') as f:
             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         self.studentconfirmation()
-
     def studentconfirmation(self):
         reply = QtGui.QMessageBox()
         reply.setText("New Student Created.")
@@ -1322,7 +1339,9 @@ def loadStudents():
         students = pickle.load(s)
 
         for people in students:
-            print(people.username, people.password, people.studentid)
+
+            print(people.username, people.password, people.studentid, people.questionstoanswer)
+
 
 def Round_To_n(x, n):
     return round(x, int(n - math.ceil(math.log10(abs(x)))))
@@ -1347,7 +1366,7 @@ def loadQSet():
     QSets = []
     with open('QSets.pickle', 'rb') as q:
         QSets = pickle.load(q)
-        for n in range(len(QSets)):
+        for n in range(len(QSets)-1):
            print(QSets[n+1].name)
             #print(QSets)
 
