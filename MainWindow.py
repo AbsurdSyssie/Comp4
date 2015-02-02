@@ -241,8 +241,9 @@ class SetQuestions(QtGui.QDialog):
                 self.StudentBox.addItem(people.username)
     def populateQSets(self):
         AllItems = []
-        for Set in QSet:
+        for Set in QSets:
             if not Set.name in AllItems:
+                AllItems.append(Set.name)
                 self.QuestionSetBox.addItem(Set.name)
 
 
