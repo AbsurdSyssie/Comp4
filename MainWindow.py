@@ -103,7 +103,7 @@ class Teacher_Main_Window(QtGui.QWidget):
 
     def makeQSet(self):
         global MakeQSet
-        MakeQSet = MakeQSet(QSet)
+        MakeQSet = MakeQSet(QSets)
         MakeQSet.show()
     def showSetQuestions(self):
         Setquestions = SetQuestions()
@@ -362,15 +362,18 @@ class createaccount(QtGui.QWidget):
 
 
     def checktype(self):
+        valid = True
         if (not self.studentCheck) and (not self.teacherCheck):
             self.fieldsNotComplete()
         if self.studentCheck.isChecked() == True:
             for people in students:
                 if self.usernameBox.text() == people.username:
                     self.usernameinuse()
+                    valid = False
         if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
-            self.fieldsNotComplete()    
-        else:
+            self.fieldsNotComplete()
+            valid = False
+        if valid == True:
             self.create_new_Student()
             self.close()
         if self.teacherCheck.isChecked() == True:
@@ -378,9 +381,11 @@ class createaccount(QtGui.QWidget):
                 for people in teachers:
                     if self.usernameBox.text() == people.username:
                         self.usernameinuse()
+                        valid = False
             if self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
-                self.fieldsNotComplete()            
-            else:
+                self.fieldsNotComplete()
+                valid = False
+            if valid == True:
                 self.create_new_Teacher()
     def usernameinuse(self):
         reply = QtGui.QMessageBox()
@@ -630,13 +635,18 @@ class MakeQSet(QtGui.QWidget):
         printQList(self.newList)  
         
     def makeNewSet(self):
-        ListID = len(QSet)+1
+        try:
+            ListID = len(QSets)+1
+        except:
+            ListID = len(QSets.QList)+1
         newQSet = self.newList
         name = self.lineEdit.text()
         owner = username
         newQSet = Question_Set(ListID, name, newQSet, owner)
+        QSets.append(newQSet)
+        
         with open('QSets.pickle', 'wb') as f:
-            pickle.dump(newQSet, f, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)
         self.SetConfirmation()        
      
      
@@ -1355,16 +1365,17 @@ def loadQuestions():
 
 
 def loadQSet():
+    
+    global QSets
     QSets = []
-    global QSet
+    #try:
     with open('QSets.pickle', 'rb') as q:
 
-        QSet = pickle.load(q)
-        for Set in QSet:
-            QSets.append(Set)
-    for Set in QSet.QList:
-        print(QSet.name)
-    
+            QSets = pickle.load(q)
+            print(QSets)
+            print(QSets[1].name)
+            print(QSets[1].QList[1].values)
+
     
 loadQuestions()
 loadQSet()
