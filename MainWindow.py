@@ -56,10 +56,10 @@ class Teacher_Main_Window(QtGui.QWidget):
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         spacerItem5 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem5)
-        
+
         self.pushButton_6 = QtGui.QPushButton(Form)
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
-        self.verticalLayout.addWidget(self.pushButton_6)        
+        self.verticalLayout.addWidget(self.pushButton_6)
         self.verticalLayout.addItem(spacerItem1)
         self.pushButton = QtGui.QPushButton(Form)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
@@ -81,10 +81,10 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.verticalLayout.addWidget(self.pushButton_5)
 
         self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)            
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.pushButton_3.setText(_translate("Form", "Set Questions", None))
         self.pushButton_2.setText(_translate("Form", "Add Questions", None))
         self.pushButton.setText(_translate("Form", "See Student Progress", None))
@@ -100,11 +100,11 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton_6.clicked.connect(self.makeQSet)
 
 
-
     def makeQSet(self):
         global MakeQSet
         MakeQSet = MakeQSet(QSets)
         MakeQSet.show()
+
     def showSetQuestions(self):
         Setquestions = SetQuestions()
         Setquestions.exec_()
@@ -118,6 +118,7 @@ class Teacher_Main_Window(QtGui.QWidget):
         global newAccountForm
         newAccountForm = createaccount()
         newAccountForm.show()
+
     def showNewq(self):
         global newQForm
         newQForm = AddQuestion()
@@ -125,13 +126,11 @@ class Teacher_Main_Window(QtGui.QWidget):
 
 
 class SetQuestions(QtGui.QDialog):
-
     def __init__(self):
 
         QtGui.QDialog.__init__(self)
 
         self.setupUi(self)
-
 
 
     def setupUi(self, Form):
@@ -197,7 +196,6 @@ class SetQuestions(QtGui.QDialog):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
-
     def retranslateUi(self, Form):
 
         Form.setWindowTitle(_translate("Form", "Form", None))
@@ -214,7 +212,7 @@ class SetQuestions(QtGui.QDialog):
         self.populateforms()
         self.populateQSets()
         self.pushButton.clicked.connect(self.giveQuestions)
-       #self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
+        # self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
 
 
     def populateforms(self):
@@ -233,31 +231,21 @@ class SetQuestions(QtGui.QDialog):
         for people in students:
 
             if people.form == text:
-
                 self.StudentBox.addItem(people.username)
+
     def populateQSets(self):
         AllItems = []
-        for n in range(len(QSets)-1):
-            if not QSets[n+1].name in AllItems:
-                self.QuestionSetBox.addItem(QSets[n+1].name)
-                AllItems.append(QSets[n+1].name)
+        for n in range(len(QSets) - 1):
+            if not QSets[n + 1].name in AllItems:
+                self.QuestionSetBox.addItem(QSets[n + 1].name)
+                AllItems.append(QSets[n + 1].name)
 
     def giveQuestions(self):
         if self.StudentBox.currentText() == "All":
+            print("hi all")
             for people in students:
                 if people.form == self.FormBox.currentText():
-                    for i in range(len(people.questionstoanswer)-1):
-                        if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
-                            print("oops")
-                        else:
-
-                            people.questionstoanswer.append(self.QuestionSetBox.currentText())
-                            with open('students.pickle', 'wb') as f:
-                                 pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
-
-        for people in students:
-            if people.username == self.StudentBox.currentText():
-                    for i in range(len(people.questionstoanswer)-1):
+                    for i in range(len(people.questionstoanswer) - 1):
                         if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
                             print("oops")
                         else:
@@ -265,8 +253,27 @@ class SetQuestions(QtGui.QDialog):
                             people.questionstoanswer.append(self.QuestionSetBox.currentText())
                             with open('students.pickle', 'wb') as f:
                                 pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+        else:
 
-
+            for people in students:
+                if people.username == self.StudentBox.currentText():
+                    print("hi")
+                    try:
+                        for i in range(len(people.questionstoanswer) + 1):
+                            print("i")
+                            if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
+                                print("oops")
+                            else:
+                                print("Adding")
+                                people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                                with open('students.pickle', 'wb') as f:
+                                    pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+                    except:
+                            if len(people.questionstoanswer) == 0:
+                                print("Adding 2")
+                                people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                                with open('students.pickle', 'wb') as f:
+                                    pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 class createaccount(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
@@ -365,7 +372,7 @@ class createaccount(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label_8.setText(_translate("Form", "Create Account", None))
         self.teacherCheck.setText(_translate("Form", "Teacher", None))
         self.studentCheck.setText(_translate("Form", "Student", None))
@@ -407,6 +414,7 @@ class createaccount(QtGui.QWidget):
                 valid = False
             if valid == True:
                 self.create_new_Teacher()
+
     def usernameinuse(self):
         reply = QtGui.QMessageBox()
         reply.setText("That username is already in use.")
@@ -414,6 +422,7 @@ class createaccount(QtGui.QWidget):
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
         ret = reply.exec_()
+
     def fieldsNotComplete(self):
         reply = QtGui.QMessageBox()
         reply.setText("Some fields are not complete.")
@@ -423,11 +432,9 @@ class createaccount(QtGui.QWidget):
         ret = reply.exec_()
 
 
-
-
     def create_new_Student(self):
 
-        student_id = len(students)+1
+        student_id = len(students) + 1
         newstudent = student(student_id, self.usernameBox.text(), "S", self.passwordBox.text(), self.forenameBox.text(),
                              self.surnameBox.text(), self.middlenameBox.text(), self.formBox.text(),
                              self.gradeBox.text(), [], [], [])
@@ -435,6 +442,7 @@ class createaccount(QtGui.QWidget):
         with open('students.pickle', 'wb') as f:
             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         self.studentconfirmation()
+
     def studentconfirmation(self):
         reply = QtGui.QMessageBox()
         reply.setText("New Student Created.")
@@ -487,7 +495,7 @@ class Student_Main_Window(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.pushButton.setText(_translate("Form", "Practice Q", None))
         self.pushButton_2.setText(_translate("Form", "See Set Work", None))
         self.pushButton_3.setText(_translate("Form", "Solve Questions", None))
@@ -549,7 +557,7 @@ class Practice_Questions_Window(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.pushButton.setText(_translate("Form", "Standard Deviation", None))
         self.pushButton_2.setText(_translate("Form", "Ideal Gas Equation", None))
         self.pushButton_3.setText(_translate("Form", "K Questions", None))
@@ -563,12 +571,13 @@ class Practice_Questions_Window(QtGui.QWidget):
     def launch_hardy_weinberg(self):
         global HWForm
         HWForm = hardy_weinberg()
-        HWForm.show()        
+        HWForm.show()
 
     def launchPracticeQWindow(self):
         global PracticeQuestion
         PracticeQuestion = Practice_Q_Window()
         PracticeQuestion.show()
+
 
 class MakeQSet(QtGui.QWidget):
     def __init__(self, QSet):
@@ -576,7 +585,7 @@ class MakeQSet(QtGui.QWidget):
         self.setupUi(self)
         self.shownList = self.populateQuestions(questions)
         self.newList = []
-        
+
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(627, 447)
@@ -615,73 +624,73 @@ class MakeQSet(QtGui.QWidget):
         self.pushButton_3.setText(_translate("Form", "Save", None))
         self.pushButton.setText(_translate("Form", "<", None))
         self.pushButton_2.setText(_translate("Form", ">", None))
-        
+
         self.pushButton_2.clicked.connect(self.addQuestionToList)
         self.pushButton.clicked.connect(self.removeQuestion)
         self.pushButton_3.clicked.connect(self.makeNewSet)
-    
+
     def removeQuestion(self):
         for item in self.listWidget.selectedIndexes():
             thisIndex = item.row()
             self.newList.pop(thisIndex)
             self.listWidget.takeItem(thisIndex)
         print("NewList now contains:")
-        printQList(self.newList)  
-        
+        printQList(self.newList)
+
     def makeNewSet(self):
         try:
-            ListID = len(QSets)+1
+            ListID = len(QSets) + 1
         except:
-            ListID = len(QSets.QList)+1
+            ListID = len(QSets.QList) + 1
         newQSet = self.newList
         name = self.lineEdit.text()
         owner = username
         newQSet = Question_Set(ListID, name, newQSet, owner)
         QSets.append(newQSet)
-        
+
         with open('QSets.pickle', 'wb') as f:
             pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)
-        self.SetConfirmation()        
-     
-     
+        self.SetConfirmation()
+
+
     def SetConfirmation(self):
-        
+
         reply = QtGui.QMessageBox()
         reply.setText("Question Set Created Successfully.")
         reply.setIcon(0)
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-        ret = reply.exec_()  
+        ret = reply.exec_()
         self.close()
-     
-      
+
+
     def addQuestionToList(self):
         for item in self.listWidget1.selectedIndexes():
             thisIndex = item.row()
-            #add this question to the right hand list
+            # add this question to the right hand list
             if not self.shownList[thisIndex] in self.newList:
                 self.newList.append(self.shownList[thisIndex])
                 self.listWidget.addItem(self.listWidget1.item(thisIndex).text())
         print("NewList now contains:")
         printQList(self.newList)
-        
+
     def populateQuestions(self, questions):
         shownList = []
         for question in questions:
             shownList.append(question)
             self.listWidget1.addItem(str(question.ID) + "  :  " + question.question_type)
         return shownList
-    
+
+
 def printQList(qlist):
     for q in qlist:
-        print(q.ID," ", q.question_type)
-
+        print(q.ID, " ", q.question_type)
 
 
 class AddQuestion(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
-        self.setupUi(self)    
+        self.setupUi(self)
 
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
@@ -749,27 +758,25 @@ class AddQuestion(QtGui.QWidget):
         self.QuestiontypeBox.setItemText(2, _translate("Form", "Hardy-Weinberg", None))
         self.QuestiontypeBox.setItemText(3, _translate("Form", "Ideal Gas Equation", None))
         self.QuestiontypeBox.setItemText(4, _translate("Form", "Standard-Deviation", None))
-        #self.label.setText(_translate("Form", "First Value:", None))
-        #self.label_2.setText(_translate("Form", "Second Value:", None))
+        # self.label.setText(_translate("Form", "First Value:", None))
+        # self.label_2.setText(_translate("Form", "Second Value:", None))
         #self.label_3.setText(_translate("Form", "Third Value:", None))
         #self.label_4.setText(_translate("Form", "Fourth Value:", None))
         #self.label_5.setText(_translate("Form", "Fifth Value", None))
         self.Submit.setText(_translate("Form", "Submit", None))
         self.Cancel.setText(_translate("Form", "Cancel", None))
-        
+
         self.QuestiontypeBox.activated[str].connect(self.typechosen)
         self.Submit.clicked.connect(self.validate)
         self.clickedit = False
         self.Cancel.clicked.connect(self.close)
-        
+
     def typechosen(self, text):
         self.clickedit = True
         self.questiontype = text
         if text == " ":
             self.typeNotSelected()
 
-    
-                           
         if text == "Rate Constant":
             self.label.setText(_translate("Form", "Conc of A:", None))
             self.label_2.setText(_translate("Form", "Conc of B:", None))
@@ -777,9 +784,9 @@ class AddQuestion(QtGui.QWidget):
             self.thirdValue.setVisible(True)
 
             self.FourthValue.setVisible(True)
-            self.FifthValue.setVisible(True)            
+            self.FifthValue.setVisible(True)
             self.label_4.setText(_translate("Form", "Order of B:", None))
-            self.label_5.setText(_translate("Form", "Rate of reaction", None))            
+            self.label_5.setText(_translate("Form", "Rate of reaction", None))
         if text == "Hardy-Weinberg":
             self.label.setText(_translate("Form", "Total Population:", None))
             self.label_2.setText(_translate("Form", "No of Homozygotic Recessive:", None))
@@ -797,76 +804,76 @@ class AddQuestion(QtGui.QWidget):
             self.label_4.setText(_translate("Form", "Temperature:", None))
             self.FourthValue.setVisible(True)
             self.label_5.setText(_translate("Form", " ", None))
-            self.FifthValue.setVisible(False)            
+            self.FifthValue.setVisible(False)
         print(self.questiontype)
-    
+
     def validate(self, text):
         if self.clickedit == False or self.questiontype == "":
             self.typeNotSelected()
 
-        else:       
-                valid = True
-                text = self.questiontype
-                
-                    
-                if text == "Rate Constant":
-                  try:
-                       FirstVal = float(self.firstValue.text())
-                       SecondVal = float(self.secondValue.text())
-                       ThirdVal = int(self.thirdValue.text())
-                       FourhtVal = int(self.FourthValue.text())
-                       FifthVal = float(self.FifthValue.text())
-                       
-                  except:
+        else:
+            valid = True
+            text = self.questiontype
+
+            if text == "Rate Constant":
+                try:
+                    FirstVal = float(self.firstValue.text())
+                    SecondVal = float(self.secondValue.text())
+                    ThirdVal = int(self.thirdValue.text())
+                    FourhtVal = int(self.FourthValue.text())
+                    FifthVal = float(self.FifthValue.text())
+
+                except:
                     reply = QtGui.QMessageBox()
                     reply.setText("Orders must be integers.")
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-               
-                    ret = reply.exec_()                 
-                if text == "Hardy-Weinberg":
-                    try:
-                       
-                        FirstVal = float(self.firstValue.text())
-                        SecondVal = float(self.secondValue.text())
-                        if SecondVal > FirstVal:
-                            reply = QtGui.QMessageBox()
-                            reply.setText("First Value must be larger than Second Value.")
-                            reply.setIcon(3)
-                            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-                    
-                            ret = reply.exec_()   
-                            valid = False
-                    except:
-                        self.fieldsIncorrect()
+
+                    ret = reply.exec_()
+            if text == "Hardy-Weinberg":
+                try:
+
+                    FirstVal = float(self.firstValue.text())
+                    SecondVal = float(self.secondValue.text())
+                    if SecondVal > FirstVal:
+                        reply = QtGui.QMessageBox()
+                        reply.setText("First Value must be larger than Second Value.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+                        ret = reply.exec_()
                         valid = False
-                if valid == True:
-                    self.create()
-    
-    
-    
+                except:
+                    self.fieldsIncorrect()
+                    valid = False
+            if valid == True:
+                self.create()
+
+
     def create(self):
-        QID = len(questions)+1
-        values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),convertTofloat(self.thirdValue.text()),convertTofloat(self.FourthValue.text()),convertTofloat(self.FifthValue.text()) ]
+        QID = len(questions) + 1
+        values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),
+                  convertTofloat(self.thirdValue.text()), convertTofloat(self.FourthValue.text()),
+                  convertTofloat(self.FifthValue.text())]
         print("Making A Question with", QID, self.questiontype, values)
         newQuestion = Question(QID, self.questiontype, values)
         questions.append(newQuestion)
         with open('questions.pickle', 'wb') as f:
             pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
-        self.questionconfirmation()   
+        self.questionconfirmation()
         for question in questions:
             try:
                 print(question.ID, question.values)
             except:
                 print("Nope")
-                    
+
     def questionconfirmation(self):
         reply = QtGui.QMessageBox()
         reply.setText("Question Added Successfully.")
         reply.setIcon(0)
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-        ret = reply.exec_()  
+        ret = reply.exec_()
         self.close()
 
     def fieldsIncorrect(self):
@@ -875,19 +882,18 @@ class AddQuestion(QtGui.QWidget):
         reply.setIcon(3)
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-        ret = reply.exec_()        
+        ret = reply.exec_()
+
     def typeNotSelected(self):
         reply = QtGui.QMessageBox()
         reply.setText("Question Type Field is not complete.")
         reply.setIcon(3)
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-        ret = reply.exec_()        
-        
-        
-        
-class Question(object):
+        ret = reply.exec_()
 
+
+class Question(object):
     def __init__(self, ID, questiontype, values):
         self.question_type = questiontype
         self.ID = ID
@@ -897,29 +903,28 @@ class Question(object):
             self.kQuestion()
         if self.question_type == "Hardy-Weinberg":
             self.hardy_weinberg()
-    
+
     def kQuestion(self):
         self.conc_of_A = self.values[0]
         self.conc_of_B = self.values[1]
         self.rateOfReaction = self.values[2]
-        self.order_of_A= self.values[3]
-        self.order_of_B= self.values[4]
+        self.order_of_A = self.values[3]
+        self.order_of_B = self.values[4]
         y = findKreaction(self.conc_of_A, self.conc_of_B, self.order_of_A, self.order_of_B, self.rateOfReaction)
 
 
     def hardy_weinberg(self):
         self.totalpop = self.values[0]
-        self.q_sqrdaspop = self.values[1]    
+        self.q_sqrdaspop = self.values[1]
 
 
 class Question_Set(object):
-    
     def __init__(self, ID, name, newQList, owner):
         self.QID = ID
         self.name = name
         self.QList = newQList
         self.owner = owner
-        
+
 
 class Practice_Q_Window(QtGui.QWidget):
     def __init__(self):
@@ -962,7 +967,7 @@ class Practice_Q_Window(QtGui.QWidget):
     def retranslateUi(self, Form):
         self.thisQuestion = generateK()
 
-        Form.setWindowTitle(_translate("Form", "Logged in as "+ username, None))
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
         self.label_2.setText(_translate("Form", "Enter answer below in", None))
         self.pushButton.setText(_translate("Form", "Submit", None))
@@ -1039,6 +1044,7 @@ class student():
         else:
             isOntarget = False
 
+
 class hardy_weinberg(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
@@ -1068,9 +1074,12 @@ class hardy_weinberg(QtGui.QWidget):
     def retranslateUi(self, hardy_weinberg):
         self.generate_H_W()
         hardy_weinberg.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
-        self.questions_text.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ", None))
+        self.questions_text.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
+            self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+                                               None))
         self.SubmitAnswer.setText(_translate("hardy_weinberg", "Submit", None))
         self.SubmitAnswer.clicked.connect(self.checkAnswerpq)
+
     def generate_H_W(self):
 
         pops = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
@@ -1080,19 +1089,19 @@ class hardy_weinberg(QtGui.QWidget):
         else:
             randomnumber = random.randrange(1, 99, 2)
 
-        recessiveInpop = (totalpop*(randomnumber/100)) #unrounded
-        q_sqrdaspop = Round_To_n(recessiveInpop, 3) #now rounded
-        qsqrd = Round_To_n(q_sqrdaspop/totalpop, 3)
+        recessiveInpop = (totalpop * (randomnumber / 100))  # unrounded
+        q_sqrdaspop = Round_To_n(recessiveInpop, 3)  # now rounded
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3)
         print("recessives", q_sqrdaspop)
         print("qsqrd", qsqrd)
-        q =  Round_To_n(math.sqrt(qsqrd),3)
+        q = Round_To_n(math.sqrt(qsqrd), 3)
         p = Round_To_n(1 - q, 3)
-        psqrd = Round_To_n(p*p, 3)
+        psqrd = Round_To_n(p * p, 3)
         print("psqrd", psqrd)
-        pq = Round_To_n(p*q, 3)
+        pq = Round_To_n(p * q, 3)
         print("p", p, "q", q)
 
-        print("2pq", pq*2)
+        print("2pq", pq * 2)
         self.totalpop = totalpop
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
@@ -1103,9 +1112,10 @@ class hardy_weinberg(QtGui.QWidget):
 
 
     def checkAnswerpq(self):
-        print(2*self.pq)
-        if self.answerBox.text() == str(2*self.pq):
+        print(2 * self.pq)
+        if self.answerBox.text() == str(2 * self.pq):
             self.close()
+
 
 class findKreaction():
     def __init__(self, conc_of_A, conc_of_B, order_of_A, order_of_B, rateOfReaction):
@@ -1123,10 +1133,10 @@ class findKreaction():
         print("To calculate the rate constant, k, we must first multiply the concentrations of our reactants together."
               "However the concentrations must be raised to the power of their orders."
               "The concentrations of A and B are", self.conc_of_A, "and", self.conc_of_B, "respectively."
-              "The order of A is",
+                                                                                          "The order of A is",
               self.order_of_A, "and the order of B is ", self.order_of_B, " .")
         print("This means our intermediary value is ", self.intermediary, "."
-              "We then divide our rate of reaction by this number. The reate of reaction is",
+                                                                          "We then divide our rate of reaction by this number. The reate of reaction is",
               self.rateOfReaction, ".")
         print("This equals", self.k)
         print("Next we must find the units of k \n")
@@ -1151,16 +1161,16 @@ class findKreaction():
         correct = False
         window.label.setText(_translate("Form", "The conc of reactant A is " + str(
             self.conc_of_A) + " moldm^-3. The conc of B is " + str(self.conc_of_B) + " moldm^-3\n"
-                                        "The order of A is " + str(
-                                            self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
-                                                self.rateOfReaction), None))
+                                                                                     "The order of A is " + str(
+            self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
+            self.rateOfReaction), None))
 
 
 
 
 
-        #while correct == False:
-        #k = self.k
+        # while correct == False:
+        # k = self.k
         #k = ("%.3G" % (k))
 
 
@@ -1231,7 +1241,6 @@ def loadkQuestion():
     x = random.randrange(9)
     y = Questions[x]
     return y
-
 
 
 class LogInPage(QtGui.QWidget):
@@ -1339,12 +1348,16 @@ def loadStudents():
         students = pickle.load(s)
 
         for people in students:
-
+            # empty = []
+            # people.questionstoanswer = empty
             print(people.username, people.password, people.studentid, people.questionstoanswer)
+            # with open('students.pickle', 'wb') as f:
+            # pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
 
 def Round_To_n(x, n):
     return round(x, int(n - math.ceil(math.log10(abs(x)))))
+
 
 def convertTofloat(thing):
     try:
@@ -1353,34 +1366,31 @@ def convertTofloat(thing):
     except:
         return 0.0
 
+
 def loadQuestions():
     global questions
     with open('questions.pickle', 'rb') as q:
-        questions=[]
+        questions = []
         questions = pickle.load(q)
 
 
 def loadQSet():
-    
     global QSets
     QSets = []
     with open('QSets.pickle', 'rb') as q:
         QSets = pickle.load(q)
-        for n in range(len(QSets)-1):
-           print(QSets[n+1].name)
-            #print(QSets)
+        for n in range(len(QSets) - 1):
+            print(QSets[n + 1].name)
+            # print(QSets)
 
-            #print(QSets[1].QList[1].values)
+            # print(QSets[1].QList[1].values)
 
-    
+
 loadQuestions()
 loadQSet()
 loadStudents()
 loadTeachers()
 username = "Test"
-
-
-
 
 app = QtGui.QApplication(sys.argv)
 thisForm = Teacher_Main_Window()
