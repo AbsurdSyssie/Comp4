@@ -217,7 +217,8 @@ class SetQuestions(QtGui.QDialog):
         self.pushButton.setText(_translate("Form", "Submit", None))
         self.populateQSets
         self.FormBox.activated[str].connect(self.populatepupils)
-        self.populateforms() 
+        self.populateforms()
+        self.populateQSets()
        #self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
 
 
@@ -241,10 +242,10 @@ class SetQuestions(QtGui.QDialog):
                 self.StudentBox.addItem(people.username)
     def populateQSets(self):
         AllItems = []
-        for Set in QSets:
-            if not Set.name in AllItems:
-                AllItems.append(Set.name)
-                self.QuestionSetBox.addItem(Set.name)
+        for Sets in QSets:
+            if not Sets.name in AllItems:
+                AllItems.append(Sets.name)
+                self.QuestionSetBox.addItem(Sets.name)
 
 
 
@@ -1344,13 +1345,13 @@ def loadQSet():
     
     global QSets
     QSets = []
-    #try:
     with open('QSets.pickle', 'rb') as q:
+        QSets = pickle.load(q)
+        for n in range(len(QSets)):
+           print(QSets[n+1].name)
+            #print(QSets)
 
-            QSets = pickle.load(q)
-            print(QSets)
-            print(QSets[1].name)
-            print(QSets[1].QList[1].values)
+            #print(QSets[1].QList[1].values)
 
     
 loadQuestions()
