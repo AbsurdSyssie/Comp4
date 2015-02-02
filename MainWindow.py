@@ -245,21 +245,30 @@ class SetQuestions(QtGui.QDialog):
             print("hi all")
             for people in students:
                 if people.form == self.FormBox.currentText():
-                    for i in range(len(people.questionstoanswer) - 1):
-                        if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
-                            print("oops")
-                        else:
 
-                            people.questionstoanswer.append(self.QuestionSetBox.currentText())
-                            with open('students.pickle', 'wb') as f:
-                                pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+                    try:
+                        for i in range(len(people.questionstoanswer)):
+                            print("i")
+                            if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
+                                print("oops")
+                            else:
+                                print("Adding")
+                                people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                                with open('students.pickle', 'wb') as f:
+                                    pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+                    except:
+                            if len(people.questionstoanswer) == 0:
+                                print("Adding 2")
+                                people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                                with open('students.pickle', 'wb') as f:
+                                    pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         else:
 
             for people in students:
                 if people.username == self.StudentBox.currentText():
                     print("hi")
                     try:
-                        for i in range(len(people.questionstoanswer) + 1):
+                        for i in range(len(people.questionstoanswer)):
                             print("i")
                             if self.QuestionSetBox.currentText() == people.questionstoanswer[i]:
                                 print("oops")
