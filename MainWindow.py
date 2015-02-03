@@ -509,7 +509,7 @@ class Student_Main_Window(QtGui.QWidget):
         self.pushButton_2.setText(_translate("Form", "See Set Work", None))
         self.pushButton_3.setText(_translate("Form", "Solve Questions", None))
         self.pushButton_4.setText(_translate("Form", "Log Out", None))
-        self.pushButton.clicked.connect(self.launchWindow2)
+        self.pushButton.clicked.connect(self.launchPracticeQwindow)
         self.pushButton_4.clicked.connect(self.close)
         self.pushButton_4.clicked.connect(self.showLoginPage)
 
@@ -518,7 +518,7 @@ class Student_Main_Window(QtGui.QWidget):
         logInPage = LogInPage()
         logInPage.show()
 
-    def launchWindow2(self):
+    def launchPracticeQwindow(self):
         global PracticeForm
         PracticeForm = Practice_Questions_Window()
         PracticeForm.show()
