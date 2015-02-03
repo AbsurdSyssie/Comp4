@@ -584,7 +584,7 @@ class Practice_Questions_Window(QtGui.QWidget):
 
     def launchPracticeQWindow(self):
         global PracticeQuestion
-        PracticeQuestion = Practice_Q_Window()
+        PracticeQuestion = Practice_K_Window()
         PracticeQuestion.show()
 
 
@@ -935,7 +935,7 @@ class Question_Set(object):
         self.owner = owner
 
 
-class Practice_Q_Window(QtGui.QWidget):
+class Practice_K_Window(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
         self.setupUi(self)
