@@ -1393,7 +1393,7 @@ def loadQSet():
             # print(QSets)
 
             # print(QSets[1].QList[1].values)
-#it worked
+
 
 loadQuestions()
 loadQSet()
