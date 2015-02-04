@@ -1157,7 +1157,7 @@ class hardy_weinberg(QtGui.QWidget):
 
         pops = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
         totalpop = random.choice(pops)
-        if totalpop == 200 or 400 or 600 or 800 or 1000:
+        if totalpop/ 2 == int:
             randomnumber = random.randrange(0, 99, 2)
         else:
             randomnumber = random.randrange(1, 99, 2)
