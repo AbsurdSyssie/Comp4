@@ -865,20 +865,29 @@ class AddQuestion(QtGui.QWidget):
             text = self.questiontype
 
             if text == "Rate Constant":
-                try:
-                    FirstVal = float(self.firstValue.text())
-                    SecondVal = float(self.secondValue.text())
-                    ThirdVal = int(self.thirdValue.text())
-                    FourhtVal = int(self.FourthValue.text())
-                    FifthVal = float(self.FifthValue.text())
+                if ThirdVal + FourthVal < 20:
 
-                except:
-                    reply = QtGui.QMessageBox()
-                    reply.setText("Orders must be integers.")
-                    reply.setIcon(3)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+                    try:
+                        FirstVal = float(self.firstValue.text())
+                        SecondVal = float(self.secondValue.text())
+                        ThirdVal = int(self.thirdValue.text())
+                        FourthVal = int(self.FourthValue.text())
+                        FifthVal = float(self.FifthValue.text())
 
-                    ret = reply.exec_()
+                    except:
+                        reply = QtGui.QMessageBox()
+                        reply.setText("Some values are incorrect.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+                        ret = reply.exec_()
+                else:
+                        reply = QtGui.QMessageBox()
+                        reply.setText("Orders must be integers below 10.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+                        ret = reply.exec_()
             if text == "Hardy-Weinberg":
                 try:
 
