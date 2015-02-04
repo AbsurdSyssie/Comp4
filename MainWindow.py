@@ -101,19 +101,17 @@ class Teacher_Main_Window(QtGui.QWidget):
 
 
     def makeQSet(self):
-        global MakeQSet
-        MakeQSet = MakeQSet(QSets)
-        MakeQSet.show()
+
+        myMakeQSet = MakeQSet(QSets)
+        myMakeQSet.exec_()
 
     def showSetQuestions(self):
         Setquestions = SetQuestions()
         Setquestions.exec_()
 
     def showLoginPage(self):
-        global LogInPage
-        LogInPage = LogInPage()
-        LogInPage.show()
-
+        myLogInPage = LogInPage()
+        myLogInPage.exec_()
     def showCreateNewAccountWindow(self):
         global newAccountForm
         newAccountForm = createaccount()
@@ -248,18 +246,17 @@ class SetQuestions(QtGui.QDialog):
                     print("hi again")
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
                         print("Adding")
-                        people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                        people.questionstoanswer.append(QSets[self.QuestionSetBox.currentIndex()+1])
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
-             
-        
+        else:
 
             for people in students:
                 if people.username == self.StudentBox.currentText():
                     print("hi")
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
                         print("Adding")
-                        people.questionstoanswer.append(self.QuestionSetBox.currentText())
+                        people.questionstoanswer.append(QSets[self.QuestionSetBox.currentIndex()+1])
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
@@ -493,18 +490,80 @@ class Student_Main_Window(QtGui.QWidget):
         self.pushButton.clicked.connect(self.launchPracticeQwindow)
         self.pushButton_4.clicked.connect(self.close)
         self.pushButton_4.clicked.connect(self.showLoginPage)
-
+        self.pushButton_2.clicked.connect(self.showsetwork)
+    def showsetwork(self):
+        global workPage
+        workPage = WorkList()
+        workPage.show()
     def showLoginPage(self):
-        global logInPage
-        logInPage = LogInPage()
-        logInPage.show()
+        myLogInPage = LogInPage()
+        myLogInPage.exec_()
 
     def launchPracticeQwindow(self):
         global PracticeForm
         PracticeForm = Practice_Questions_Window()
         PracticeForm.show()
+        
+        
+class WorkList(QtGui.QWidget):
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
+        self.setupUi(self)
+        
+    def setupUi(self, Form):
+        Form.setObjectName(_fromUtf8("Form"))
+        Form.resize(523, 516)
+        self.verticalLayout = QtGui.QVBoxLayout(Form)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.QuestionLabel = QtGui.QLabel(Form)
+        self.QuestionLabel.setObjectName(_fromUtf8("QuestionLabel"))
+        self.verticalLayout.addWidget(self.QuestionLabel)
+        self.listWidget = QtGui.QListWidget(Form)
+        self.listWidget.setObjectName(_fromUtf8("listWidget"))
+        self.verticalLayout.addWidget(self.listWidget)
+        self.AttemptButton = QtGui.QPushButton(Form)
+        self.AttemptButton.setObjectName(_fromUtf8("AttemptButton"))
+        self.verticalLayout.addWidget(self.AttemptButton)
+        self.CancelButton = QtGui.QPushButton(Form)
+        self.CancelButton.setObjectName(_fromUtf8("CancelButton"))
+        self.verticalLayout.addWidget(self.CancelButton)
 
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(_translate("Form", "Form", None))
+        self.QuestionLabel.setText(_translate("Form", "Your Set Work:", None))
+        self.AttemptButton.setText(_translate("Form", "Attempt", None))
+        self.CancelButton.setText(_translate("Form", "Cancel", None))
+        self.CancelButton.clicked.connect(self.close)
+        self.populateQuestions()
+        self.AttemptButton.clicked.connect(self.AttemptQ)
+        
+    def populateQuestions(self):
+        n = 0
+        global username
+        self.shownList = []
+        for people in students:
+            if people.username == username:
+                for questionSet in people.questionstoanswer:
+                    if questionSet != None:
+                        for question in questionSet.QList:
+                            self.shownList.append(question)
+                            self.listWidget.addItem(question.question_type + " : " + str(question.ID))
+                        n = n + 1
+
+            
+    def AttemptQ(self):
+        for item in self.listWidget.selectedIndexes():
+            thisIndex = item.row()        
+            attemptQ = Practice_K_Window(self.shownList[thisIndex])
+            attemptQ.exec_()
+                
+                
+                
+                
+                
 class Practice_Questions_Window(QtGui.QWidget):
     def __init__(self):
         QtGui.QWidget.__init__(self)
@@ -569,9 +628,9 @@ class Practice_Questions_Window(QtGui.QWidget):
         PracticeQuestion.show()
 
 
-class MakeQSet(QtGui.QWidget):
+class MakeQSet(QtGui.QDialog):
     def __init__(self, QSet):
-        QtGui.QWidget.__init__(self)
+        QtGui.QDialog.__init__(self)
         self.setupUi(self)
         self.shownList = self.populateQuestions(questions)
         self.newList = []
@@ -900,13 +959,25 @@ class Question(object):
         self.rateOfReaction = self.values[2]
         self.order_of_A = self.values[3]
         self.order_of_B = self.values[4]
-        y = findKreaction(self.conc_of_A, self.conc_of_B, self.order_of_A, self.order_of_B, self.rateOfReaction)
+        
 
 
     def hardy_weinberg(self):
         self.totalpop = self.values[0]
         self.q_sqrdaspop = self.values[1]
-
+    
+    def findK(self, window):
+    
+            QtGui.QApplication.processEvents()
+            n = 0
+            self.intermediary = pow(self.conc_of_A, self.order_of_A) * (pow(self.conc_of_B, self.order_of_B))
+            self.k = self.rateOfReaction / self.intermediary
+            correct = False
+            window.label.setText(_translate("Form", "The conc of reactant A is " + str(
+                self.conc_of_A) + " moldm^-3. The conc of B is " + str(self.conc_of_B) + " moldm^-3\n"
+                                                                                         "The order of A is " + str(
+                self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
+                self.rateOfReaction), None))
 
 class Question_Set(object):
     def __init__(self, ID, name, newQList, owner):
@@ -916,12 +987,12 @@ class Question_Set(object):
         self.owner = owner
 
 
-class Practice_K_Window(QtGui.QWidget):
-    def __init__(self):
-        QtGui.QWidget.__init__(self)
-        self.setupUi(self)
+class Practice_K_Window(QtGui.QDialog):
+    def __init__(self, values = None):
+        QtGui.QDialog.__init__(self)
+        self.setupUi(self, values)
 
-    def setupUi(self, Form):
+    def setupUi(self, Form, values):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(728, 437)
         self.verticalLayout_2 = QtGui.QVBoxLayout(Form)
@@ -951,11 +1022,14 @@ class Practice_K_Window(QtGui.QWidget):
         spacerItem3 = QtGui.QSpacerItem(20, 72, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem3)
 
-        self.retranslateUi(Form)
+        self.retranslateUi(Form, values)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def retranslateUi(self, Form):
-        self.thisQuestion = generateK()
+    def retranslateUi(self, Form, values):
+        if values == None:
+            self.thisQuestion = generateK()
+        else:
+            self.thisQuestion = values
 
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
@@ -1233,9 +1307,9 @@ def loadkQuestion():
     return y
 
 
-class LogInPage(QtGui.QWidget):
+class LogInPage(QtGui.QDialog):
     def __init__(self):
-        QtGui.QWidget.__init__(self)
+        QtGui.QDialog.__init__(self)
         self.setupUi(self)
 
 
