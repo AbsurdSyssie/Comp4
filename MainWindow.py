@@ -183,11 +183,11 @@ class SetQuestions(QtGui.QDialog):
 
         self.verticalLayout.addLayout(self.verticalLayout_2)
 
-        self.pushButton = QtGui.QPushButton(Form)
+        self.SubmitButton = QtGui.QPushButton(Form)
 
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.SubmitButton.setObjectName(_fromUtf8("SubmitButton"))
 
-        self.verticalLayout.addWidget(self.pushButton)
+        self.verticalLayout.addWidget(self.SubmitButton)
 
         self.retranslateUi(Form)
 
@@ -204,15 +204,29 @@ class SetQuestions(QtGui.QDialog):
 
         self.label_2.setText(_translate("Form", "Select Question Set:", None))
 
-        self.pushButton.setText(_translate("Form", "Submit", None))
+        self.SubmitButton.setText(_translate("Form", "Submit", None))
         self.populateQSets
         self.FormBox.activated[str].connect(self.populatepupils)
         self.populateforms()
         self.populateQSets()
-        self.pushButton.clicked.connect(self.giveQuestions)
-        # self.QuestionTypeBox.activated[str].connect(self.populateQuestions)
-
-
+        self.SubmitButton.clicked.connect(self.giveQuestions)
+        self.SubmitButton.clicked.connect(self.checks)
+        
+    def checks(self):
+        if self.StudentBox.currentText() == "":
+                reply = QtGui.QMessageBox()
+                reply.setText("Please Select a Student.")
+                reply.setIcon(3)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        
+                ret = reply.exec_()
+        if self.QuestionSetBox.currentText() == "":    
+            reply = QtGui.QMessageBox()
+            reply.setText("Please Select a Question Set.")
+            reply.setIcon(3)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+    
+            ret = reply.exec_()
     def populateforms(self):
 
         AllItems = []
@@ -223,14 +237,16 @@ class SetQuestions(QtGui.QDialog):
                 AllItems.append(people.form)
 
     def populatepupils(self, text):
-
-        self.StudentBox.clear()
-        self.StudentBox.addItem("All")
-        for people in students:
-
-            if people.form == text:
-                self.StudentBox.addItem(people.username)
-
+        if text != "":
+            self.StudentBox.clear()
+            self.StudentBox.addItem("All")
+            for people in students:
+                if people.form == text:
+                    self.StudentBox.addItem(people.username)
+            
+        else:
+                    self.StudentBox.clear()
+    
     def populateQSets(self):
         AllItems = []
         for n in range(len(QSets) - 1):
@@ -865,30 +881,20 @@ class AddQuestion(QtGui.QWidget):
             text = self.questiontype
 
             if text == "Rate Constant":
+                try:
+                    FirstVal = float(self.firstValue.text())
+                    SecondVal = float(self.secondValue.text())
+                    ThirdVal = int(self.thirdValue.text())
+                    FourhtVal = int(self.FourthValue.text())
+                    FifthVal = float(self.FifthValue.text())
 
+                except:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Orders must be integers.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-                    try:
-                        FirstVal = float(self.firstValue.text())
-                        SecondVal = float(self.secondValue.text())
-                        ThirdVal = int(self.thirdValue.text())
-                        FourthVal = int(self.FourthValue.text())
-                        FifthVal = float(self.FifthValue.text())
-                        if ThirdVal + FourthVal > 19:
-                            reply = QtGui.QMessageBox()
-                            reply.setText("Orders must be integers below 10.")
-                            reply.setIcon(3)
-                            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-
-                        ret = reply.exec_()
-                    except:
-                        reply = QtGui.QMessageBox()
-                        reply.setText("Some values are incorrect.")
-                        reply.setIcon(3)
-                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-
-                        ret = reply.exec_()
-
-
+                    ret = reply.exec_()
             if text == "Hardy-Weinberg":
                 try:
 
@@ -1043,7 +1049,7 @@ class Practice_K_Window(QtGui.QDialog):
 
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
-        self.label_2.setText(_translate("Form", "Enter answer below in", None))
+        self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig:", None))
         self.pushButton.setText(_translate("Form", "Submit", None))
         self.pushButton.clicked.connect(self.checkAnswer)
         self.thisQuestion.findK(self)
@@ -1064,10 +1070,20 @@ class Practice_K_Window(QtGui.QDialog):
             ret = reply.exec_()
             self.close()
         else:
-            reply.setText("That is incorrect, try again.")
-            reply.setIcon(3)
-            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
-            ret = reply.exec_()
+            try:
+                if str(self.lineEdit.text()) == str(self.answer+"0"):
+                    
+                        reply.setText("That is correct.")
+                        reply.setIcon(0)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+            
+                        ret = reply.exec_()
+                        self.close()
+            except:                                
+                    reply.setText("That is incorrect, try again.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
+                    ret = reply.exec_()
 
 
 class student():
@@ -1156,23 +1172,23 @@ class hardy_weinberg(QtGui.QWidget):
 
     def generate_H_W(self):
 
-        pops = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
-        totalpop = random.choice(pops)
-        if totalpop/ 2 == int:
+        
+        totalpop = random.randint(10,1000)
+        if totalpop % 2 == 0:
             randomnumber = random.randrange(0, 99, 2)
         else:
             randomnumber = random.randrange(1, 99, 2)
 
-        recessiveInpop = (totalpop * (randomnumber / 100))  # unrounded
-        q_sqrdaspop = Round_To_n(recessiveInpop, 3)  # now rounded
-        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3)
+        recessiveInpop = ((totalpop * randomnumber) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
+        q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
         print("recessives", q_sqrdaspop)
         print("qsqrd", qsqrd)
-        q = Round_To_n(math.sqrt(qsqrd), 3)
-        p = Round_To_n(1 - q, 3)
-        psqrd = Round_To_n(p * p, 3)
+        q = Round_To_n(math.sqrt(qsqrd), 3) # finds the number of reccessive alleles
+        p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
+        psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
         print("psqrd", psqrd)
-        pq = Round_To_n(p * q, 3)
+        pq = Round_To_n(p * q, 3) # finds heterozygotes
         print("p", p, "q", q)
 
         print("2pq", pq * 2)
@@ -1188,7 +1204,22 @@ class hardy_weinberg(QtGui.QWidget):
     def checkAnswerpq(self):
         print(2 * self.pq)
         if self.answerBox.text() == str(2 * self.pq):
+            reply = QtGui.QMessageBox()
+            reply.setText("Correct.")
+            reply.setIcon(0)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+    
+            ret = reply.exec_()
             self.close()
+        else:
+            reply = QtGui.QMessageBox()
+            reply.setText("Incorrect. Please try again.")
+            reply.setIcon(3)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+    
+            ret = reply.exec_()
+            
+            
 
 
 class findKreaction():
