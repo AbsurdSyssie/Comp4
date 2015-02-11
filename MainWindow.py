@@ -713,20 +713,34 @@ class MakeQSet(QtGui.QDialog):
         printQList(self.newList)
 
     def makeNewSet(self):
-        try:
-            ListID = len(QSets) + 1
-        except:
-            ListID = len(QSets.QList) + 1
-        newQSet = self.newList
-        name = self.lineEdit.text()
-        owner = username
-        newQSet = Question_Set(ListID, name, newQSet, owner)
-        QSets.append(newQSet)
+        if self.listWidget.count() != 0:
+            if self.lineEdit.text() != "":
+                    try:
+                        ListID = len(QSets) + 1
+                    except:
+                        ListID = len(QSets.QList) + 1
+                    newQSet = self.newList
+                    name = self.lineEdit.text()
+                    owner = username
+                    newQSet = Question_Set(ListID, name, newQSet, owner)
+                    QSets.append(newQSet)
 
-        with open('QSets.pickle', 'wb') as f:
-            pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)
-        self.SetConfirmation()
+                    with open('QSets.pickle', 'wb') as f:
+                        pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)
+                    self.SetConfirmation()
+            else:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Please enter a name.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
+                    ret = reply.exec_()
+        else:
+                reply = QtGui.QMessageBox()
+                reply.setText('Please add questions to the set.')
+                reply.setIcon(3)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+                ret = reply.exec_()
 
     def SetConfirmation(self):
 
@@ -753,7 +767,7 @@ class MakeQSet(QtGui.QDialog):
         shownList = []
         for question in questions:
             shownList.append(question)
-            self.listWidget1.addItem(str(question.ID) + "  :  " + question.question_type)
+            self.listWidget1.addItem(str(question.ID) +"  :  " + question.question_type)
         return shownList
 
 
@@ -1103,11 +1117,11 @@ class Practice_K_Window(QtGui.QDialog):
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
                     ret = reply.exec_()
-    def findstudent(self):
+    def findStudent(self):
                     global username
                     for people in students:
                                 if people.username == username:
-                                    people.questionAnswered(self.Question)  
+                                    people.questionAnswered(self.thisQuestion)
 
 class student():
     def __init__(self, studentid, username, account_type, password, forename, surname, middlename, form, targetgrade,
