@@ -573,9 +573,12 @@ class WorkList(QtGui.QWidget):
     def AttemptQ(self):
         for item in self.listWidget.selectedIndexes():
             thisIndex = item.row()        
-            attemptQ = Practice_K_Window(self.shownList[thisIndex])
-            attemptQ.exec_()
-                
+            if self.shownList[thisIndex].question_type == "Rate Constant":
+                attemptQ = Practice_K_Window(self.shownList[thisIndex])
+                attemptQ.exec_()
+            elif self.shownList[thisIndex].question_type == "Hardy-Weinberg":
+                attemptQ = hardy_weinberg(self.shownList[thisIndex])
+                attemptQ.exec_()                
                 
                 
                 
@@ -981,6 +984,7 @@ class Question(object):
     def hardy_weinberg(self):
         self.totalpop = self.values[0]
         self.q_sqrdaspop = self.values[1]
+        self.HWwindow
     
     def findK(self, window):
     
@@ -994,6 +998,12 @@ class Question(object):
                                                                                          "The order of A is " + str(
                 self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
                 self.rateOfReaction), None))
+    def HWwindow(self):
+        window.label.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
+                self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+                None))       
+
+
 
 class Question_Set(object):
     def __init__(self, ID, name, newQList, owner):
@@ -1107,7 +1117,8 @@ class student():
 
         print(self.percentage)
         return self.percentage
-
+    
+    
     def findgrade(self):
         isOntarget = False
         self.percentage()
@@ -1134,12 +1145,17 @@ class student():
         else:
             isOntarget = False
 
+    def questionAnswered(self, question):
+        self.questionstoanswer.remove(question)
+        self.answered.append(question)
 
-class hardy_weinberg(QtGui.QWidget):
-    def __init__(self):
-        QtGui.QWidget.__init__(self)
+class hardy_weinberg(QtGui.QDialog):
+    def __init__(self, thisQuestion= None):
+        QtGui.QDialog.__init__(self)
+        self.Question = thisQuestion
         self.setupUi(self)
-
+        
+        
     def setupUi(self, hardy_weinberg):
         hardy_weinberg.setObjectName(_fromUtf8("hardy_weinberg"))
         hardy_weinberg.resize(400, 300)
@@ -1160,26 +1176,40 @@ class hardy_weinberg(QtGui.QWidget):
 
         self.retranslateUi(hardy_weinberg)
         QtCore.QMetaObject.connectSlotsByName(hardy_weinberg)
-
+        
     def retranslateUi(self, hardy_weinberg):
-        self.generate_H_W()
-        hardy_weinberg.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
+        if self.Question == None:
+            self.generate_H_W()
+            
+        if self.Question != None:
+            self.recessiveInpop = self.Question.values[0]
+            self.totalpop = self.Question.values[1]
+            self.calculateAnswer()
+            self.updateForm(hardy_weinberg)
+
+
+    def updateForm(self, hardy_weinberg):
+        self.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
         self.questions_text.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
-            self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
-                                               None))
+        self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+                                           None))
         self.SubmitAnswer.setText(_translate("hardy_weinberg", "Submit", None))
-        self.SubmitAnswer.clicked.connect(self.checkAnswerpq)
+        self.SubmitAnswer.clicked.connect(self.checkAnswerpq)        
 
     def generate_H_W(self):
 
         
-        totalpop = random.randint(10,1000)
-        if totalpop % 2 == 0:
-            randomnumber = random.randrange(0, 99, 2)
+        self.totalpop = random.randint(10,1000)
+        if self.totalpop % 2 == 0:
+            self.percentageReccessive = random.randrange(0, 99, 2)
         else:
-            randomnumber = random.randrange(1, 99, 2)
-
-        recessiveInpop = ((totalpop * randomnumber) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
+            self.percentageReccessive = random.randrange(1, 99, 2)
+        self.calculateAnswerfromRand()
+        self.updateForm(hardy_weinberg)
+    def calculateAnswerfromRand(self):        
+        percentageReccessive = self.percentageReccessive
+        totalpop = self.totalpop
+        recessiveInpop = ((totalpop * percentageReccessive) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
         q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
         qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
         print("recessives", q_sqrdaspop)
@@ -1192,14 +1222,35 @@ class hardy_weinberg(QtGui.QWidget):
         print("p", p, "q", q)
 
         print("2pq", pq * 2)
-        self.totalpop = totalpop
+        
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
         self.psqrd = psqrd
         self.q = q
         self.p = p
         self.pq = pq
+    def calculateAnswer(self):
+        totalpop = self.totalpop
+        recessiveInpop = self.recessiveInpop
+        q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 2) # Finds q squared as a decimal.
+        print("recessives", q_sqrdaspop)
+        print("qsqrd", qsqrd)
+        q = Round_To_n(math.sqrt(qsqrd), 2) # finds the number of reccessive alleles
+        p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
+        psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
+        print("psqrd", psqrd)
+        pq = Round_To_n(p * q, 3) # finds heterozygotes
+        print("p", p, "q", q)
 
+        print("2pq", pq * 2)
+        
+        self.q_sqrdaspop = q_sqrdaspop
+        self.qsqrd = qsqrd
+        self.psqrd = psqrd
+        self.q = q
+        self.p = p
+        self.pq = pq        
 
     def checkAnswerpq(self):
         print(2 * self.pq)
