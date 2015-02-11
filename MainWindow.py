@@ -262,7 +262,9 @@ class SetQuestions(QtGui.QDialog):
                     print("hi again")
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
                         print("Adding")
-                        people.questionstoanswer.append(QSets[self.QuestionSetBox.currentIndex()+1])
+                        for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
+                            
+                            people.questionstoanswer.append(question)
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         else:
@@ -272,7 +274,9 @@ class SetQuestions(QtGui.QDialog):
                     print("hi")
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
                         print("Adding")
-                        people.questionstoanswer.append(QSets[self.QuestionSetBox.currentIndex()+1])
+                        for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
+                            
+                            people.questionstoanswer.append(question)
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
@@ -560,14 +564,14 @@ class WorkList(QtGui.QWidget):
         n = 0
         global username
         self.shownList = []
+        self.listWidget.clear()
         for people in students:
             if people.username == username:
-                for questionSet in people.questionstoanswer:
-                    if questionSet != None:
-                        for question in questionSet.QList:
-                            self.shownList.append(question)
-                            self.listWidget.addItem(question.question_type + " : " + str(question.ID))
-                        n = n + 1
+                for question in people.questionstoanswer:
+                    if question != None:
+                       self.shownList.append(question)
+                       self.listWidget.addItem(question.question_type + " : " + str(question.ID))
+                       n = n + 1
 
             
     def AttemptQ(self):
@@ -576,9 +580,12 @@ class WorkList(QtGui.QWidget):
             if self.shownList[thisIndex].question_type == "Rate Constant":
                 attemptQ = Practice_K_Window(self.shownList[thisIndex])
                 attemptQ.exec_()
+                self.populateQuestions()
             elif self.shownList[thisIndex].question_type == "Hardy-Weinberg":
                 attemptQ = hardy_weinberg(self.shownList[thisIndex])
-                attemptQ.exec_()                
+                attemptQ.exec_()
+                self.populateQuestions()
+                
                 
                 
                 
@@ -1146,8 +1153,13 @@ class student():
             isOntarget = False
 
     def questionAnswered(self, question):
+        for q in self.questionstoanswer:
+            print(q.ID)
         self.questionstoanswer.remove(question)
         self.answered.append(question)
+        with open('students.pickle', 'wb') as f:
+            
+            pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)        
 
 class hardy_weinberg(QtGui.QDialog):
     def __init__(self, thisQuestion= None):
@@ -1186,8 +1198,12 @@ class hardy_weinberg(QtGui.QDialog):
             self.totalpop = self.Question.values[1]
             self.calculateAnswer()
             self.updateForm(hardy_weinberg)
-
-
+            
+    def findstudent(self):
+        global username
+        for people in students:
+                    if people.username == username:
+                        people.questionAnswered(self.Question)
     def updateForm(self, hardy_weinberg):
         self.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
         self.questions_text.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
@@ -1262,6 +1278,9 @@ class hardy_weinberg(QtGui.QDialog):
     
             ret = reply.exec_()
             self.close()
+            if self.Question != None:
+                self.findstudent() # finds the person who is logged in
+            
         else:
             reply = QtGui.QMessageBox()
             reply.setText("Incorrect. Please try again.")
