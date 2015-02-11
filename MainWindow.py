@@ -260,11 +260,11 @@ class SetQuestions(QtGui.QDialog):
             for people in students:
                 if people.form == self.FormBox.currentText():
                     print("hi again")
-                    if not self.QuestionSetBox.currentText() in people.questionstoanswer:
-                        print("Adding")
-                        for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
-                            
+ 
+                    for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
+                        if question not in people.questionstoanswer:
                             people.questionstoanswer.append(question)
+                            print("Adding")
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         else:
@@ -1086,6 +1086,8 @@ class Practice_K_Window(QtGui.QDialog):
 
             ret = reply.exec_()
             self.close()
+            if self.thisQuestion != None:
+                self.findStudent()              
         else:
             try:
                 if str(self.lineEdit.text()) == str(self.answer+"0"):
@@ -1101,7 +1103,11 @@ class Practice_K_Window(QtGui.QDialog):
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
                     ret = reply.exec_()
-
+    def findstudent(self):
+                    global username
+                    for people in students:
+                                if people.username == username:
+                                    people.questionAnswered(self.Question)  
 
 class student():
     def __init__(self, studentid, username, account_type, password, forename, surname, middlename, form, targetgrade,
