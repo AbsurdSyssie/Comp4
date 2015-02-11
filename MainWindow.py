@@ -909,7 +909,7 @@ class AddQuestion(QtGui.QWidget):
                     FirstVal = float(self.firstValue.text())
                     SecondVal = float(self.secondValue.text())
                     ThirdVal = int(self.thirdValue.text())
-                    FourhtVal = int(self.FourthValue.text())
+                    FourthVal = int(self.FourthValue.text())
                     FifthVal = float(self.FifthValue.text())
 
                 except:
@@ -918,7 +918,19 @@ class AddQuestion(QtGui.QWidget):
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
+
                     ret = reply.exec_()
+                try:
+                        pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
+
+                except:
+                        reply = QtGui.QMessageBox()
+                        reply.setText("Please use smaller concentrations.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+                        ret = reply.exec_()
+
             if text == "Hardy-Weinberg":
                 try:
 
