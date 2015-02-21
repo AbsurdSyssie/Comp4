@@ -26,13 +26,16 @@
 \section{Background and Definition of Problem}
 \begin{flushleft}
 At Queen Elizabeth Grammar School, pupils in year 13 are taught several calculations for their science subjects. They are tested on these every month or so, after the unit has been taught and students are assumed to understand the topics. Students are set questions during teaching time, however these results are not recorded and sometimes a struggling student may slip under a teacher’s radar.
-\\Calculations follow:\\
+\\\textbf{Examples of A Level Calculations:}\\
+\bigskip
 \textbf{Rate of reaction equations}\\
+
 A set of reaction equations used to deduce the rate of a reaction, the concentrations of reactants, their orders and the rate constant: k. \\
 A reaction of reactants $A + B \rightarrow D $ where A has the concentration \SI{0.0023}{mol.dm^{-3}} and the power 1. B has the concentration \SI{0.0154}{mol.dm^{-3}}
 with the power 2. Whilst the rate of reaction is \SI{0.000045}{mol.s{-1}}.
 
 \emph{An example question.}	\\
+\bigskip
 \textbf{Standard deviation}\\
  A statistical value that is used ceaselessly in biology.\\
          You and your friends have just measured the heights of your dogs (in millimetres):
@@ -49,6 +52,7 @@ Standard Deviation: $\sqrt{21,704}$ = 147.32  = 147 (to the nearest mm)\\
 
 
          \emph{ An Example Question}\\
+         \bigskip
 \textbf{Ideal Gas Equation}\\  A calculation that is used in both chemistry and physics A level.\\
 The ideal gas equation is PV = nRT. P is pressure in Pa, V is volume in cubic metres, n is number of moles and T is temperature in degrees Kelvin. R is the ideal gas constant which is measured as 8.314 Joules per Kelvin per Mole.\\
 STP = 273K and 100kPa\\
@@ -64,11 +68,12 @@ Rearrange to find n: n=PV/RT\\
 $ 18*0.00248 = 0.0446g $\\
 
 	\emph{An Example Question}\\
+	\bigskip
 \textbf{Hardy – Weinberg Equation:} A statistical test that is used to estimate the proportions of different genotypes in a population.\\
 1. If 98 out of 200 individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes?
-(a) I have given you information on the frequency of the homozygous recessive (or q2). So start by determining q2 and then solving for q.  $ 98/200 =  q^2 = 0.49 $
-sqrt 0.49 = 0.7 = q\\
-(b) Now that you have q, you can solve for p. Remember there are only two alleles in the population, so if you add the frequency of the two alleles, you have accounted for all possibilities and it must equal 1. So p + q = 1. p = 1-q = 0.3\\
+(a) I have given you information on the frequency of the homozygous recessive (or $q^2$). So start by determining q2 and then solving for q.  $ 98/200 =  q^2 = 0.49 $
+$\sqrt{0.49}$ = 0.7 = q\\
+(b) Now that you have q, you can solve for p. Remember there are only two alleles in the population, so if you add the frequency of the two alleles, you have accounted for all possibilities and it must equal 1. So $ p + q = 1 \text{ Therefore: } p = 1-q = 0.3$\\
 (c) Now what is the formula for heterozygotes? Think back to the Hardy-Weinberg equation -- it is dealing with the genotypes of individuals in the population.
 $ 2pq = 2*0.3*0.7 = 0.42 $\\
 (d) Now that you have figured out the percentage of heterozygotes, can you figure out the percentage of homozygous dominant? Does the percentage of homozygous dominant, heterozygotes and homozygous recessive individuals add up to 100 percent? If not, you have made an error. Those are the only three genotypes possible with only two alleles and a simple dominant and recessive relationship.
@@ -79,9 +84,12 @@ $ 1-(0.49 + 0.42) = p^2 = 0.09 \text{ or } 0.3^2 $\\
 
 \section{Users and the current system}
 
-Mr Fascione is the head of Science at QEGS.  He focusses on student grades and student support alongside being a teacher.\\
-Currently the only way for pupils’ scores from homework to be tracked is by them being entered manually into a spreadsheet after being recorded on paper. There is also no way for pupils to have their problems solved, or explained step by step, other than referring to a text book, which is not interactive. Student feedback is also only monitored for tests, with this system every piece of homework could be used for student support.
-Pupils can only access a few problems that have been devised by teachers or examiners. These can also be hard for students to grasp, so a program which goes through these at the students’ personal pace would be of great use. Teachers also have no digitally stored questions that can be easily sent to students, they must hand out photocopies and these are always being lost. A computer system would allow work to be set easily, without risk of students losing their things, as well as teachers not losing score sheets.
+Mr Fascione is the head of Science at QEGS.  He focusses on student grades and student support alongside being a teacher.\bigskip
+
+Currently the only way for pupils’ scores from homework to be tracked is by them being entered manually into a spreadsheet after being recorded on paper. There is also no way for pupils to have their problems solved, or explained step by step, other than referring to a text book, which is not interactive. Student feedback is also only monitored for tests, with this system every piece of homework could be used for student support.\bigskip
+
+Pupils can only access a few problems that have been devised by teachers or examiners. These can also be hard for students to grasp, so a program which goes through these at the students’ personal pace would be of great use. Teachers also have no digitally stored questions that can be easily sent to students, they must hand out photocopies and these are always being lost. A computer system would allow work to be set easily, without risk of students losing their things, as well as teachers not losing score sheets.\bigskip
+
 From my feedback and interviews from my end users I have been able to select the appropriate calculations for the computer package to use, and also have a framework to try and emulate, to best please my end user.\\
 
 
@@ -92,7 +100,14 @@ From my feedback and interviews from my end users I have been able to select the
 \clearpage
 \section{Proposed System}        
 
-Pupils will need to be able to input their own problems and have them be solved in a step by step process where they can enter their answer for each step. The program will tell them if they were right and instructing them as to what they should be doing. They will also be able to store their own problems and solutions in the central database.  Teachers will be allowed to set work to be done and see the scores. Teachers and pupils will also have unique accounts with teachers having the ability to see pupil scores and set questions. If pupils are having difficulties then they can send a message to the teacher and vice versa. Teachers should be able to make new pupil and teacher accounts and delete old ones.  Allows students and staff to log in. Won’t generate own questions as without use of libraries it would not be possible to display questions in the correct format. Only 100 questions will be stored at once as the memory taken up would be too high. Pupil accounts would have to be entered in manually as school will not give me access to the student detail database.\\
+Pupils will need to be able to input their own problems and have them be solved in a step by step process where they can enter their answer for each step. The program will tell them if they were right and instructing them as to what they should be doing.\\
+ They will also be able to store their own problems and solutions in the central database.\\
+ Teachers will be allowed to set work to be done and see the scores.\\
+ Teachers and pupils will also have unique accounts with teachers having the ability to see pupil scores and set questions. If pupils are having difficulties then they can send a message to the teacher and vice versa. Teachers should be able to make new pupil and teacher accounts and delete old ones.\\
+ Allows students and staff to log in.\\
+ The program will generate its own questions but may not display questions in the correct format.\\
+ Only 100 questions will be stored at once as the memory taken up would be too high.\\
+ Pupil accounts would have to be entered in manually as school will not give me access to the student detail database.\\
 
 \section{Objectives}
 
@@ -525,10 +540,10 @@ As Python is an interpreted language, students could in theory open it as a text
 \bigskip
 
 I showed my end user an initial skeleton program that I had created. I responded to their requests and added a function to give the user an option to immediately have another question also, when their answer is incorrect then they are told it was incorrect and are asked to try again. With further testing I thought the user should be able to have the program to take them through the problem, as it is only a practice.\\
-\textbf{Command Line Prototype}
+\textbf{Command Line Prototype Code}
 \begin{verbatim}
 
- author = 'Oscar'
+author = 'Oscar'
 import random
 import decimal
 
@@ -564,7 +579,8 @@ def menu():
         
         
         class findKreaction():
-            def __init__(self, conc_of_A, conc_of_B, order_of_A, order_of_B, rateOfReaction):
+            def __init__(self, conc_of_A, conc_of_B,
+             order_of_A, order_of_B, rateOfReaction):
                 self.conc_of_A = conc_of_A
                 self.conc_of_B = conc_of_B
                 self.order_of_A = order_of_A
@@ -576,18 +592,28 @@ def menu():
                 
                 
             def walk_throughK(self):
-                print("To calculate the rate constant, k, we must first multiply the concentrations of our reactants together."
-                      "However the concentrations must be raised to the power of their orders."
-                      "The concentrations of A and B are", self.conc_of_A, "and", self.conc_of_B, "respectively."
-                      "The order of A is", self.order_of_A, "and the order of B is", self.order_of_B, ".")
+                print("To calculate the rate constant, k, we must first 
+		 multiply the concentrations of our reactants together."
+                      "However the concentrations must be raised to the power
+		 of their orders."
+                      "The concentrations of A and B are", self.conc_of_A, "and",
+		 self.conc_of_B, "respectively."
+                      "The order of A is", self.order_of_A, "and the order of B is",
+		 self.order_of_B, ".")
                 print("This means our intermediary value is", self.intermediary, "."
-                      "We then divide our rate of reaction by this number. The reate of reaction is", self.rateOfReaction,".")
+                      "We then divide our rate of reaction by this number. The reate
+		 of reaction is", self.rateOfReaction,".")
                 print("This equals", self.k)
-                print("Next we must find the units of k \n")
-                print("To find the units of k we must cancel the number of moles per dm cubed on both sides of the equation. "
-                      "\We do this by adding the powers of the two reactants and putting them into the formula: "
-                      "\nmol^-x dm^+x*3. Where x is the powers added together minus 1."
-                      "\nUnless the number of moles is one, then there are no units.\n ")
+                print("Next we must find the units of
+                 k")
+                print("To find the units of k we must cancel the number of moles
+        
+        per dm cubed on both sides of the equation. "
+                      "We do this by adding the powers of the two reactants 
+                      and putting them into the formula: mol^-x dm^+x*3.
+                       Where x is the powers added together minus 1."
+                      "Unless the number of moles is
+                       one, then there are no units.")
                 if self.noOfMoles > 1:
                     x = int((self.noOfMoles) - 1)
         
@@ -599,18 +625,22 @@ def menu():
         
             def findK(self):
                 n = 0
-                self.intermediary = pow(self.conc_of_A, self.order_of_A) * (pow(self.conc_of_B, self.order_of_B))
+                self.intermediary = pow(self.conc_of_A, self.order_of_A) *
+                (pow(self.conc_of_B, self.order_of_B))
                 self.k = self.rateOfReaction / self.intermediary
                 correct = False
-                print("The conc of reactant A is ", self.conc_of_A, "moldm^-3. The conc of B is", self.conc_of_B, "moldm^-3")
-                print("The order of A is ", self.order_of_A, "and the order of B is", self.order_of_B)
+                print("The conc of reactant A is ", self.conc_of_A, "moldm^-3.
+                The conc of B is", self.conc_of_B, "moldm^-3")
+                print("The order of A is ", self.order_of_A, "and the order of B
+                is", self.order_of_B)
                 print("The rate of reaction is", self.rateOfReaction)
                 while correct == False:
                     k = self.k
                     k = ("%.3G" % (k))
                     
         
-                    studentAnswer = input("Enter in your value of k to 3 sig fig: ")
+                    studentAnswer = input("Enter in your value of k
+                    to 3 sig fig: ")
                     if studentAnswer == k:
                         correct = True
                         print("Well done, that was correct!")
@@ -624,7 +654,8 @@ def menu():
                         n += 1
                         print("Sorry that's not right, try again.")
                         if n > 2:
-                            walkthrough = input("Would you like a walk-through? y/n")
+                            walkthrough = input("Would you like a walk-through? 
+                           	 y/n")
                             if walkthrough == "y":
                                 print("  ")
                                 findKreaction.walk_throughK(self)
@@ -633,10 +664,15 @@ def menu():
         
         
             def findunitsofK(self):
-                print("To find the units of k we must cancel the number of moles per dm cubed on both sides of the equation. "
-                      "\We do this by adding the powers of the two reactants and putting them into the formula: "
-                      "\nmol^-x dm^+x*3. Where x is the powers added together minus 1."
-                      "\nUnless the number of moles is one, then there are no units.\n ")
+                print("To find the units of k we must cancel the number of moles 
+                per dm cubed on both sides of the equation. "
+                      "\We do this by adding the
+                       powers of the two reactants and
+                       putting them into the formula: "
+                      "\nmol^-x dm^+x*3. Where x is
+                       the powers added together minus 1."
+                       "\nUnless the number of moles is one, then
+                        there are no units.\n ")
                 if self.noOfMoles > 1:
                     x = int((self.noOfMoles) - 1)
         
@@ -670,10 +706,15 @@ def menu():
         menu()
 \end{verbatim}
 \clearpage
-\textbf{Screenshots of CLI Prototype}\\
+\textbf{Screenshots of CLI Prototype:}\\
+\bigskip
 \includegraphics{CLI01}\\
+\emph{CLI Main Menu}\\
 \includegraphics{CLI02}\\
+\emph{Attempting a question in CLI}\\
 \includegraphics{CLI03}\\
+\emph{Entering an incorrect answer}\\
+\bigskip
 
 After this I decided that if the student was only practising questions, they should not use up questions that teachers are marking them on. Therefore I created a function that generates random numbers, in a specific range, and rounds them to suit the question. This way, a student will never have encountered the questions they would be assessed on.
 
@@ -698,16 +739,19 @@ def generateK():
 \begin{flushleft}
 
 This generates the numbers for the equation, creates a class using them, then returns it to the main program.
-
-
-
-
-
+\par
 After consulting my end user again, and by using their request of something “MyMaths”-esque, I have implemented a GUI into my design using PyQt, which is event driven. This improves the ease of use of the program and also makes it more user friendly for people who do not use command line regularly.
 
 \textbf{GUI Prototype}\\
 To prototype the GUI I hand drew some of my windows and annotated functions:
 \end{flushleft}
-This is the teacher main menu:\\
-\includegraphics{MainMenuOld}\label{Old Main Menu}
+
+\includegraphics{MainMenuOld}\label{Old Main Menu}\\
+\emph{Early teacher main menu}\\
+\bigskip
+I have also made a form window for the input of new users to the system. This window sends its' variables to a function which adds the new student and repickles the list. This function is only available to teacher accounts. They can also create new teacher accounts in a similar manner.
+\includegraphics{CreateStudent}\\
+\emph{The initial create student window}\\
+\includegraphics{CreateStudent2}\\
+\emph{An account being created}\\
 \end{document}
