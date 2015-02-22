@@ -1551,7 +1551,7 @@ def loadTeachers():
 
 def loadStudents():
     global students
-    with open('students.pickle', 'rb') as s:
+    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\students.pickle', 'rb') as s:
         students = pickle.load(s)
 
         for people in students:
@@ -1576,7 +1576,7 @@ def convertTofloat(thing):
 
 def loadQuestions():
     global questions
-    with open('questions.pickle', 'rb') as q:
+    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\questions.pickle', 'rb') as q:
         questions = []
         questions = pickle.load(q)
 
@@ -1584,7 +1584,7 @@ def loadQuestions():
 def loadQSet():
     global QSets
     QSets = []
-    with open('QSets.pickle', 'rb') as q:
+    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\QSets.pickle', 'rb') as q:
         QSets = pickle.load(q)
         for n in range(len(QSets) - 1):
             print(QSets[n + 1].name)
@@ -1597,7 +1597,7 @@ loadQuestions()
 loadQSet()
 loadStudents()
 loadTeachers()
-username = "Test"
+username = "Teacher"
 
 app = QtGui.QApplication(sys.argv)
 thisForm = Teacher_Main_Window()

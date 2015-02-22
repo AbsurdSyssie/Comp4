@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.20)  22 FEB 2015 11:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.2.20)  22 FEB 2015 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -456,7 +456,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {c:/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./UserManual.t
-oc)
+oc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 4.
+)
 \tf@toc=\write4
 \openout4 = `UserManual.toc'.
 
@@ -475,16 +480,16 @@ Chapter 1.
 Chapter 2.
 
 LaTeX Warning: Hyper reference `Python Downloads' on page 3 undefined on input 
-line 23.
+line 24.
 
-<Images/PythonDownload.jpg, id=37, 318.43968pt x 192.72pt>
+<Images/PythonDownload.jpg, id=82, 318.43968pt x 192.72pt>
 File: Images/PythonDownload.jpg Graphic file (type jpg)
 
 <use Images/PythonDownload.jpg>
-Package pdftex.def Info: Images/PythonDownload.jpg used on input line 24.
+Package pdftex.def Info: Images/PythonDownload.jpg used on input line 25.
 (pdftex.def)             Requested size: 318.4389pt x 192.71951pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--25
+Underfull \hbox (badness 10000) in paragraph at lines 23--26
 
  []
 
@@ -492,21 +497,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--25
 
  <./Images/PythonDownload.jpg>]
 
-LaTeX Warning: Hyper reference `PyQT' on page 4 undefined on input line 26.
+LaTeX Warning: Hyper reference `PyQT' on page 4 undefined on input line 27.
 
-<Images/PyQTDownload.png, id=42, 413.29407pt x 266.49562pt>
+<Images/PyQTDownload.png, id=87, 612.78937pt x 254.45062pt>
 File: Images/PyQTDownload.png Graphic file (type png)
 
 <use Images/PyQTDownload.png>
-Package pdftex.def Info: Images/PyQTDownload.png used on input line 27.
-(pdftex.def)             Requested size: 413.29305pt x 266.49496pt.
+Package pdftex.def Info: Images/PyQTDownload.png used on input line 28.
+(pdftex.def)             Requested size: 612.78787pt x 254.45pt.
 
-Overfull \hbox (68.29305pt too wide) in paragraph at lines 26--29
+Overfull \hbox (63.91641pt too wide) in paragraph at lines 27--31
+[]\OT1/cmr/m/n/10 PyQT 4 can be found here: http://www.riverbankcomputing.com/s
+oftware/pyqt/download 
+ []
+
+
+Overfull \hbox (267.78787pt too wide) in paragraph at lines 27--31
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--29
+Underfull \hbox (badness 10000) in paragraph at lines 27--31
 
  []
 
@@ -514,45 +525,119 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
  <./Images/PyQTDownload.png>]
 Chapter 3.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 36.
-[5
+<Images/placeholder.png, id=94, 137.7647pt x 134.00063pt>
+File: Images/placeholder.png Graphic file (type png)
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 36.
- (./UserManual.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 36.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 36.
+<use Images/placeholder.png>
+Package pdftex.def Info: Images/placeholder.png used on input line 38.
+(pdftex.def)             Requested size: 137.76434pt x 134.00027pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
 
-Package rerunfilecheck Warning: File `UserManual.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+ []
 
-Package rerunfilecheck Info: Checksums for `UserManual.out':
-(rerunfilecheck)             Before: B6A77942D4B7F7950D509ACBAB9B1404;145
-(rerunfilecheck)             After:  B1A72F90F0420B967E6CE153CA78306B;202.
+File: Images/placeholder.png Graphic file (type png)
+<use Images/placeholder.png>
+Package pdftex.def Info: Images/placeholder.png used on input line 46.
+(pdftex.def)             Requested size: 137.76434pt x 134.00027pt.
+ [5
+
+ <./Images/placeholder.png>] [6]
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+
+ []
+
+<Images/adminlogin.png, id=105, 312.41719pt x 253.69781pt>
+File: Images/adminlogin.png Graphic file (type png)
+
+<use Images/adminlogin.png>
+Package pdftex.def Info: Images/adminlogin.png used on input line 53.
+(pdftex.def)             Requested size: 312.41641pt x 253.69719pt.
+
+<Images/adminmain.png, id=106, 313.9228pt x 273.27094pt>
+File: Images/adminmain.png Graphic file (type png)
+
+<use Images/adminmain.png>
+Package pdftex.def Info: Images/adminmain.png used on input line 59.
+(pdftex.def)             Requested size: 313.92203pt x 273.27025pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+
+ []
+
+[7
+
+ <./Images/adminlogin.png>] [8 <./Images/adminmain.png>]
+<Images/addaccount.png, id=117, 279.29344pt x 301.125pt>
+File: Images/addaccount.png Graphic file (type png)
+
+<use Images/addaccount.png>
+Package pdftex.def Info: Images/addaccount.png used on input line 63.
+(pdftex.def)             Requested size: 279.29276pt x 301.12425pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+
+ []
+
+[9
+
+ <./Images/addaccount.png>]
+Chapter 5.
+<Images/teachermain.png, id=123, 311.66437pt x 272.51813pt>
+File: Images/teachermain.png Graphic file (type png)
+
+<use Images/teachermain.png>
+Package pdftex.def Info: Images/teachermain.png used on input line 67.
+(pdftex.def)             Requested size: 311.6636pt x 272.51746pt.
+
+<Images/MakeQ.png, id=124, 331.99031pt x 317.68687pt>
+File: Images/MakeQ.png Graphic file (type png)
+ <use Images/MakeQ.png>
+Package pdftex.def Info: Images/MakeQ.png used on input line 71.
+(pdftex.def)             Requested size: 331.98949pt x 317.68608pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
+
+ []
+
+[10
+
+ <./Images/teachermain.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
+ [11 <./Images/MakeQ.png>] [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
+
+(./UserManual.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
+Package rerunfilecheck Info: File `UserManual.out' has not changed.
+(rerunfilecheck)             Checksum: 76BCB2064C7A08FA35BE2B641D8D4C46;720.
+
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 36.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 78.
  ) 
 Here is how much of TeX's memory you used:
- 5296 strings out of 493109
- 77179 string characters out of 6138587
- 157695 words of memory out of 5000000
- 8720 multiletter control sequences out of 15000+600000
- 8800 words of font info for 31 fonts, out of 8000000 for 9000
+ 5354 strings out of 493109
+ 78152 string characters out of 6138587
+ 159701 words of memory out of 5000000
+ 8756 multiletter control sequences out of 15000+600000
+ 9146 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,6n,28p,342b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,6n,28p,411b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2014
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2014/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2014/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr17.pfb>
-Output written on UserManual.pdf (6 pages, 139463 bytes).
+pe1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb>
+Output written on UserManual.pdf (13 pages, 223026 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
