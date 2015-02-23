@@ -49,7 +49,7 @@ class AdminTools(QtGui.QDialog):
             QtCore.QMetaObject.connectSlotsByName(AdminTools)
     
     def retranslateUi(self, AdminTools):
-            AdminTools.setWindowTitle(_translate("AdminTools", "Form", None))
+            AdminTools.setWindowTitle(_translate("AdminTools", "Admin Tools", None))
             self.Admin.setText(_translate("AdminTools", "Create / Change Admin Account", None))
             self.Students.setText(_translate("AdminTools", "Create / Clear Students Pickle", None))
             self.Teachers.setText(_translate("AdminTools", "Create / Clear Teachers", None))
@@ -244,14 +244,6 @@ class LogInPage(QtGui.QDialog):
         Form.resize(400, 300)
         self.verticalLayout = QtGui.QVBoxLayout(Form)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.label = QtGui.QLabel(Form)
-        self.label.setObjectName(_fromUtf8("label"))
-        self.verticalLayout.addWidget(self.label)
-        self.UsernameBox = QtGui.QLineEdit(Form)
-        self.UsernameBox.setObjectName(_fromUtf8("UsernameBox"))
-        self.verticalLayout.addWidget(self.UsernameBox)
-        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem)
         self.label_2 = QtGui.QLabel(Form)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.verticalLayout.addWidget(self.label_2)
@@ -274,9 +266,9 @@ class LogInPage(QtGui.QDialog):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Log In", "Log In", None))
-        self.label.setText(_translate("Form", "Username:", None))
-        self.label_2.setText(_translate("Form", "Password:", None))
+        Form.setWindowTitle(_translate("Admin Log In", "Admin Log In", None))
+
+        self.label_2.setText(_translate("Form", "Enter Admin Password:", None))
         self.pushButton.setText(_translate("Form", "Log In", None))
         self.pushButton_2.setText(_translate("Form", "Cancel", None))
         self.pushButton_2.clicked.connect(self.close)
@@ -289,7 +281,7 @@ class LogInPage(QtGui.QDialog):
         self.isAdmin = False
         
         for people in teachers:
-            if self.UsernameBox.text() == "Admin" and self.PasswordBox.text() == people.password:
+            if people.username == "Admin" and self.PasswordBox.text() == people.password:
 
                 username = people.username
 

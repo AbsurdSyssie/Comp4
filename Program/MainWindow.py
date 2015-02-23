@@ -1008,10 +1008,9 @@ class Question(object):
     def kQuestion(self):
         self.conc_of_A = self.values[0]
         self.conc_of_B = self.values[1]
-        self.rateOfReaction = self.values[2]
-        self.order_of_A = self.values[3]
-        self.order_of_B = self.values[4]
-        
+        self.order_of_A = self.values[2]
+        self.order_of_B = self.values[3]
+        self.rateOfReaction = self.values[4]
 
 
     def hardy_weinberg(self):
@@ -1521,7 +1520,7 @@ class LogInPage(QtGui.QDialog):
 
                 username = people.username
 
-                if people.account_type == "T":
+                if people.account_type == "T" or people.account_type == "A":
                     self.close()
                     global teacherMainForm
                     teacherMainForm = Teacher_Main_Window()
