@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0752971c-7fd8-4c2f-a59d-d5dd3fb47613" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Program/AdminTools.py" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\AdminTools.ui" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\MainWindow.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\QSets.pickle" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\User Manual\Images\PyDownloads.odg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\clearStudents.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\questions.pickle" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\students.pickle" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Oscar\Documents\GitHub\Comp4\teachers.pickle" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project Documentation/Comp4.pdf" afterPath="$PROJECT_DIR$/Project Documentation/Comp4.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/Images/PyQTDownload.png" afterPath="$PROJECT_DIR$/User Manual/Images/PyQTDownload.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.pdf" afterPath="$PROJECT_DIR$/User Manual/UserManual.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.synctex.gz" afterPath="$PROJECT_DIR$/User Manual/UserManual.synctex.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project Documentation/Comp4.log" afterPath="$PROJECT_DIR$/Project Documentation/Comp4.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.aux" afterPath="$PROJECT_DIR$/User Manual/UserManual.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.log" afterPath="$PROJECT_DIR$/User Manual/UserManual.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.out" afterPath="$PROJECT_DIR$/User Manual/UserManual.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.tex" afterPath="$PROJECT_DIR$/User Manual/UserManual.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/UserManual.toc" afterPath="$PROJECT_DIR$/User Manual/UserManual.toc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="0752971c-7fd8-4c2f-a59d-d5dd3fb47613" name="Default" comment="" />
     <ignored path="Comp4.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +23,30 @@
     <favorites_list name="Comp4" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="AdminTools.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="16.79064" vertical-offset="204" max-vertical-offset="7769">
+              <caret line="417" column="12" selection-start-line="417" selection-start-column="12" selection-end-line="417" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.076923" vertical-offset="25560" max-vertical-offset="27387">
+              <caret line="1522" column="74" selection-start-line="1522" selection-start-column="74" selection-end-line="1522" selection-end-column="74" />
+              <folding>
+                <element signature="e#21#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,16 +55,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/MainWindow.py" />
-        <option value="$PROJECT_DIR$/Program/MainWindow.py" />
         <option value="$PROJECT_DIR$/Program/test.py" />
         <option value="$PROJECT_DIR$/Program/AdminTools.py" />
+        <option value="$PROJECT_DIR$/Program/MainWindow.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1056" />
+    <option name="width" value="1378" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -129,34 +130,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.AdminTools">
-    <configuration default="false" name="MainWindow" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Python34\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Comp4" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MainWindow.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.MainWindow">
     <configuration default="false" name="configure" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -176,7 +157,7 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="MainWindow (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="MainWindow" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -191,7 +172,9 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program/MainWindow.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -355,20 +338,18 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.MainWindow" />
-      <item index="1" class="java.lang.String" itemvalue="Python.configure" />
-      <item index="2" class="java.lang.String" itemvalue="Python.MainWindow (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Python.AdminTools" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test" />
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Python.configure" />
+      <item index="1" class="java.lang.String" itemvalue="Python.MainWindow" />
+      <item index="2" class="java.lang.String" itemvalue="Python.AdminTools" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.AdminTools" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.MainWindow (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.MainWindow" />
-        <item index="4" class="java.lang.String" itemvalue="Python.configure" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.MainWindow" />
+        <item index="1" class="java.lang.String" itemvalue="Python.AdminTools" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.configure" />
       </list>
     </recent_temporary>
   </component>
@@ -383,29 +364,37 @@
       <option name="number" value="Default" />
       <updated>1424184546911</updated>
     </task>
+    <task id="LOCAL-00001" summary="Corrected format of values in the question class for making a rate of reaction question&#10;Fixed so admin can log in as a teacher.&#10;Fixed forms to say Admin Tools&#10;">
+      <created>1424724866631</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1424724866631</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="0" width="1378" height="780" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298193" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24907339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32831326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -423,6 +412,9 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Corrected format of values in the question class for making a rate of reaction question&#10;" />
+    <MESSAGE value="Corrected format of values in the question class for making a rate of reaction question&#10;Fixed so admin can log in as a teacher.&#10;Fixed forms to say Admin Tools&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected format of values in the question class for making a rate of reaction question&#10;Fixed so admin can log in as a teacher.&#10;Fixed forms to say Admin Tools&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -443,7 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="238">
           <caret line="7" column="53" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -458,25 +449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="580">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45531198" vertical-offset="597" max-vertical-offset="1190">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.55344826" vertical-offset="26824" max-vertical-offset="27404">
-          <caret line="1559" column="94" selection-start-line="1559" selection-start-column="94" selection-end-line="1559" selection-end-column="94" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -484,6 +456,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20067453" vertical-offset="0" max-vertical-offset="593">
           <caret line="7" column="53" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.076923" vertical-offset="25560" max-vertical-offset="27387">
+          <caret line="1522" column="74" selection-start-line="1522" selection-start-column="74" selection-end-line="1522" selection-end-column="74" />
+          <folding>
+            <element signature="e#21#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.79064" vertical-offset="204" max-vertical-offset="7769">
+          <caret line="417" column="12" selection-start-line="417" selection-start-column="12" selection-end-line="417" selection-end-column="12" />
           <folding />
         </state>
       </provider>
