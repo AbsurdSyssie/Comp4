@@ -1601,6 +1601,71 @@ def Round_To_n(x, n):
     return round(x, int(n - math.ceil(math.log10(abs(x)))))
 
 
+class EditStudents(QtGui.QDialog):
+    def __init__(self, values = None):
+        QtGui.QDialog.__init__(self)
+        self.setupUi(self)
+        
+    def setupUi(self, Form):
+        Form.setObjectName(_fromUtf8("Delete Students"))
+        Form.resize(769, 659)
+        self.verticalLayout = QtGui.QVBoxLayout(Form)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.treeWidget = QtGui.QTreeWidget(Form)
+        self.treeWidget.setObjectName(_fromUtf8("treeWidget"))
+        self.verticalLayout.addWidget(self.treeWidget)
+        self.Delete = QtGui.QPushButton(Form)
+        self.Delete.setObjectName(_fromUtf8("Delete"))
+        self.verticalLayout.addWidget(self.Delete)
+        self.Cancel = QtGui.QPushButton(Form)
+        self.Cancel.setObjectName(_fromUtf8("Cancel"))
+        self.verticalLayout.addWidget(self.Cancel)
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(_translate("Form", "Delete Student Accounts", None))
+        self.treeWidget.headerItem().setText(0, _translate("Form", "Student ID", None))
+        self.treeWidget.headerItem().setText(1, _translate("Form", "Name", None))
+        self.treeWidget.headerItem().setText(2, _translate("Form", "Username", None))
+        self.treeWidget.headerItem().setText(3, _translate("Form", "Password", None))
+        self.treeWidget.headerItem().setText(4, _translate("Form", "Form", None))
+        self.Delete.setText(_translate("Form", "Delete", None))
+        self.Cancel.setText(_translate("Form", "Cancel", None))
+        self.Delete.clicked.connect(self.delete)
+        self.Cancel.clicked.connect(self.close)
+        self.populateTree()
+
+    
+    def delete(self):
+        
+        thisID = self.treeWidget.currentItem().text(0)
+        print(thisID)
+        for people in students:
+            if str(people.studentid) == thisID:
+                students.remove(people)
+                print("removed", thisID)
+                with open('students.pickle', 'wb') as f:
+                    pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
+
+                
+        self.populateTree()
+    
+    def populateTree(self):
+        self.treeWidget.clear()
+        rowCount = -1
+        global students
+        for people in students:
+            rowCount += 1
+           
+            QtGui.QTreeWidgetItem(self.treeWidget)
+            self.treeWidget.topLevelItem(rowCount).setText(0, str(people.studentid))
+            self.treeWidget.topLevelItem(rowCount).setText(1, people.forename)
+            self.treeWidget.topLevelItem(rowCount).setText(2, people.username)
+            self.treeWidget.topLevelItem(rowCount).setText(3, people.password)
+            self.treeWidget.topLevelItem(rowCount).setText(4, people.form)
+            
 def convertTofloat(thing):
     try:
         thing = float(thing)
@@ -1632,11 +1697,10 @@ loadQuestions()
 loadQSet()
 loadStudents()
 loadTeachers()
-#username = "Teacher"
+username = "Teacher"
 
 app = QtGui.QApplication(sys.argv)
-#thisForm = Teacher_Main_Window()
-thisForm = LogInPage()
+thisForm = Teacher_Main_Window()
 thisForm.show()
 sys.exit(app.exec_())
 
