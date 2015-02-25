@@ -257,6 +257,7 @@ class MakeAdmin(QtGui.QDialog):
         self.Submit.setText(_translate("Dialog", "Submit", None))
         self.Cancel.setText(_translate("Dialog", "Cancel", None))
         self.Submit.clicked.connect(self.createAdmin)
+        self.Cancel.clicked.connect(self.close)
 
     def createAdmin(self):
         replace = False
