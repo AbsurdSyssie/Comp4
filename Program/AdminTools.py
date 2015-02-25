@@ -63,15 +63,17 @@ class AdminTools(QtGui.QDialog):
     
             
     def admincredentials(self):
-      
+        #launches MakeAdmin form
         thisForm = MakeAdmin()
         thisForm.exec_()
         
     
     def clearStudents(self):
         global students
+        #loads student pickle
         with open('students.pickle', 'rb') as s:
             students = pickle.load(s)
+        #checks if students.pickle is empty or not
         if students != []:
             self.areyousurestudents()
         else:
@@ -80,24 +82,37 @@ class AdminTools(QtGui.QDialog):
             # Pickle the 'data' dictionary using the highest protocol available.
                  pickle.dump(teachers, f, pickle.HIGHEST_PROTOCOL)    
     
+            reply = QtGui.QMessageBox()
+            reply.setText("students.pickle created.")
+            reply.setIcon(1)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
     
+            ret = reply.exec_() 
+            
     def clearTeachers(self):
-         global teachers
-         with open('teachers.pickle', 'rb') as t:
+        global teachers
+        with open('teachers.pickle', 'rb') as t:
             teachers = pickle.load(t)
-         if teachers != []:
+            #checks if teachers.pickle is empty or not
+        if teachers != []:
             self.areyousureteachers()
-         else:
+        else:
             teachers = []
             with open('teachers.pickle', 'wb') as f:
                 # Pickle the 'data' dictionary using the highest protocol available.
                 pickle.dump(teachers, f, pickle.HIGHEST_PROTOCOL)
     
+            reply = QtGui.QMessageBox()
+            reply.setText("teachers.pickle created.")
+            reply.setIcon(1)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
     
+            ret = reply.exec_()    
     def clearQuestions(self):
         global questions
         with open('questions.pickle', 'rb') as t:
             questions = pickle.load(t)
+            #checks if questions.pickle is empty or not
         if questions != []:
             self.areyousurequestions()
         else:
@@ -105,20 +120,32 @@ class AdminTools(QtGui.QDialog):
             with open('questions.pickle', 'wb') as f:
                 # Pickle the 'data' dictionary using the highest protocol available.
                 pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
+            reply = QtGui.QMessageBox()
+            reply.setText("questions.pickle created.")
+            reply.setIcon(1)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
     
+            ret = reply.exec_()    
     def clearQSets(self):
         global QSets
         with open('QSets.pickle', 'rb') as t:
             QSets = pickle.load(t)
         if QSets != []:
+            #checks if QSets.pickle is empty or not
             self.areyousureqsets()
         else:
             QSets = []
             with open('QSets.pickle', 'wb') as f:
                 # Pickle the 'data' dictionary using the highest protocol available.
                 pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)
+            reply = QtGui.QMessageBox()
+            reply.setText("QSets.pickle created.")
+            reply.setIcon(1)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
     
+            ret = reply.exec_()                
     def areyousureteachers(self):
+        #opens message box asking for confirmation
             reply = QtGui.QMessageBox.question(self, 'Message',
                 "Are you sure to clear teachers?\nThis will require a new Admin to be made.", QtGui.QMessageBox.Yes | 
                 QtGui.QMessageBox.No, QtGui.QMessageBox.No) 
@@ -129,8 +156,16 @@ class AdminTools(QtGui.QDialog):
                     # Pickle the 'data' dictionary using the highest protocol available.
                     pickle.dump(teachers, f, pickle.HIGHEST_PROTOCOL)                
                           #either allow the event to happen, or ignore it
-                   
+                reply = QtGui.QMessageBox()
+                reply.setText("teachers.pickle cleared.")
+                reply.setIcon(1)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        
+                ret = reply.exec_()
+                self.close()
+
     def areyousurestudents(self):
+        #opens message box asking for confirmation
                 reply = QtGui.QMessageBox.question(self, 'Message',
                     "Are you sure to clear students?", QtGui.QMessageBox.Yes | 
                     QtGui.QMessageBox.No, QtGui.QMessageBox.No) 
@@ -141,9 +176,15 @@ class AdminTools(QtGui.QDialog):
                         # Pickle the 'data' dictionary using the highest protocol available.
                         pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)                
                               #either allow the event to happen, or ignore it
-                
+                    reply = QtGui.QMessageBox()
+                    reply.setText("students.pickle cleared.")
+                    reply.setIcon(1)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+            
+                    ret = reply.exec_()                
                        
     def areyousurequestions(self):
+        #opens message box asking for confirmation
                 reply = QtGui.QMessageBox.question(self, 'Message',
                     "Are you sure to clear questions?", QtGui.QMessageBox.Yes | 
                     QtGui.QMessageBox.No, QtGui.QMessageBox.No) 
@@ -154,10 +195,16 @@ class AdminTools(QtGui.QDialog):
                         # Pickle the 'data' dictionary using the highest protocol available.
                         pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)                
                               #either allow the event to happen, or ignore it
-                
+                reply = QtGui.QMessageBox()
+                reply.setText("questions.pickle cleared.")
+                reply.setIcon(1)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        
+                ret = reply.exec_()
                        
     
     def areyousureqsets(self):
+        #opens message box asking for confirmation
                 reply = QtGui.QMessageBox.question(self, 'Message',
                     "Are you sure to clear Question Sets?", QtGui.QMessageBox.Yes | 
                     QtGui.QMessageBox.No, QtGui.QMessageBox.No) 
@@ -168,7 +215,12 @@ class AdminTools(QtGui.QDialog):
                         # Pickle the 'data' dictionary using the highest protocol available.
                         pickle.dump(QSets, f, pickle.HIGHEST_PROTOCOL)                
                               #either allow the event to happen, or ignore it
-                
+                reply = QtGui.QMessageBox()
+                reply.setText("QSets.pickle cleared.")
+                reply.setIcon(1)
+                reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+        
+                ret = reply.exec_()                
                       
 class MakeAdmin(QtGui.QDialog):
     def __init__(self):
@@ -207,20 +259,47 @@ class MakeAdmin(QtGui.QDialog):
         self.Submit.clicked.connect(self.createAdmin)
 
     def createAdmin(self):
+        replace = False
+        #checks if a password has been entered
+        if self.passbox.text() == "":
+            reply = QtGui.QMessageBox()
+            reply.setText("Please enter a password.")
+            reply.setIcon(3)
+            reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+    
+            ret = reply.exec_()
+        else:
             global teachers
             found = False
             with open('teachers.pickle', 'rb') as t:
-                teachers = pickle.load(t)        
+                teachers = pickle.load(t)      
+            #finds if an admin account exists
             for people in teachers:
+                # if admin exists, delete it and make a new one with the entered password
                 if people.username == "Admin":
                     print(people.username)
+                    print(people.password)
                     teachers.remove(people)
-            newAdmin = teacher("Admin", "A", self.passbox.text(), "Admin",
-                                 "Admin", "Admin", [])
-            teachers.append(newAdmin)
-            with open('teachers.pickle', 'wb') as t:
-                pickle.dump(teachers, t, pickle.HIGHEST_PROTOCOL)
-            self.Adminconfirmation()
+                    replace = True
+                    newAdmin = teacher("Admin", "A", self.passbox.text(), "Admin",
+                                         "Admin", "Admin", [])
+                    teachers.append(newAdmin)
+                    with open('teachers.pickle', 'wb') as t:
+                        pickle.dump(teachers, t, pickle.HIGHEST_PROTOCOL)
+                    
+                    self.Adminreplaced()
+            #if an admin doesn't exist then make a new one
+            if replace == False:    
+                newAdmin = teacher("Admin", "A", self.passbox.text(), "Admin",
+                                     "Admin", "Admin", [])
+                teachers.append(newAdmin)
+                with open('teachers.pickle', 'wb') as t:
+                    pickle.dump(teachers, t, pickle.HIGHEST_PROTOCOL)
+                                    
+                self.Adminconfirmation()
+                Admintools = AdminTools()
+                Admintools.exec_()
+
     
     def Adminconfirmation(self):
             reply = QtGui.QMessageBox()
@@ -232,7 +311,16 @@ class MakeAdmin(QtGui.QDialog):
             self.close()
 
 
+    def Adminreplaced(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("Admin Password Changed.")
+        reply.setIcon(0)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
+        ret = reply.exec_()
+        self.close()        
+        
+        
 class LogInPage(QtGui.QDialog):
     def __init__(self):
         QtGui.QDialog.__init__(self)
@@ -266,8 +354,8 @@ class LogInPage(QtGui.QDialog):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Admin Log In", "Admin Log In", None))
-
+        Form.setWindowTitle(_translate("Log In", "Log In", None))
+        
         self.label_2.setText(_translate("Form", "Enter Admin Password:", None))
         self.pushButton.setText(_translate("Form", "Log In", None))
         self.pushButton_2.setText(_translate("Form", "Cancel", None))
@@ -276,10 +364,10 @@ class LogInPage(QtGui.QDialog):
 
 
     def checkCredentials(self, Form):
-        global username
+        
 
         self.isAdmin = False
-        
+        #goes through teachers.pickle and checks if entered password is correct 
         for people in teachers:
             if people.username == "Admin" and self.PasswordBox.text() == people.password:
 
@@ -287,11 +375,12 @@ class LogInPage(QtGui.QDialog):
 
                 if people.account_type == "A":
                     self.close()
-                    
+                    #if the password is correct sets isAdmin to true
                     self.isAdmin = True
         if self.isAdmin == False:
             self.incorrectID()
         if self.isAdmin == True:
+            #opens admin tools page
             adminpage = AdminTools()
             adminpage.exec_()
     def incorrectID(self):
@@ -305,7 +394,7 @@ class LogInPage(QtGui.QDialog):
 
 
 
-
+#classes from main program
     
 class teacher():
        def __init__(self, username, account_type, password, forename, surname, middlename, pupils):
