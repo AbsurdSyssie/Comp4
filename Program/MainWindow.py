@@ -400,27 +400,36 @@ class createaccount(QtGui.QWidget):
         if (not self.studentCheck) and (not self.teacherCheck):
             self.fieldsNotComplete()
         if self.studentCheck.isChecked() == True:
+            for people in teachers:
+                if self.usernameBox.text() == people.username:
+                    self.usernameinuse()
+                    valid = False            
             for people in students:
                 if self.usernameBox.text() == people.username:
                     self.usernameinuse()
                     valid = False
-        if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
-            self.fieldsNotComplete()
-            valid = False
-        if valid == True:
-            self.create_new_Student()
-            self.close()
+            if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
+                self.fieldsNotComplete()
+                valid = False
+            if valid == True:
+                self.create_new_Student()
+                self.close()
+        
         if self.teacherCheck.isChecked() == True:
-            if self.studentCheck.isChecked() == True:
+            
                 for people in teachers:
                     if self.usernameBox.text() == people.username:
                         self.usernameinuse()
                         valid = False
-            if self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
-                self.fieldsNotComplete()
-                valid = False
-            if valid == True:
-                self.create_new_Teacher()
+                for people in students:
+                    if self.usernameBox.text() == people.username:
+                        self.usernameinuse()
+                        valid = False                    
+                if self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
+                            self.fieldsNotComplete()
+                            valid = False
+                if valid == True:
+                        self.create_new_Teacher()
 
     def usernameinuse(self):
         reply = QtGui.QMessageBox()
@@ -918,8 +927,27 @@ class AddQuestion(QtGui.QWidget):
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-
+                    
                     ret = reply.exec_()
+                    valid = False
+                if ThirdVal > 3:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Orders must be 1 or 2.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+
+                    ret = reply.exec_()                    
+                    valid = False
+                if FourthVal > 3:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Orders must be 1 or 2.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+
+                    ret = reply.exec_() 
+                    valid = False
                 try:
                         pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
 
@@ -930,6 +958,7 @@ class AddQuestion(QtGui.QWidget):
                         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
                         ret = reply.exec_()
+                        valid = False
 
             if text == "Hardy-Weinberg":
                 try:
@@ -1026,10 +1055,10 @@ class Question(object):
             self.k = self.rateOfReaction / self.intermediary
             correct = False
             window.label.setText(_translate("Form", "The conc of reactant A is " + str(
-                self.conc_of_A) + " moldm^-3. The conc of B is " + str(self.conc_of_B) + " moldm^-3\n"
-                                                                                         "The order of A is " + str(
-                self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
-                self.rateOfReaction), None))
+                "%.2E" % self.conc_of_A) + " moldm^-3. The conc of B is " + str("%.2E" %self.conc_of_B) + " moldm^-3\n"
+                                                                                "The order of A is " + str(
+                "%.2E" %self.order_of_A) + " and the order of B is " + str("%.2E"%self.order_of_B) + ". The rate of reaction is " + str(
+                "%.2E" %self.rateOfReaction), None))
     def HWwindow(self):
         window.label.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
                 self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
@@ -1091,15 +1120,15 @@ class Practice_K_Window(QtGui.QDialog):
 
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
-        self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig:", None))
+        self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig in standard form replacing the ^ sign with an E. Specify plus or minus and use always usetwo numbers after the sign: 5.67E+01", None))
         self.pushButton.setText(_translate("Form", "Submit", None))
         self.pushButton.clicked.connect(self.checkAnswer)
         self.thisQuestion.findK(self)
 
 
     def checkAnswer(self):
-        print('%.3G' % self.thisQuestion.k)
-        self.answer = ('%.3G' % self.thisQuestion.k)
+        print('%.2E' % self.thisQuestion.k)
+        self.answer = ('%.2E' % self.thisQuestion.k)
         self.wrongorright()
 
     def wrongorright(self):
@@ -1186,11 +1215,13 @@ class student():
     def questionAnswered(self, question):
         for q in self.questionstoanswer:
             print(q.ID)
-        self.questionstoanswer.remove(question)
-        self.answered.append(question)
-        with open('students.pickle', 'wb') as f:
+        try:
+            self.questionstoanswer.remove(question)
+            self.answered.append(question)
+        except:
+            with open('students.pickle', 'wb') as f:
             
-            pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)        
+                pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)        
 
 class hardy_weinberg(QtGui.QDialog):
     def __init__(self, thisQuestion= None):
@@ -1449,6 +1480,11 @@ def loadkQuestion():
     return y
 
 
+def format(number):
+    number = "%.2E"%number
+    return number
+    
+
 class LogInPage(QtGui.QDialog):
     def __init__(self):
         QtGui.QDialog.__init__(self)
@@ -1550,7 +1586,7 @@ def loadTeachers():
 
 def loadStudents():
     global students
-    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\students.pickle', 'rb') as s:
+    with open('students.pickle', 'rb') as s:
         students = pickle.load(s)
 
         for people in students:
@@ -1575,7 +1611,7 @@ def convertTofloat(thing):
 
 def loadQuestions():
     global questions
-    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\questions.pickle', 'rb') as q:
+    with open('questions.pickle', 'rb') as q:
         questions = []
         questions = pickle.load(q)
 
@@ -1583,7 +1619,7 @@ def loadQuestions():
 def loadQSet():
     global QSets
     QSets = []
-    with open('C:\\Users\Oscar\Documents\GitHub\Comp4\Program\QSets.pickle', 'rb') as q:
+    with open('QSets.pickle', 'rb') as q:
         QSets = pickle.load(q)
         for n in range(len(QSets) - 1):
             print(QSets[n + 1].name)
@@ -1596,10 +1632,11 @@ loadQuestions()
 loadQSet()
 loadStudents()
 loadTeachers()
-username = "Teacher"
+#username = "Teacher"
 
 app = QtGui.QApplication(sys.argv)
-thisForm = Teacher_Main_Window()
+#thisForm = Teacher_Main_Window()
+thisForm = LogInPage()
 thisForm.show()
 sys.exit(app.exec_())
 
