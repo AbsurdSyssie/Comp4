@@ -1065,8 +1065,8 @@ class Question(object):
                 self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
                 "%.2E" %self.rateOfReaction), None))
     def HWwindow(self):
-        window.label.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
-                self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+        window.label.setText(_translate("hardy_weinberg", "If " + str("%.2G"% self.q_sqrdaspop) + " out of " + str(
+                 self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
                 None))       
 
 
@@ -1262,8 +1262,8 @@ class hardy_weinberg(QtGui.QDialog):
             self.generate_H_W()
             
         if self.Question != None:
-            self.recessiveInpop = self.Question.values[0]
-            self.totalpop = self.Question.values[1]
+            self.recessiveInpop = self.Question.values[1]
+            self.totalpop = self.Question.values[0]
             self.calculateAnswer()
             self.updateForm(hardy_weinberg)
             
@@ -1274,8 +1274,8 @@ class hardy_weinberg(QtGui.QDialog):
                         people.questionAnswered(self.Question)
     def updateForm(self, hardy_weinberg):
         self.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
-        self.questions_text.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
-        self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+        self.questions_text.setText(_translate("hardy_weinberg", "If " + str( self.q_sqrdaspop) + " out of " + str(
+             self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
                                            None))
         self.SubmitAnswer.setText(_translate("hardy_weinberg", "Submit", None))
         self.SubmitAnswer.clicked.connect(self.checkAnswerpq)        
@@ -1585,9 +1585,15 @@ def loadTeachers():
     global teachers
     with open('teachers.pickle', 'rb') as t:
         teachers = pickle.load(t)
+    if teachers == []:
+        reply = QtGui.QMessageBox()
+        reply.setText("Please make an admin account using AdminTools.")
+        reply.setIcon(3)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
-        for people in teachers:
-            print(people.username, people.password)
+        ret = reply.exec_()
+        #for people in teachers:
+           # print(people.username, people.password)
 
 
 def loadStudents():
@@ -1595,10 +1601,10 @@ def loadStudents():
     with open('students.pickle', 'rb') as s:
         students = pickle.load(s)
 
-        for people in students:
+        #for people in students:
             # empty = []
             # people.questionstoanswer = empty
-            print(people.username, people.password, people.studentid, people.questionstoanswer)
+            #print(people.username, people.password, people.studentid, people.questionstoanswer)
             # with open('students.pickle', 'wb') as f:
             # pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
@@ -1692,8 +1698,8 @@ def loadQSet():
     QSets = []
     with open('QSets.pickle', 'rb') as q:
         QSets = pickle.load(q)
-        for n in range(len(QSets) - 1):
-            print(QSets[n + 1].name)
+        #for n in range(len(QSets) - 1):
+           # print(QSets[n + 1].name)
             # print(QSets)
 
             # print(QSets[1].QList[1].values)
@@ -1703,10 +1709,10 @@ loadQuestions()
 loadQSet()
 loadStudents()
 loadTeachers()
-username = "Teacher"
+
 
 app = QtGui.QApplication(sys.argv)
-thisForm = Teacher_Main_Window()
+thisForm = LogInPage()
 thisForm.show()
 sys.exit(app.exec_())
 
