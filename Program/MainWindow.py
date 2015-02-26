@@ -98,8 +98,13 @@ class Teacher_Main_Window(QtGui.QWidget):
         self.pushButton_2.clicked.connect(self.showNewq)
         self.pushButton_3.clicked.connect(self.showSetQuestions)
         self.pushButton_6.clicked.connect(self.makeQSet)
+        self.editAcc.clicked.connect(self.openEditStudents)
 
 
+
+    def openEditStudents(self):
+        editac = EditStudents()
+        editac.exec_()
     def makeQSet(self):
 
         myMakeQSet = MakeQSet(QSets)
@@ -923,7 +928,7 @@ class AddQuestion(QtGui.QWidget):
 
                 except:
                     reply = QtGui.QMessageBox()
-                    reply.setText("Orders must be integers.")
+                    reply.setText("Please enter numbers only.\nOrders must be integers.")
                     reply.setIcon(3)
                     reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
@@ -1057,7 +1062,7 @@ class Question(object):
             window.label.setText(_translate("Form", "The conc of reactant A is " + str(
                 "%.2E" % self.conc_of_A) + " moldm^-3. The conc of B is " + str("%.2E" %self.conc_of_B) + " moldm^-3\n"
                                                                                 "The order of A is " + str(
-                "%.2E" %self.order_of_A) + " and the order of B is " + str("%.2E"%self.order_of_B) + ". The rate of reaction is " + str(
+                self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
                 "%.2E" %self.rateOfReaction), None))
     def HWwindow(self):
         window.label.setText(_translate("hardy_weinberg", "If " + str(self.q_sqrdaspop) + " out of " + str(
@@ -1143,7 +1148,7 @@ class Practice_K_Window(QtGui.QDialog):
             if self.thisQuestion != None:
                 self.findStudent()              
         else:
-            try:
+
                 if str(self.lineEdit.text()) == str(self.answer+"0"):
                     
                         reply.setText("That is correct.")
@@ -1152,11 +1157,12 @@ class Practice_K_Window(QtGui.QDialog):
             
                         ret = reply.exec_()
                         self.close()
-            except:                                
-                    reply.setText("That is incorrect, try again.")
-                    reply.setIcon(3)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
-                    ret = reply.exec_()
+                else:
+                        reply.setText("That is incorrect, try again.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)  #
+                        ret = reply.exec_()
+
     def findStudent(self):
                     global username
                     for people in students:
@@ -1369,12 +1375,12 @@ class findKreaction():
     def walk_throughK(self):
         print("To calculate the rate constant, k, we must first multiply the concentrations of our reactants together."
               "However the concentrations must be raised to the power of their orders."
-              "The concentrations of A and B are", self.conc_of_A, "and", self.conc_of_B, "respectively."
+              "The concentrations of A and B are", str("%.2E" % self.conc_of_A), "and", str("%.2E" % self.conc_of_B), "respectively."
                                                                                           "The order of A is",
               self.order_of_A, "and the order of B is ", self.order_of_B, " .")
-        print("This means our intermediary value is ", self.intermediary, "."
+        print("This means our intermediary value is ", str("%.2E" % self.intermediary), "."
                                                                           "We then divide our rate of reaction by this number. The reate of reaction is",
-              self.rateOfReaction, ".")
+              str("%.2E" % self.rateOfReaction), ".")
         print("This equals", self.k)
         print("Next we must find the units of k \n")
         print("To find the units of k we must cancel the number of moles per dm cubed on both sides of the equation. "
@@ -1396,11 +1402,11 @@ class findKreaction():
         self.intermediary = pow(self.conc_of_A, self.order_of_A) * (pow(self.conc_of_B, self.order_of_B))
         self.k = self.rateOfReaction / self.intermediary
         correct = False
-        window.label.setText(_translate("Form", "The conc of reactant A is " + str(
-            self.conc_of_A) + " moldm^-3. The conc of B is " + str(self.conc_of_B) + " moldm^-3\n"
+        window.label.setText(_translate("Form", "The conc of reactant A is " + str("%.2E" %
+            self.conc_of_A) + " moldm^-3. The conc of B is " + str("%.2E" % self.conc_of_B) + " moldm^-3\n"
                                                                                      "The order of A is " + str(
             self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
-            self.rateOfReaction), None))
+           "%.2E" %  self.rateOfReaction) + "Find k of this reaction", None))
 
 
 
