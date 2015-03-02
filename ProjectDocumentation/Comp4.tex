@@ -6,6 +6,8 @@
 \usepackage{hhline}
 \usepackage{siunitx}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,chains}
 \makeatletter
 \newcommand\arraybslash{\let\\\@arraycr}
 \makeatother
@@ -16,9 +18,6 @@
 \author{Oscar Daniel}
 \date{Febuary 2015 }
 \begin{document}
-
-
-
 \maketitle
 \tableofcontents
 
@@ -93,9 +92,14 @@ Currently the only way for pupils’ scores from homework to be tracked is by th
 Pupils can only access a few problems that have been devised by teachers or examiners. These can also be hard for students to grasp, so a program which goes through these at the students’ personal pace would be of great use. Teachers also have no digitally stored questions that can be easily sent to students, they must hand out photocopies and these are always being lost. A computer system would allow work to be set easily, without risk of students losing their things, as well as teachers not losing score sheets.\bigskip
 
 From my feedback and interviews from my end users I have been able to select the appropriate calculations for the computer package to use, and also have a framework to try and emulate, to best please my end user.\\
-
-
+\subsection{Data Flow Diagrams}
+To give a better understanding of how data flows in the current and proposed systems, I produced a data flow diagram for each. They highlight the areas of concern already mentioned and show how a copmuter package would eliminate them.\\
+\includegraphics[scale = 0.55]{CurrentSystem}\\
+\emph{The current system}\\
+\includegraphics[scale=0.3]{NewSystem}\\
+\emph{The proposed system}
 \section{Feedback Reports}
+To get a better idea of exactly what type of system I should make, and what requirements that system would need to have, I asked my end users a few questions.
 \includegraphics{StudentQuestionnaire}
 \includegraphics{TeacherQuestionnaire}
 
@@ -191,7 +195,7 @@ String\\\hline
 Questions &
 Input manually &
 Question PICKLE File &
-Integer and String\\\hline
+Arrays of Integers and Strings\\\hline
 \end{supertabular}
 \end{flushleft}
 
@@ -257,7 +261,15 @@ Content
 \end{itemize}
 \end{itemize}
 \end{itemize}
-Etc.
+
+
+\emph{* = Teacher account only} \\
+\emph{\^{} = Student account only}
+
+\subsection{GUI Navigation}
+To make my program more user friendly, and useing user feedback, I decided that a graphical user interface would be more appropriate. These forms show general navigation of the program.\\
+\includegraphics{login}\\
+\emph{Log In Page}\\
 
 \section{Validation}
 

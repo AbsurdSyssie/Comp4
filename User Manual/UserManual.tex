@@ -1,10 +1,11 @@
 \documentclass{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+
 \title{User Manual}
 \author{Oscar Daniel}
 \date{February 2015}
- \graphicspath{ {Images/} }
+\graphicspath{ {C://Users/Oscar/Documents/GitHub/Comp4/ProjectDocumentation/images/} }
 \begin{document}
  
 \maketitle
@@ -39,7 +40,7 @@ The "Admin Tools.py" file will need to be placed in a file that you wish your us
 The modified "Teaching Aid.py" file will now need to be placed on every workstation, in a place where any user can access it.
 \section{Admin Tools}
 After installing the necessary programs, you will want to run the "Admin Tools.py" file. You then need to create an admin account by filling out the form and pressing submit.\\
-\inludegraphics{adminlogin}\\
+%\inludegraphics{adminlogin}\\
 \textbf{Important: }You should store these credentials somewhere secure as you will need them to access the Admin Tools again.\\
  Once you have done this you will need to run each of the "create / clear" routines for pickle files by clicking the buttons labelled such.\\
  
@@ -70,10 +71,14 @@ Teacher accounts have the ability to add questions to the question database, mak
 \section{Making Questions}
 To create new questions, click the "Add Questions" button on the teacher main window and this window should open:\\
 \includegraphics{MakeQ}\\
-To make a new question, select a question type from the drop down box at the top of the screen, enter in values into the boxes that appear and click submit.\\
-If this is done correctly a dialog box will open informing you such. If not, a dialog box will open, informing you of an error and allowing you to correct the mistake.\\
+To make a new question:\\
+\begin{enumerate}
+\item{Select a question type from the drop down box at the top of the screen.}
+ \item{Enter in values into the boxes that appear and click submit.}
+\end{enumerate}
+If this is done correctly a dialog box will open informing you such. If not, a dialog box will open, informing you of an error and allowing you to correct the mistake and resubmit the form.
+This stores the question in the questions.pickle file under an index number and the question type that was chosen.
 \section{Making Question Sets}
 \section{Setting Pupils Questions}
-\section{Reviewing Pupil Accounts}
-\section{Modifying  / Creating Accounts}
+\section{Deleting  / Creating Accounts}
 \end{document}

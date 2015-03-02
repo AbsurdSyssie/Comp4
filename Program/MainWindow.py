@@ -260,6 +260,9 @@ class SetQuestions(QtGui.QDialog):
                 AllItems.append(QSets[n + 1].name)
 
     def giveQuestions(self):
+        loadStudents()
+        loadQuestions()
+        loadQSet()
         if self.StudentBox.currentText() == "All":
             print("hi all")
             for people in students:
@@ -384,6 +387,7 @@ class createaccount(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
+
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label_8.setText(_translate("Form", "Create Account", None))
         self.teacherCheck.setText(_translate("Form", "Teacher", None))
@@ -401,22 +405,44 @@ class createaccount(QtGui.QWidget):
 
 
     def checktype(self):
+
+        self.forms = []
+        for people in students:
+
+            self.forms.append(people.form)
+            self.forms.append(people.form)
         valid = True
+        fields = True
         if (not self.studentCheck) and (not self.teacherCheck):
             self.fieldsNotComplete()
         if self.studentCheck.isChecked() == True:
             for people in teachers:
                 if self.usernameBox.text() == people.username:
                     self.usernameinuse()
-                    valid = False            
+                    valid = False
+                    forms = False
             for people in students:
                 if self.usernameBox.text() == people.username:
                     self.usernameinuse()
                     valid = False
+                    forms = False
             if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
                 self.fieldsNotComplete()
                 valid = False
-            if valid == True:
+                fields = False
+            if self.gradeBox.text() == "A" or self.gradeBox.text() == "B" or self.gradeBox.text() == "D" or self.gradeBox.text() == "E" or self.gradeBox.text()  == "F" or self.gradeBox.text() == "U":
+                print(self.gradeBox.text())
+            else:
+                self.gradewrong()
+                valid = False
+                forms = False
+
+            if self.formBox.text() not in self.forms:
+                self.formnew()
+
+                valid = self.isNew(valid)
+
+            if valid == True and fields == True:
                 self.create_new_Student()
                 self.close()
         
@@ -443,7 +469,13 @@ class createaccount(QtGui.QWidget):
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
         ret = reply.exec_()
+    def formnew(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("This form is new or entered incorrectly. If it should not be new try entering it in a different format.")
+        reply.setIcon(3)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
+        ret = reply.exec_()
     def fieldsNotComplete(self):
         reply = QtGui.QMessageBox()
         reply.setText("Some fields are not complete.")
@@ -451,8 +483,24 @@ class createaccount(QtGui.QWidget):
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
         ret = reply.exec_()
+    def gradewrong(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("Grade must be: A, B, C, D, E, F or U")
+        reply.setIcon(3)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
+        ret = reply.exec_()
+    def isNew(self, valid):
 
+        msg = "Are you sure you want to add this form?"
+        reply = QtGui.QMessageBox.question(self, 'Message',
+                         msg, QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+
+        if reply == QtGui.QMessageBox.Yes:
+           self.valid = True
+        else:
+            self.valid = False
+        return self.valid
     def create_new_Student(self):
 
         student_id = len(students) + 1
@@ -987,6 +1035,7 @@ class AddQuestion(QtGui.QWidget):
 
     def create(self):
         QID = len(questions) + 1
+        self.QID = QID
         values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),
                   convertTofloat(self.thirdValue.text()), convertTofloat(self.FourthValue.text()),
                   convertTofloat(self.FifthValue.text())]
@@ -1004,7 +1053,8 @@ class AddQuestion(QtGui.QWidget):
 
     def questionconfirmation(self):
         reply = QtGui.QMessageBox()
-        reply.setText("Question Added Successfully.")
+        reply.setText("Question Added Successfully.\n"
+                      " Stored as " + str(self.QID))
         reply.setIcon(0)
         reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
 
@@ -1125,7 +1175,7 @@ class Practice_K_Window(QtGui.QDialog):
 
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
-        self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig in standard form replacing the ^ sign with an E. Specify plus or minus and use always usetwo numbers after the sign: 5.67E+01", None))
+        self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig in standard form replacing the ^ sign with an E. Specify plus or minus and use always use two numbers after the sign: 5.67E+01", None))
         self.pushButton.setText(_translate("Form", "Submit", None))
         self.pushButton.clicked.connect(self.checkAnswer)
         self.thisQuestion.findK(self)
@@ -1406,7 +1456,7 @@ class findKreaction():
             self.conc_of_A) + " moldm^-3. The conc of B is " + str("%.2E" % self.conc_of_B) + " moldm^-3\n"
                                                                                      "The order of A is " + str(
             self.order_of_A) + " and the order of B is " + str(self.order_of_B) + ". The rate of reaction is " + str(
-           "%.2E" %  self.rateOfReaction) + "Find k of this reaction", None))
+           "%.2E" %  self.rateOfReaction) + " Find k of this reaction.", None))
 
 
 
