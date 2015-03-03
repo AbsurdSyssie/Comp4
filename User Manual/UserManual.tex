@@ -5,7 +5,7 @@
 \title{User Manual}
 \author{Oscar Daniel}
 \date{February 2015}
-\graphicspath{ {C://Users/Oscar/Documents/GitHub/Comp4/ProjectDocumentation/images/} }
+\graphicspath{ {images/} }
 \begin{document}
  
 \maketitle
@@ -22,10 +22,20 @@
 \chapter{Installation}
  All computers that will use the program need to have Pyton 3.4 and PyQT 4 installed on every machine that will run the program.\\
  Python 3.4 can be found here : https://www.python.org/downloads/\\
-\includegraphics{PythonDownload}\\
+\begin{figure}[h]
+\centering
+\includegraphics{PythonDownload}
+\caption{The python downloads page}
+\label{fig:pydownload}
+\end{figure}
  \clearpage
  PyQT 4 can be found here: http://www.riverbankcomputing.com/software/pyqt/download\\
- \includegraphics{PyQTDownload}\\
+\begin{figure}[h]
+\centering
+\includegraphics{PyQTDownload}
+\caption{The PyQT downloads page}
+\label{fig:PyQTdownload}
+\end{figure}
 Follow the installation wizards to complete the installations.
 Only Python version 3.4 and compatible versions of PyQT will work with this program code. Please ensure that you have installed valid distributions before continuing.\\
  
@@ -40,45 +50,130 @@ The "Admin Tools.py" file will need to be placed in a file that you wish your us
 The modified "Teaching Aid.py" file will now need to be placed on every workstation, in a place where any user can access it.
 \section{Admin Tools}
 After installing the necessary programs, you will want to run the "Admin Tools.py" file. You then need to create an admin account by filling out the form and pressing submit.\\
-%\inludegraphics{adminlogin}\\
+\bigskip
+\begin{figure}[h]
+\centering
+\includegraphics{createadmin}
+\caption{The create admin menu}
+\label{fig:createadmin}
+\end{figure}
+\bigskip
 \textbf{Important: }You should store these credentials somewhere secure as you will need them to access the Admin Tools again.\\
  Once you have done this you will need to run each of the "create / clear" routines for pickle files by clicking the buttons labelled such.\\
  
 \textbf{Warning: }If you do this after editing these files, any changes will be deleted.\\
-\includegraphics{AdminTools}\\
+\begin{figure}[h]
+\centering
+\includegraphics{AdminTools}
+\caption{Caption}
+\label{fig:admintools}
+\end{figure}
 \chapter{Adding New Users}
 Now that you have completed your first time setup, you will need to add all of your required user accounts. These steps can be done at any time using admin or credentials.\\
-To add new users to your program, you will need to open a "Teaching Aid.py" on a workstation which meets all pre-requisites and login with the Admin or a Teacher account:\\
+To add new users to your program, you will need to open a "Teaching Aid.py" on a workstation which meets all pre-requisites and login with the Admin or a Teacher account:
 
 \bigskip
-
-\includegraphics{adminlogin}\\
+\begin{figure}[h]
+\centering
+\includegraphics{adminlogin}
+\caption{The admin log in menu}
+\label{fig:adminlogin}
+\end{figure}
 \bigskip
 
 \bigskip
 Then click the "Add New Account" button on the main window:\\
 \bigskip
-\includegraphics{adminmain}\\
-\clearpage
+\begin{figure}[h]
+\centering
+\includegraphics{adminmain}
+\caption{Admin main menu}
+\label{fig:adminmain}
+\end{figure}
+
+
 From the create account window you are able to add new accounts to the "students.pickle" or "teachers.pickle" files.\\
 However you will not be allowed to use the same username multiple times, or have a Target Grade that is not a capital letter A - U inclusive. If these are entered a dialog box will open, informing you of the error and allowing you to correct the mistake.\\
-\includegraphics{addaccount}\\
+\begin{figure}[h]
+\centering
+\centerline{\includegraphics{addaccount}}
+\caption{The create account window}
+\label{fig:addaccount}
+\end{figure}
 
 \chapter{Teacher Accounts}
 Teacher accounts have the ability to add questions to the question database, make question sets which they can then set pupils to do, see students' progress and create / modify accounts. \\
-\includegraphics{teachermain}\\
-\emph{The Teacher Main Window}
+\begin{figure}[h]
+\centering
+\includegraphics{teachermain}
+\caption{The Teacher Main Window}
+\label{fig:teachermain}
+\end{figure}
+
+
 \section{Making Questions}
-To create new questions, click the "Add Questions" button on the teacher main window and this window should open:\\
-\includegraphics{MakeQ}\\
-To make a new question:\\
+To create new questions, click the "Add Questions" button on the teacher main window and this window should open:
+\begin{figure}[h]
+\centering
+\includegraphics{MakeQ}
+\caption{The plain Add Question Window}
+\label{fig:my_label}
+\end{figure}\\
+\bigskip
+To make a new question:
 \begin{enumerate}
 \item{Select a question type from the drop down box at the top of the screen.}
  \item{Enter in values into the boxes that appear and click submit.}
 \end{enumerate}
+\begin{figure}
+\centering
+\centerline{\includegraphics{MakeQ2}}
+\caption{Successfully made question}
+\label{fig:makeQ2}
+\end{figure}
+
+See figure \ref{fig:makeQ2}
+
 If this is done correctly a dialog box will open informing you such. If not, a dialog box will open, informing you of an error and allowing you to correct the mistake and resubmit the form.
 This stores the question in the questions.pickle file under an index number and the question type that was chosen.
 \section{Making Question Sets}
+To give pupils questions to attempt you will need to create Question Sets.
+
+\begin{figure}[h]
+\centering
+\centerline{\includegraphics{QSets1}}
+\caption{A blank question set}
+\label{fig:QSets1}
+\end{figure}
+
+\begin{enumerate}
+\item Click the Make QSet button on the teacher main window.
+\item Then select a question from the left hand list, then press the right arrow button to move it into the new question set.
+\item Enter in a name into the name box and click save.
+\item A dialog will come up telling you if a question set was created or if there was an error.
+\end{enumerate}
+\begin{figure}[h!]
+\centering
+\centerline{\includegraphics{QSets3}}
+\caption{A newly created Question Set}
+\label{fig:QSets2}
+\end{figure}
+
+
 \section{Setting Pupils Questions}
+In this program, pupils are given sets of questions to attempt at once. After you have made some questions and put them into a question set, you can give them to your students.
+\begin{figure}[h]
+\centering
+\includegraphics{SetQuestions}
+\caption{The plain set questions menu}
+\label{fig:plainsetquestions}
+\end{figure}
+\begin{enumerate}
+\item Click the Set Questions button on the teacher main menu.
+\item Choose a form from the top drop down box.
+\item Choose one student or all members of the form.
+\item Select a question set from the bottom drop down box and click submit
+\end{enumerate}
+No dialog will open.
 \section{Deleting  / Creating Accounts}
 \end{document}
