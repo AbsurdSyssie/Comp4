@@ -201,7 +201,7 @@ class SetQuestions(QtGui.QDialog):
 
     def retranslateUi(self, Form):
 
-        Form.setWindowTitle(_translate("Form", "Form", None))
+        Form.setWindowTitle(_translate("Form", "Set Questions", None))
 
         self.label.setText(_translate("Form", "Select Student:", None))
 
