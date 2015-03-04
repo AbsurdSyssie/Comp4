@@ -14,5 +14,7 @@
 \contentsline {section}{\numberline {2.3}Overall System Design}{16}{section.2.3}
 \contentsline {section}{\numberline {2.4}Record Structure}{16}{section.2.4}
 \contentsline {section}{\numberline {2.5}Data Transformation}{17}{section.2.5}
-\contentsline {section}{\numberline {2.6}Security and Integrity}{18}{section.2.6}
-\contentsline {section}{\numberline {2.7}Prototype}{19}{section.2.7}
+\contentsline {section}{\numberline {2.6}Security and Integrity}{21}{section.2.6}
+\contentsline {section}{\numberline {2.7}Prototype}{22}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Command Line Prototype Code}{22}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}GUI Prototype}{30}{subsection.2.7.2}

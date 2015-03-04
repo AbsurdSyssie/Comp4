@@ -485,43 +485,163 @@ with open('data.pickle', 'rb') as f:
 \begin{flushleft}
 \textbf{Hardy - Weinberg}
 
-To find the value of 2pq, the number of heterozygotes, we must find q and p. We are given a means of finding q\^{}2 in the question:
+Uses the Hardy-Weinberg equation to find 2pq. Two variations of the class are used. One makes random numbers and one uses values from a question class. 
 \end{flushleft}
-\ recessiveInpop = ((totalpop * percentageReccessive) / 100) \ \# unrounded. Makes a percentage of the population have recessive alleles.
+\textbf{Pseudocode 1}
+\begin{verbatim}
+    FUNCTION calculateAnswer(self):
+        totalpop <-  totalpop
+        recessiveInpop <-  recessiveInpop
+        q_sqrdaspop <- Round_To_n(recessiveInpop, 1)  # now rounded
+        qsqrd <- Round_To_n(q_sqrdaspop / totalpop, 2) 
+        # Finds q squared as a decimal.
+        OUTPUT "recessives", q_sqrdaspop
+        OUTPUT "qsqrd", qsqrd
+        q <- Round_To_n(math.sqrt(qsqrd), 2) 
+        # finds the number of reccessive alleles
+        p <- Round_To_n(1 - q, 3) #finds the number of dominant alleles
+        psqrd <- Round_To_n(p * p, 3) #finds the number of homozygous dominant
+        OUTPUT "psqrd", psqrd
+        pq <- Round_To_n(p * q, 3) # finds heterozygotes
+    ENDFUNCTION
+\end{verbatim}
+\textbf{Pseudocode 2}
+\begin{verbatim}
+    FUNCTION generate_H_W(self):
+         totalpop <- random.randint(10,1000)
+        IF  totalpop % 2 = 0:
+             percentageReccessive <- random.randrange(0, 99, 2)
+        ELSE:
+             percentageReccessive <- random.randrange(1, 99, 2)
+        ENDIF
+         calculateAnswerfromRand()
+         updateForm(hardy_weinberg)
+    ENDFUNCTION
 
-\ \ \ \ \ \ \ \ q\_sqrdaspop = Round\_To\_n(recessiveInpop, 1) \ \# now rounded
+    FUNCTION calculateAnswerfromRand(self):        
+        percentageReccessive <-  percentageReccessive
+        totalpop <-  totalpop
+        recessiveInpop <- ((totalpop * percentageReccessive) / 100)  
+        #unrounded.Makes a percentage of the population have recessive alleles. 
+        q_sqrdaspop <- Round_To_n(recessiveInpop, 1)  # now rounded
+        qsqrd <- Round_To_n(q_sqrdaspop / totalpop, 3) 
+        # Finds q squared as a decimal.
+        OUTPUT "recessives", q_sqrdaspop
+        OUTPUT "qsqrd", qsqrd
+        q <- Round_To_n(math.sqrt(qsqrd), 3) 
+        #finds the number of reccessive alleles
+        p <- Round_To_n(1 - q, 3) 
+        #finds the number of dominant alleles
+        psqrd <- Round_To_n(p * p, 3) 
+        #finds the number of homozygous dominant
+        OUTPUT "psqrd", psqrd
+        pq <- Round_To_n(p * q, 3) # finds heterozygotes
+    ENDFUNCTION
+\end{verbatim}
+\textbf{Python Code 1}
+\begin{verbatim}
+def calculateanswer(self)
+ recessiveInpop = ((totalpop * percentageReccessive) / 100) 
+ # unrounded.Makes a percentage of the population have recessive alleles.
 
-\ \ \ \ \ \ \ \ qsqrd = Round\_To\_n(q\_sqrdaspop / totalpop, 3) \# Finds q squared as a decimal.
+ q_sqrdaspop = Round_To_n(recessiveInpop, 1) # now rounded
 
-\ \ \ \ \ \ \ \ q = Round\_To\_n(math.sqrt(qsqrd), 3) \# finds the number of reccessive alleles and rounds
+ qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
 
-\ \ \ \ \ \ \ \ p = Round\_To\_n(1 - q, 3) \#finds the number of dominant alleles and rounds
+ q = Round_To_n(math.sqrt(qsqrd), 3) 
+ # finds the number of reccessive alleles and rounds
 
-\ \ \ \ \ \ \ \ psqrd = Round\_To\_n(p * p, 3) \#finds the number of homozygous dominant
+ p = Round_To_n(1 - q, 3)#finds the number of dominant alleles and rounds
 
-\ \ \ \ \ \ \ \ pq = Round\_To\_n(p * q, 3) \# finds heterozygotes\\
+ psqrd = Round_To_n(p * p, 3)#finds the number of homozygous dominant
+
+ pq = Round_To_n(p * q, 3) # finds heterozygotes
+\end{verbatim}
+\textbf{Python Code 2}
+\begin{verbatim}
+def generate_H_W(self):
+
+        
+        self.totalpop = random.randint(10,1000)
+        if self.totalpop % 2 == 0:
+            self.percentageReccessive = random.randrange(0, 99, 2)
+        else:
+            self.percentageReccessive = random.randrange(1, 99, 2)
+        self.calculateAnswerfromRand()
+        self.updateForm(hardy_weinberg)
+        
+    def calculateAnswerfromRand(self):        
+        percentageReccessive = self.percentageReccessive
+        totalpop = self.totalpop
+        recessiveInpop = ((totalpop * 
+        percentageReccessive) / 100)  # unrounded. 
+        Makes a percentage of the population have
+        recessive alleles. 
+        q_sqrdaspop = Round_To_n(recessiveInpop, 1)
+        #now rounded
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) 
+        #Finds q squared as a decimal.
+        print("recessives", q_sqrdaspop)
+        print("qsqrd", qsqrd)
+        q = Round_To_n(math.sqrt(qsqrd), 3) 
+        #finds the number of reccessive alleles
+        p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
+        psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
+        print("psqrd", psqrd)
+        pq = Round_To_n(p * q, 3) # finds heterozygotes
+        print("p", p, "q", q)
+
+        print("2pq", pq * 2)
+        
+\end{verbatim}
 \begin{flushleft}
 
 \textbf{Find k}
 
-To find the rate constant k, we take the values the student has been given, place them in the reaction class and send those variables to a function that solves the equation. Then format the answer correctly.
+Takes values sent by random generation or from a question and finds the answer. It then will update the question form.
 \end{flushleft}
-
+\textbf{Psuedocode}
 \begin{verbatim}
-
-
-def rateEquation(myReaction):
-
-intermediary = (pow(myReaction.conc\_of\_A,
- myReaction.order\_of\_A)* 
- (pow(myReaction.conc\_of\_B, myReaction.order\_of\_B)))
-
-myReaction.rateOfReeac intermediary
+ FUNCTION findK(self, window):
+            QtGui.QApplication.processEvents()
+            n <- 0
+            intermediary <- pow( conc_of_A,
+            order_of_A) * (pow( conc_of_B,
+            order_of_B))
+             k <-  rateOfReaction /  intermediary
+            correct <- False
+            window.label.setText(_translate("Form", "The conc of reactant A is" 
+            + str("%.2E" %  conc_of_A) + 
+            " moldm^-3. The conc of B is " + str("%.2E" % 
+            conc_of_B) + " moldm^-3\n"
+            "The order of A is " + str(
+            order_of_A) + " AND the order of B is "
+            + str( order_of_B) + ". The rate of 
+            reaction is " + str("%.2E" % rateOfReaction), None))
+ ENDFUNCTION
 \end{verbatim}
-\ \ \ \ print((format\_e(myReaction.k)))
+\textbf{Python Code}
+\begin{verbatim}
+ def findK(self, window):
 
-
-\ \ \ \ return float(myReaction.noOfMoles)
+        QtGui.QApplication.processEvents()
+        n = 0
+        self.intermediary = pow(self.conc_of_A,
+        self.order_of_A) * (pow(self.conc_of_B, 
+        self.order_of_B))
+        self.k = self.rateOfReaction/self.intermediary
+        correct = False
+        window.label.setText(_translate
+        ("Form", "The conc of reactant A is " + str("%.2E" %
+        self.conc_of_A) + 
+        " moldm^-3. The conc of B is " 
+        + str("%.2E" % self.conc_of_B) + "moldm^-3\n" 
+        "The order of A is " + str(
+        self.order_of_A) + " and the order of B is "
+        + str(self.order_of_B) + ". The rate of reaction is " + str("%.2E" % 
+        self.rateOfReaction) + " Find k of this
+        reaction.", None))
+\end{verbatim}
 
 
 \bigskip
@@ -553,8 +673,10 @@ As Python is an interpreted language, students could in theory open it as a text
 
 \bigskip
 
-I showed my end user an initial skeleton program that I had created. I responded to their requests and added a function to give the user an option to immediately have another question also, when their answer is incorrect then they are told it was incorrect and are asked to try again. With further testing I thought the user should be able to have the program to take them through the problem, as it is only a practice.\\
-\textbf{Command Line Prototype Code}
+I showed my end user an initial skeleton program that I had created. I responded to their requests and added a function to give the user an option to immediately have another question also, when their answer is incorrect then they are told it was incorrect and are asked to try again. With further testing I thought the user should be able to have the program to take them through the problem, as it is only a practice.
+
+\subsection{Command Line Prototype Code}
+
 \begin{verbatim}
 
 author = 'Oscar'
@@ -756,16 +878,27 @@ This generates the numbers for the equation, creates a class using them, then re
 \par
 After consulting my end user again, and by using their request of something “MyMaths”-esque, I have implemented a GUI into my design using PyQt, which is event driven. This improves the ease of use of the program and also makes it more user friendly for people who do not use command line regularly.
 
-\textbf{GUI Prototype}\\
+\subsection{GUI Prototype}
 To prototype the GUI I hand drew some of my windows and annotated functions:
 \end{flushleft}
+\begin{figure}
+\centering
+\includegraphics{MainMenuOld}
+\caption{Early teacher main menu}
+\end{figure}
 
-\includegraphics{MainMenuOld}\label{Old Main Menu}\\
-\emph{Early teacher main menu}\\
 \bigskip
 I have also made a form window for the input of new users to the system. This window sends its' variables to a function which adds the new student and repickles the list. This function is only available to teacher accounts. They can also create new teacher accounts in a similar manner.
+\begin{figure}
+\centering
 \includegraphics{CreateStudent}\\
-\emph{The initial create student window}\\
-\includegraphics{CreateStudent2}\\
-\emph{An account being created}\\
+\caption{The initial create student window}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{CreateStudent2}
+\caption{An account being created}
+\end{figure}
+
+
 \end{document}
