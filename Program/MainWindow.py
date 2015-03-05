@@ -201,7 +201,7 @@ class SetQuestions(QtGui.QDialog):
 
     def retranslateUi(self, Form):
 
-        Form.setWindowTitle(_translate("Form", "Set Questions", None))
+        Form.setWindowTitle(_translate("Form", "Form", None))
 
         self.label.setText(_translate("Form", "Select Student:", None))
 
@@ -210,7 +210,7 @@ class SetQuestions(QtGui.QDialog):
         self.label_2.setText(_translate("Form", "Select Question Set:", None))
 
         self.SubmitButton.setText(_translate("Form", "Submit", None))
-        self.populateQSets
+        
         self.FormBox.activated[str].connect(self.populatepupils)
         self.populateforms()
         self.populateQSets()
@@ -245,6 +245,7 @@ class SetQuestions(QtGui.QDialog):
         if text != "":
             self.StudentBox.clear()
             self.StudentBox.addItem("All")
+            loadStudents()
             for people in students:
                 if people.form == text:
                     self.StudentBox.addItem(people.username)
@@ -254,34 +255,35 @@ class SetQuestions(QtGui.QDialog):
     
     def populateQSets(self):
         AllItems = []
-        for n in range(len(QSets) - 1):
-            if not QSets[n + 1].name in AllItems:
-                self.QuestionSetBox.addItem(QSets[n + 1].name)
-                AllItems.append(QSets[n + 1].name)
+        loadQSet()
+        for n in range(len(QSets)):
+            if not QSets[n].name in AllItems:
+                self.QuestionSetBox.addItem(QSets[n].name)
+                AllItems.append(QSets[n].name)
 
     def giveQuestions(self):
         loadStudents()
         loadQuestions()
         loadQSet()
         if self.StudentBox.currentText() == "All":
-            print("hi all")
+            
             for people in students:
                 if people.form == self.FormBox.currentText():
-                    print("hi again")
+                    
  
                     for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
                         if question not in people.questionstoanswer:
                             people.questionstoanswer.append(question)
-                            print("Adding")
+                            
                         with open('students.pickle', 'wb') as f:
                             pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
         else:
 
             for people in students:
                 if people.username == self.StudentBox.currentText():
-                    print("hi")
+                    
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
-                        print("Adding")
+                        
                         for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
                             
                             people.questionstoanswer.append(question)
@@ -771,8 +773,7 @@ class MakeQSet(QtGui.QDialog):
             thisIndex = item.row()
             self.newList.pop(thisIndex)
             self.listWidget.takeItem(thisIndex)
-        print("NewList now contains:")
-        printQList(self.newList)
+
 
     def makeNewSet(self):
         if self.listWidget.count() != 0:
@@ -822,8 +823,7 @@ class MakeQSet(QtGui.QDialog):
             if not self.shownList[thisIndex] in self.newList:
                 self.newList.append(self.shownList[thisIndex])
                 self.listWidget.addItem(self.listWidget1.item(thisIndex).text())
-        print("NewList now contains:")
-        printQList(self.newList)
+       
 
     def populateQuestions(self, questions):
         shownList = []
@@ -833,9 +833,7 @@ class MakeQSet(QtGui.QDialog):
         return shownList
 
 
-def printQList(qlist):
-    for q in qlist:
-        print(q.ID, " ", q.question_type)
+
 
 
 class AddQuestion(QtGui.QWidget):
@@ -956,7 +954,7 @@ class AddQuestion(QtGui.QWidget):
             self.FourthValue.setVisible(True)
             self.label_5.setText(_translate("Form", " ", None))
             self.FifthValue.setVisible(False)
-        print(self.questiontype)
+        
 
     def validate(self, text):
         if self.clickedit == False or self.questiontype == "":
@@ -1039,17 +1037,13 @@ class AddQuestion(QtGui.QWidget):
         values = [convertTofloat(self.firstValue.text()), convertTofloat(self.secondValue.text()),
                   convertTofloat(self.thirdValue.text()), convertTofloat(self.FourthValue.text()),
                   convertTofloat(self.FifthValue.text())]
-        print("Making A Question with", QID, self.questiontype, values)
+        
         newQuestion = Question(QID, self.questiontype, values)
         questions.append(newQuestion)
         with open('questions.pickle', 'wb') as f:
             pickle.dump(questions, f, pickle.HIGHEST_PROTOCOL)
         self.questionconfirmation()
-        for question in questions:
-            try:
-                print(question.ID, question.values)
-            except:
-                print("Nope")
+
 
     def questionconfirmation(self):
         reply = QtGui.QMessageBox()
@@ -1082,7 +1076,7 @@ class Question(object):
     def __init__(self, ID, questiontype, values):
         self.question_type = questiontype
         self.ID = ID
-        print("storing", self.ID)
+        
         self.values = values
         if self.question_type == "Rate Constant":
             self.kQuestion()
@@ -1182,7 +1176,7 @@ class Practice_K_Window(QtGui.QDialog):
 
 
     def checkAnswer(self):
-        print('%.2E' % self.thisQuestion.k)
+        
         self.answer = ('%.2E' % self.thisQuestion.k)
         self.wrongorright()
 
@@ -1238,7 +1232,7 @@ class student():
     def percentage(self):
         self.percentage = int((len(self.answeredcorrectly) / len(self.answered)) * 100)
 
-        print(self.percentage)
+        
         return self.percentage
     
     
@@ -1262,15 +1256,14 @@ class student():
         if self.targetgrade == "U":
             targetpercentage == 0
 
-        print(targetpercentage)
+        
         if x > targetpercentage:
             isOntarget = True
         else:
             isOntarget = False
 
     def questionAnswered(self, question):
-        for q in self.questionstoanswer:
-            print(q.ID)
+
         try:
             self.questionstoanswer.remove(question)
             self.answered.append(question)
@@ -1346,17 +1339,12 @@ class hardy_weinberg(QtGui.QDialog):
         recessiveInpop = ((totalpop * percentageReccessive) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
         q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
         qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
-        print("recessives", q_sqrdaspop)
-        print("qsqrd", qsqrd)
+        
         q = Round_To_n(math.sqrt(qsqrd), 3) # finds the number of reccessive alleles
         p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
         psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
-        print("psqrd", psqrd)
-        pq = Round_To_n(p * q, 3) # finds heterozygotes
-        print("p", p, "q", q)
-
-        print("2pq", pq * 2)
         
+        pq = Round_To_n(p * q, 3) # finds heterozygotes
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
         self.psqrd = psqrd
@@ -1368,16 +1356,10 @@ class hardy_weinberg(QtGui.QDialog):
         recessiveInpop = self.recessiveInpop
         q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
         qsqrd = Round_To_n(q_sqrdaspop / totalpop, 2) # Finds q squared as a decimal.
-        print("recessives", q_sqrdaspop)
-        print("qsqrd", qsqrd)
         q = Round_To_n(math.sqrt(qsqrd), 2) # finds the number of reccessive alleles
         p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
         psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
-        print("psqrd", psqrd)
         pq = Round_To_n(p * q, 3) # finds heterozygotes
-        print("p", p, "q", q)
-
-        print("2pq", pq * 2)
         
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
