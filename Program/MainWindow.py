@@ -1651,7 +1651,7 @@ class EditStudents(QtGui.QDialog):
         self.setupUi(self)
         
     def setupUi(self, Form):
-        Form.setObjectName(_fromUtf8("Delete Students"))
+        Form.setObjectName(_fromUtf8("Edit / See Students"))
         Form.resize(769, 659)
         self.verticalLayout = QtGui.QVBoxLayout(Form)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
@@ -1669,7 +1669,7 @@ class EditStudents(QtGui.QDialog):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Delete Student Accounts", None))
+        Form.setWindowTitle(_translate("Form", "See Student Accounts", None))
         self.treeWidget.headerItem().setText(0, _translate("Form", "Student ID", None))
         self.treeWidget.headerItem().setText(1, _translate("Form", "Name", None))
         self.treeWidget.headerItem().setText(2, _translate("Form", "Username", None))
@@ -1693,9 +1693,15 @@ class EditStudents(QtGui.QDialog):
                 with open('students.pickle', 'wb') as f:
                     pickle.dump(students, f, pickle.HIGHEST_PROTOCOL)
 
-                
+        self.deleteconfirmation()        
         self.populateTree()
-    
+    def deleteconfirmation(self):
+        reply = QtGui.QMessageBox()
+        reply.setText("Account Deleted Successfully")
+        reply.setIcon(1)
+        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+        ret = reply.exec_()
     def populateTree(self):
         self.treeWidget.clear()
         rowCount = -1
