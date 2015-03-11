@@ -1320,7 +1320,7 @@ class hardy_weinberg(QtGui.QDialog):
     def updateForm(self, hardy_weinberg):
         self.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
         self.questions_text.setText(_translate("hardy_weinberg", "If " + str( self.q_sqrdaspop) + " out of " + str(
-             self.totalpop) + " individuals in a population express the recessive phenotype, what of the population would you predict would be heterozygotes? ",
+             self.totalpop) + " individuals in a population express the recessive phenotype, what proportion of the population would you predict would be heterozygotes? ",
                                            None))
         self.SubmitAnswer.setText(_translate("hardy_weinberg", "Submit", None))
         self.SubmitAnswer.clicked.connect(self.checkAnswerpq)        
@@ -1364,9 +1364,9 @@ class hardy_weinberg(QtGui.QDialog):
         q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
         qsqrd = Round_To_n(q_sqrdaspop / totalpop, 2) # Finds q squared as a decimal.
         q = Round_To_n(math.sqrt(qsqrd), 2) # finds the number of reccessive alleles
-        p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
-        psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
-        pq = Round_To_n(p * q, 3) # finds heterozygotes
+        p = Round_To_n(1 - q, 2) #finds the number of dominant alleles
+        psqrd = Round_To_n(p * p, 2) #finds the number of homozygous dominant
+        pq = Round_To_n(p * q, 2) # finds heterozygotes
         
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
@@ -1429,39 +1429,6 @@ class findKreaction():
            "%.2E" %  self.rateOfReaction) + " Find k of this reaction.", None))
 
 
-
-
-
-        # while correct == False:
-        # k = self.k
-        #k = ("%.3G" % (k))
-
-
-        #studentAnswer = input("Enter in your value of k to 3 sig fig: ")
-        #if studentAnswer == k:
-        #correct = True
-        #print("Well done, that was correct!")
-        #another = input("Would you like to try again? y/n")
-        #if another == "y":
-        #print("  ")
-        #loadQuestion()
-        #if another == "n":
-        #print("Goodbye!")
-        #if studentAnswer != k:
-        #n += 1
-        #print("Sorry that's not right, try again.")
-        #if n > 2:
-        #walkthrough = input("Would you like a walk-through? y/n")
-        #if walkthrough == "y":
-        #print("  ")
-        #findKreaction.walk_throughK(self)
-
-
-
-
-            # def getRateOfReaction(self):
-            # rateOfReaction = self.k*(pow(10,self.rateExponent))
-            # return rateOfReaction
 
 
 def generateK():
@@ -1619,7 +1586,7 @@ def loadStudents():
 
 
 def Round_To_n(x, n):
-    print(x, n)
+    
     return round(x, int(n - math.ceil(math.log10(abs(x)))))
 
 
