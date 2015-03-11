@@ -546,35 +546,42 @@ class Student_Main_Window(QtGui.QWidget):
         QtGui.QWidget.__init__(self)
         self.setupUi(self)
 
+    
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(400, 300)
-        self.pushButton = QtGui.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(150, 90, 91, 23))
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.pushButton_2 = QtGui.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(150, 130, 91, 23))
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.pushButton_3 = QtGui.QPushButton(Form)
-        self.pushButton_3.setGeometry(QtCore.QRect(150, 170, 91, 23))
-        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
-        self.pushButton_4 = QtGui.QPushButton(Form)
-        self.pushButton_4.setGeometry(QtCore.QRect(294, 20, 91, 23))
-        self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout(Form)
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+        self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.practise = QtGui.QPushButton(Form)
+        self.practise.setObjectName(_fromUtf8("practise"))
+        self.verticalLayout.addWidget(self.practise)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.attempt = QtGui.QPushButton(Form)
+        self.attempt.setObjectName(_fromUtf8("attempt"))
+        self.verticalLayout.addWidget(self.attempt)
+        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.logout = QtGui.QPushButton(Form)
+        self.logout.setObjectName(_fromUtf8("logout"))
+        self.verticalLayout.addWidget(self.logout)
+        self.verticalLayout_2.addLayout(self.verticalLayout)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+    
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
-        self.pushButton.setText(_translate("Form", "Practice Q", None))
-        self.pushButton_2.setText(_translate("Form", "See Set Work", None))
-        self.pushButton_3.setText(_translate("Form", "Solve Questions", None))
-        self.pushButton_4.setText(_translate("Form", "Log Out", None))
-        self.pushButton.clicked.connect(self.launchPracticeQwindow)
-        self.pushButton_4.clicked.connect(self.close)
-        self.pushButton_4.clicked.connect(self.showLoginPage)
-        self.pushButton_2.clicked.connect(self.showsetwork)
+        self.practise.setText(_translate("Form", "Practise Questions", None))
+        self.attempt.setText(_translate("Form", "Attempt Set Work", None))
+        self.logout.setText(_translate("Form", "Log Out", None))
+        self.practise.clicked.connect(self.launchPracticeQwindow)
+        self.logout.clicked.connect(self.close)
+        self.logout.clicked.connect(self.showLoginPage)
+        self.attempt.clicked.connect(self.showsetwork)
     def showsetwork(self):
         global workPage
         workPage = WorkList()
@@ -984,8 +991,15 @@ class AddQuestion(QtGui.QWidget):
                     ret = reply.exec_()
                     valid = False
                     
+                if ThirdVal > 3:
+                    reply = QtGui.QMessageBox()
+                    reply.setText("Please enter an order of 1 or 2.")
+                    reply.setIcon(3)
+                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
                     
-                    
+                    ret = reply.exec_()                    
+                    valid = False
 
                 try:
                         pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
@@ -1002,8 +1016,8 @@ class AddQuestion(QtGui.QWidget):
             if text == "Hardy-Weinberg":
                 try:
 
-                    FirstVal = float(self.firstValue.text())
-                    SecondVal = float(self.secondValue.text())
+                    FirstVal = int(self.firstValue.text())
+                    SecondVal = int(self.secondValue.text())
                     if SecondVal > FirstVal:
                         reply = QtGui.QMessageBox()
                         reply.setText("First Value must be larger than Second Value.")
@@ -1306,7 +1320,7 @@ class hardy_weinberg(QtGui.QDialog):
     def updateForm(self, hardy_weinberg):
         self.setWindowTitle(_translate("hardy_weinberg", "hardy_weinberg", None))
         self.questions_text.setText(_translate("hardy_weinberg", "If " + str( self.q_sqrdaspop) + " out of " + str(
-             self.totalpop) + " individuals in a population express the recessive phenotype, what percent of the population would you predict would be heterozygotes? ",
+             self.totalpop) + " individuals in a population express the recessive phenotype, what of the population would you predict would be heterozygotes? ",
                                            None))
         self.SubmitAnswer.setText(_translate("hardy_weinberg", "Submit", None))
         self.SubmitAnswer.clicked.connect(self.checkAnswerpq)        
@@ -1327,21 +1341,23 @@ class hardy_weinberg(QtGui.QDialog):
         recessiveInpop = ((totalpop * percentageReccessive) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
         
         q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
-        print("Not q_sqrdaspop")
-        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
-        print("Not qsqrd")
-        q = Round_To_n(math.sqrt(qsqrd), 3) # finds the number of reccessive alleles
-        p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
-        psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
-        print("not psqrd")
-        pq = Round_To_n(p * q, 3) # finds heterozygotes
-        print("not pq")
+      
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 2) # Finds q squared as a decimal.
+        
+        q = Round_To_n(math.sqrt(qsqrd), 2) # finds the number of reccessive alleles
+        p = Round_To_n(1 - q, 2) #finds the number of dominant alleles
+        psqrd = Round_To_n(p * p, 2) #finds the number of homozygous dominant
+        
+        pq = Round_To_n(p * q, 2) # finds heterozygotes
+     
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
         self.psqrd = psqrd
         self.q = q
         self.p = p
         self.pq = pq
+
+        
     def calculateAnswer(self):
         totalpop = self.totalpop
         recessiveInpop = self.recessiveInpop
