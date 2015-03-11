@@ -414,7 +414,7 @@ class createaccount(QtGui.QWidget):
             self.forms.append(people.form)
             self.forms.append(people.form)
         valid = True
-        fields = True
+        forms = True
         if (not self.studentCheck) and (not self.teacherCheck):
             self.fieldsNotComplete()
         if self.studentCheck.isChecked() == True:
@@ -431,7 +431,7 @@ class createaccount(QtGui.QWidget):
             if self.gradeBox.text() == "" or self.formBox.text() == "" or self.surnameBox.text() == "" or self.forenameBox.text() == "" or self.passwordBox.text() == "" or self.usernameBox.text() == "":
                 self.fieldsNotComplete()
                 valid = False
-                fields = False
+                forms = False
             if self.gradeBox.text() == "A" or self.gradeBox.text() == "B" or self.gradeBox.text() == "D" or self.gradeBox.text() == "E" or self.gradeBox.text()  == "F" or self.gradeBox.text() == "U":
                 print(self.gradeBox.text())
             else:
@@ -444,7 +444,7 @@ class createaccount(QtGui.QWidget):
 
                 valid = self.isNew(valid)
 
-            if valid == True and fields == True:
+            if valid == True and forms == True:
                 self.create_new_Student()
                 self.close()
         
