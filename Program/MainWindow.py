@@ -271,7 +271,7 @@ class SetQuestions(QtGui.QDialog):
                 if people.form == self.FormBox.currentText():
                     
  
-                    for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
+                    for question in QSets[self.QuestionSetBox.currentIndex()].QList:
                         if question not in people.questionstoanswer:
                             people.questionstoanswer.append(question)
                             
@@ -284,7 +284,7 @@ class SetQuestions(QtGui.QDialog):
                     
                     if not self.QuestionSetBox.currentText() in people.questionstoanswer:
                         
-                        for question in QSets[self.QuestionSetBox.currentIndex()+1].QList:
+                        for question in QSets[self.QuestionSetBox.currentIndex()].QList:
                             
                             people.questionstoanswer.append(question)
                         with open('students.pickle', 'wb') as f:
@@ -643,10 +643,12 @@ class WorkList(QtGui.QWidget):
             thisIndex = item.row()        
             if self.shownList[thisIndex].question_type == "Rate Constant":
                 attemptQ = Practice_K_Window(self.shownList[thisIndex])
+                print("Running KWindow")
                 attemptQ.exec_()
                 self.populateQuestions()
             elif self.shownList[thisIndex].question_type == "Hardy-Weinberg":
                 attemptQ = hardy_weinberg(self.shownList[thisIndex])
+                print("Running HW")
                 attemptQ.exec_()
                 self.populateQuestions()
                 
@@ -981,24 +983,10 @@ class AddQuestion(QtGui.QWidget):
                     
                     ret = reply.exec_()
                     valid = False
-                if ThirdVal > 3:
-                    reply = QtGui.QMessageBox()
-                    reply.setText("Orders must be 1 or 2.")
-                    reply.setIcon(3)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+                    
+                    
+                    
 
-
-                    ret = reply.exec_()                    
-                    valid = False
-                if FourthVal > 3:
-                    reply = QtGui.QMessageBox()
-                    reply.setText("Orders must be 1 or 2.")
-                    reply.setIcon(3)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-
-
-                    ret = reply.exec_() 
-                    valid = False
                 try:
                         pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
 
@@ -1166,7 +1154,7 @@ class Practice_K_Window(QtGui.QDialog):
             self.thisQuestion = generateK()
         else:
             self.thisQuestion = values
-
+        print("Running practice K wndow class")
         Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
         self.label.setText(_translate("Form", "Question Text Here", None))
         self.label_2.setText(_translate("Form", "Enter answer below to 3 sig fig in standard form replacing the ^ sign with an E. Specify plus or minus and use always use two numbers after the sign: 5.67E+01", None))
@@ -1337,14 +1325,17 @@ class hardy_weinberg(QtGui.QDialog):
         percentageReccessive = self.percentageReccessive
         totalpop = self.totalpop
         recessiveInpop = ((totalpop * percentageReccessive) / 100)  # unrounded. Makes a percentage of the population have recessive alleles. 
-        q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
-        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
         
+        q_sqrdaspop = Round_To_n(recessiveInpop, 1)  # now rounded
+        print("Not q_sqrdaspop")
+        qsqrd = Round_To_n(q_sqrdaspop / totalpop, 3) # Finds q squared as a decimal.
+        print("Not qsqrd")
         q = Round_To_n(math.sqrt(qsqrd), 3) # finds the number of reccessive alleles
         p = Round_To_n(1 - q, 3) #finds the number of dominant alleles
         psqrd = Round_To_n(p * p, 3) #finds the number of homozygous dominant
-        
+        print("not psqrd")
         pq = Round_To_n(p * q, 3) # finds heterozygotes
+        print("not pq")
         self.q_sqrdaspop = q_sqrdaspop
         self.qsqrd = qsqrd
         self.psqrd = psqrd
@@ -1402,29 +1393,9 @@ class findKreaction():
         # self.rateExponent = rateExponent
         self.rateOfReaction = rateOfReaction
         self.noOfMoles = (order_of_A + order_of_B)
+        print("Running")
+        
 
-
-    def walk_throughK(self):
-        print("To calculate the rate constant, k, we must first multiply the concentrations of our reactants together."
-              "However the concentrations must be raised to the power of their orders."
-              "The concentrations of A and B are", str("%.2E" % self.conc_of_A), "and", str("%.2E" % self.conc_of_B), "respectively."
-                                                                                          "The order of A is",
-              self.order_of_A, "and the order of B is ", self.order_of_B, " .")
-        print("This means our intermediary value is ", str("%.2E" % self.intermediary), "."
-                                                                          "We then divide our rate of reaction by this number. The reate of reaction is",
-              str("%.2E" % self.rateOfReaction), ".")
-        print("This equals", self.k)
-        print("Next we must find the units of k \n")
-        print("To find the units of k we must cancel the number of moles per dm cubed on both sides of the equation. "
-              "\We do this by adding the powers of the two reactants and putting them into the formula: "
-              "\nmol^-x dm^+x*3. Where x is the powers added together minus 1."
-              "\nUnless the number of moles is one, then there are no units.\n ")
-        if self.noOfMoles > 1:
-            x = int((self.noOfMoles) - 1)
-
-            print("The units are mol^-", x, "dm^+", 3 * x, "s^-1")
-        else:
-            print("No units")
 
 
     def findK(self, window):
@@ -1434,6 +1405,7 @@ class findKreaction():
         self.intermediary = pow(self.conc_of_A, self.order_of_A) * (pow(self.conc_of_B, self.order_of_B))
         self.k = self.rateOfReaction / self.intermediary
         correct = False
+        print("runing")
         window.label.setText(_translate("Form", "The conc of reactant A is " + str("%.2E" %
             self.conc_of_A) + " moldm^-3. The conc of B is " + str("%.2E" % self.conc_of_B) + " moldm^-3\n"
                                                                                      "The order of A is " + str(
@@ -1469,17 +1441,6 @@ class findKreaction():
         #findKreaction.walk_throughK(self)
 
 
-    def findunitsofK(self):
-        print("To find the units of k we must cancel the number of moles per dm cubed on both sides of the equation. "
-              "\We do this by adding the powers of the two reactants and putting them into the formula: "
-              "\nmol^-x dm^+x*3. Where x is the powers added together minus 1."
-              "\nUnless the number of moles is one, then there are no units.\n ")
-        if self.noOfMoles > 1:
-            x = int((self.noOfMoles) - 1)
-
-            print("The units are mol^-", x, "dm^+", 3 * x, "s^-1")
-        else:
-            print("No units")
 
 
             # def getRateOfReaction(self):
@@ -1642,6 +1603,7 @@ def loadStudents():
 
 
 def Round_To_n(x, n):
+    print(x, n)
     return round(x, int(n - math.ceil(math.log10(abs(x)))))
 
 
