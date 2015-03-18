@@ -991,16 +991,18 @@ class AddQuestion(QtGui.QWidget):
                     ret = reply.exec_()
                     valid = False
                     
-                if ThirdVal > 3:
-                    reply = QtGui.QMessageBox()
-                    reply.setText("Please enter an order of 1 or 2.")
-                    reply.setIcon(3)
-                    reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
-
-                    
-                    ret = reply.exec_()                    
-                    valid = False
-
+                try:
+                    if ThirdVal > 3:
+                        reply = QtGui.QMessageBox()
+                        reply.setText("Please enter an order of 1 or 2.")
+                        reply.setIcon(3)
+                        reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+    
+                        
+                        ret = reply.exec_()                    
+                        valid = False
+                except:
+                    pass
                 try:
                         pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
 
@@ -1686,16 +1688,21 @@ def loadQSet():
             # print(QSets)
 
             # print(QSets[1].QList[1].values)
-
-
-loadQuestions()
-loadQSet()
-loadStudents()
-loadTeachers()
-
-
-app = QtGui.QApplication(sys.argv)
-thisForm = LogInPage()
-thisForm.show()
-sys.exit(app.exec_())
+pickles = True
+try:
+    loadQuestions()
+    loadQSet()
+    loadStudents()
+    loadTeachers()
+except:
+    print("Please place this file in a file containing your .pickle files.\n"
+          "Alternatively, use Admin tools to create new ones.")
+    quit = input("Press enter to quit. ")
+    pickles = False
+    
+if pickles == True:
+    app = QtGui.QApplication(sys.argv)
+    thisForm = LogInPage()
+    thisForm.show()
+    sys.exit(app.exec_())
 
