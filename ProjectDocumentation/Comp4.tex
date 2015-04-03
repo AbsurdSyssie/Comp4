@@ -1,12 +1,18 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
 \usepackage{graphicx}
 \usepackage{array}
+\usepackage{placeins}
+\usepackage{rotating}
 \usepackage{supertabular}
 \usepackage{hhline}
+\usepackage{color}
 \usepackage{siunitx}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{rotfloat}
+\lstset{language=Python} 
 \usetikzlibrary{shapes,arrows,chains}
 \makeatletter
 \newcommand\arraybslash{\let\\\@arraycr}
@@ -20,6 +26,21 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\lstset{breaklines=true}
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=single,
+  xleftmargin=\parindent,
+  language=Python,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
 
 \chapter{Analysis}
 
@@ -94,16 +115,54 @@ Pupils can only access a few problems that have been devised by teachers or exam
 From my feedback and interviews from my end users I have been able to select the appropriate calculations for the computer package to use, and also have a framework to try and emulate, to best please my end user.\\
 \subsection{Data Flow Diagrams}
 To give a better understanding of how data flows in the current and proposed systems, I produced a data flow diagram for each. They highlight the areas of concern already mentioned and show how a copmuter package would eliminate them.\\
-\includegraphics[scale = 0.55]{CurrentSystem}\\
-\emph{The current system}\\
-\includegraphics[scale=0.3]{NewSystem}\\
-\emph{The proposed system}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.55]{CurrentSystem}
+\caption{The Current System}
+\label{fig:currentsystem}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics[scale = 0.75]{NewmakeQSETS}}
+\caption{New System 1}
+\label{fig:newsystem1}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics{NewTeachersetquestions}}
+\caption{New System 2}
+\label{fig:newsystem2}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{\includegraphics[scale = 0.8]{Attemptnew}}
+\caption{New System 3}
+\label{fig:newsystem3}
+\end{figure}
+
 \section{Feedback Reports}
 To get a better idea of exactly what type of system I should make, and what requirements that system would need to have, I asked my end users a few questions.
+\begin{figure}[h]
+\centering
 \includegraphics{StudentQuestionnaire}
-\includegraphics{TeacherQuestionnaire}
+\caption{Student Questionnaire}
+\label{fig:sQuestionnaire}
+\end{figure}
 
-\clearpage
+\begin{figure}
+\centering
+\includegraphics{TeacherQuestionnaire}
+\caption{Teacher Questionnaire}
+\label{fig:tQuestionnaire}
+\end{figure}
+
+
+
+
+
 \section{Proposed System}        
 
 Pupils will need to be able to input their own problems and have them be solved in a step by step process where they can enter their answer for each step. The program will tell them if they were right and instructing them as to what they should be doing.\\
@@ -114,20 +173,35 @@ Pupils will need to be able to input their own problems and have them be solved 
  The program will generate its own questions but may not display questions in the correct format.\\
  Only 100 questions will be stored at once as the memory taken up would be too high.\\
  Pupil accounts would have to be entered in manually as school will not give me access to the student detail database.\\
+\section{Entity Relationship Diagrams}
+\FloatBarrier
+These are the entity relationships that I propose to implement in my new System:
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{QuestionsE-RDiagram.jpg}
+\caption{The relationship between Questions and Question Sets}
+\label{fig:ERQS}
+\end{figure}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{FormStudentE-RDiagram.jpg}
+\caption{The relationship between Students and Forms}
+\label{fig:ERFS}
+\end{figure}
+\FloatBarrier
 \section{Objectives}
 
 
 \textbf{Essential Objectives}\\
 \begin{enumerate}
 \item Example Based Demonstration – The program should be able to provide a clear demonstration of how any of the equations work, by executing them for the user. It should be able to carry out this demonstration either on data entered by the user, or on data stored within the program/database.
-\item Background Explanation Of Problems- The program should be able to give a small amount of detail initially if the student should request it
 \item Interactive System allowing Users to Solve Equations – The user should be able to choose to attempt to solve the equations themselves – if this is the case the program should point out (or correct) any mistakes they may have made.
 \item Unique User Accounts- Teachers and pupils should have different accounts with different privileges.
 \item A System To Allow Users to Input and Store Questions – The users should be able to input their own questions, that the program can solve or walk them through, and have the option to store them.
 \item A Database Holding Question Data- the program should run off of a back end database holding around 100 questions in total, which can randomly select a question, or allow a teacher to set specific questions for the pupil to answer.
-\item A System For Teachers to set questions and Students Send Feedback – The program should allow teachers to select questions from the database to give to students. Students should be able to send feedback to their teachers.
-\item A Database Holding Pupil Performance- Teachers should have access to the questions that pupils answered correctly and incorrectly so that they can monitor their performance and therefore provide support.
+\item A System For Teachers to Set Questions and Students To Attempt them – The program should allow teachers to select questions from the database to give to students. Students should be able to then complete the questions and have them removed from their questions to do.
+
 \end{enumerate}
 
 \textbf{General Objectives}
@@ -136,11 +210,16 @@ Pupils will need to be able to input their own problems and have them be solved 
 \item  A central database should collate all information into a practical form.
 \item The program should be self-explanatory and not overly complex for the user.
 \item Should use less than 100MB of storage.
-\item Grade scores. Highlights students who are below their target grades
-\item Allows for students to make comments on problems so the teacher can help them.
 \item A log in system with passwords and usernames
 \end{enumerate}
 
+\textbf{Possible Extension}
+\begin{enumerate}
+\item Background Explanation Of Problems- The program should be able to give a small amount of detail initially if the student should request it.
+\item A Student Feedback System- Students should be able to highlight questions that they are struggling with and send the question to the teacher. 
+\item Grade scores- Highlights students who are below their target grades.
+\item A Database Holding Pupil Performance- Teachers could have access to the questions that pupils. answered correctly and incorrectly so that they can monitor their performance and therefore provide support.
+\end{enumerate}
 \textbf{Acceptable Limitations}\\
 \begin{enumerate}
 \item  To allow the program to generate questions properly with the correct units would require the use of libraries and a lot more time than I have available.
@@ -152,7 +231,9 @@ Pupils will need to be able to input their own problems and have them be solved 
 
 \section{Data Information}
 Instead of using an SQL database to store information, as I am using an object oriented system I will use the Pickle function in Python to store my objects and classes as .pickle binary files. This allows for compact storage and easy data storage manipulation within python.
-
+\subsection{Data Volumes}
+For a fully up and running version of my system, I anticipate that there will be around 1500 student accounts and 150 teacher accounts. Each of these contains around 30 characters of text, depending on name length and amount of questions set, so are minuscule in size, around 230 bytes each. I anticipate a working library of around 100 questions. Each question contains at most 3 floats and 2 integers so a maximum of 32 bytes each. Totalled up this means the whole volume of the system will add up to around 4.86 MB, this is well within my acceptable limit.
+\subsection{Data Dictionary}
 \begin{flushleft}
 \tablefirsthead{}
 \tablehead{}
@@ -176,10 +257,6 @@ Student Password &
 Input manually &
 Student PICKLE File &
 String\\\hline
-Student Test Scores &
-Generated by program &
-Student PICKLE File &
-Integer and String\\\hline
 Student Target Grade &
 Input manually &
 Student PICKLE File &
@@ -201,33 +278,149 @@ Arrays of Integers and Strings\\\hline
 
 
 \section{Object Orientated Programming Planning}
+In my program, I have used decided to use object orientated programming as it will easily allow me to create many questions and users, as well as easily manage them.\\
+I intend to have a class to store information about Students, this would be called "Student" and contain information like name, form group and so on, all stored as integers. It would also store question objects in an array to allow work to be set to the student.
+There will also be a class called teacher which would store simple data like name and password. Each of these would also have an attribute called "account type" which would allow the program to distinguish them from each other.\\
+I would then make a class for each question type which would include all of the maths to calculate the correct answer and show the question to the student. They would be numbered with an ID and have a question type attribute. Questions would then be collated into another class called "Question Sets" which will have a name attribute and store question objects in an array.
 
-\begin{flushleft}
+\subsection{Student Class}
+
+\begin{center}
 \tablefirsthead{}
 \tablehead{}
 \tabletail{}
 \tablelasttail{}
-\begin{supertabular}{|m{0.81435984in}|m{1.0191599in}|m{0.8469598in}|m{0.9038598in}|m{2.43586in}|}
+\begin{supertabular}{|m{1.8in}|m{1.22956in}|m{2.42956in}|}
 \hline
-Access Type &
 Field Name &
-Field Type &
-Initial Value &
+Datatype &
 Description\\\hline
-Private &
-Pupil Data &
-Strings and Integers &
-{}- &
-The data associated with a student. Contains information about them, i.e. form group.\\\hline
-Private &
-Question Data &
-Strings and Integers &
-{}- &
-Data contained in the question object. Gives format for insertion into program.\\\hline
-
-
+Username &
+String &
+The students username.\\\hline
+Password &
+String &
+The sudents password.\\\hline
+Studentid &
+Int &
+The students specific ID number.\\\hline
+Forename &
+String &
+The students forename\\\hline
+Middlename &
+String &
+The students middle name\\\hline
+Surname &
+String &
+The students surname \\\hline
+Form &
+String &
+The students form \\\hline
+Targetgrade &
+String &
+The students target grade\\\hline
+Questionstoanswer &
+Array &
+The questions that a student has been set by their teacher.\\\hline
+Answered &
+Array &
+A list of all the questions a student has answered\\\hline
+Percentage &
+Float &
+The percentage of questions the student has answered correctly\\\hline
+AnsweredCorrectly &
+Array &
+A list of questions a student has answered correctly\\\hline
 \end{supertabular}
-\end{flushleft}
+\end{center}
+
+\subsection{Teacher}
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.8in}|m{1.22956in}|m{2.42956in}|}
+\hline
+Field Name &
+Data Type &
+Description\\\hline
+ID &
+Int &
+The ID number of the specific question.\\\hline
+questiontype &
+String &
+Tells the program which type of question the \\\hline
+values &
+Array &
+An array of numbers that, when the question type is known, the program will use to \\\hline
+self.conc\_of\_A &
+Float &
+A number used in the rate constant calculation\\\hline
+self.conc\_of\_B &
+Float &
+A number used in the rate constant calculation\\\hline
+self.order\_of\_A &
+Int &
+A number used in the rate constant calculation\\\hline
+Self.order\_of\_B &
+Int  &
+A number used in the rate constant calculation\\\hline
+Totalpop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+K &
+float &
+A number used in the rate constant calculation\\\hline
+Intermediary &
+float &
+A number used in the rate constant calculation\\\hline
+q\_sqrdaspop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+\end{supertabular}
+\end{center}
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.8in}|m{1.22956in}|m{2.42956in}|}
+\hline
+Field Name &
+Datatype &
+Description\\\hline
+Account\_Type &
+String &
+{}``T{}'' to signify the account type.\\\hline
+Username &
+String &
+The teachers username.\\\hline
+Password &
+String &
+The teachers password.\\\hline
+Forename &
+String &
+The teachers forename\\\hline
+Middlename &
+String &
+The teachers middle name\\\hline
+Surname &
+String &
+The teachers surname \\\hline
+Pupils &
+Array &
+The pupils that a teacher teaches\\\hline
+\end{supertabular}
+\end{center}
+
+
+
+
+\subsection{Question}
+
+\subsection{Question Set}
 
 \chapter{Design}
 \section{Navigation}
@@ -268,13 +461,17 @@ Content
 
 \subsection{GUI Navigation}
 To make my program more user friendly, and useing user feedback, I decided that a graphical user interface would be more appropriate. These forms show general navigation of the program.\\
-\includegraphics{login}\\
-\emph{Log In Page}\\
+
+\begin{figure}
+\centering
+\includegraphics{login}
+\caption{Log In Page}
+\label{fig:login}
+\end{figure}
+
+
 
 \section{Validation}
-
-
-\bigskip
 
 \begin{flushleft}
 \tablefirsthead{}
@@ -324,10 +521,6 @@ myEmail@email.net
 \end{supertabular}
 \end{flushleft}
 
-\bigskip
-
-
-\bigskip
 
 The student class which I have designed incorporates all of the information above, apart from email and gender as it is going to be used at an all-boys school which stores parental contact information securely. Therefore those two data fields would not be appropriate to store in my program. The pupil class accepts input in this format: ( studentid, password, forename, surname, middlename, age, form, targetgrade, questionsanswered, questionstoanswer, answeredcorrectly)
 
@@ -337,15 +530,12 @@ The student class which I have designed incorporates all of the information abov
 The questionsanswered, questionstoanswer and \ answeredcorrectly values are worked out by other functions in the program and are set to 0 when a new student is created.
 
 To track a students' performance, when they answer questions the \ percentage() \ \ findgrade() functions take their answered questions and find out if they are keeping to their current target grade.
+
 \section{Overall System Design}
 
 
-\bigskip
-
-
-\bigskip
-
 \begin{flushleft}
+\begin{sidewaystable}[H]
 \tablefirsthead{}
 \tablehead{}
 \tabletail{}
@@ -387,12 +577,10 @@ OR
 
 Username password combination is incorrect.\\\hline
 \end{supertabular}
+\caption{System Process Input / Output}
+\end{sidewaystable}
+\item
 \end{flushleft}
-
-\bigskip
-
-
-\bigskip
 
 \section{Record Structure}
 
@@ -488,7 +676,7 @@ with open('data.pickle', 'rb') as f:
 Uses the Hardy-Weinberg equation to find 2pq. Two variations of the class are used. One makes random numbers and one uses values from a question class. 
 \end{flushleft}
 \textbf{Pseudocode 1}
-\begin{verbatim}
+\begin{lstlisting}
     FUNCTION calculateAnswer(self):
         totalpop <-  totalpop
         recessiveInpop <-  recessiveInpop
@@ -504,9 +692,9 @@ Uses the Hardy-Weinberg equation to find 2pq. Two variations of the class are us
         OUTPUT "psqrd", psqrd
         pq <- Round_To_n(p * q, 3) # finds heterozygotes
     ENDFUNCTION
-\end{verbatim}
+\end{lstlisting}
 \textbf{Pseudocode 2}
-\begin{verbatim}
+\begin{lstlisting}[style=customc]
     FUNCTION generate_H_W(self):
          totalpop <- random.randint(10,1000)
         IF  totalpop % 2 = 0:
@@ -537,9 +725,9 @@ Uses the Hardy-Weinberg equation to find 2pq. Two variations of the class are us
         OUTPUT "psqrd", psqrd
         pq <- Round_To_n(p * q, 3) # finds heterozygotes
     ENDFUNCTION
-\end{verbatim}
+\end{lstlisting}
 \textbf{Python Code 1}
-\begin{verbatim}
+\begin{lstlisting}[style=customc]
 def calculateanswer(self)
  recessiveInpop = ((totalpop * percentageReccessive) / 100) 
  # unrounded.Makes a percentage of the population have recessive alleles.
@@ -556,9 +744,9 @@ def calculateanswer(self)
  psqrd = Round_To_n(p * p, 3)#finds the number of homozygous dominant
 
  pq = Round_To_n(p * q, 3) # finds heterozygotes
-\end{verbatim}
+\end{lstlisting}
 \textbf{Python Code 2}
-\begin{verbatim}
+\begin{lstlisting}[style=customc]
 def generate_H_W(self):
 
         
@@ -593,7 +781,7 @@ def generate_H_W(self):
 
         print("2pq", pq * 2)
         
-\end{verbatim}
+\end{lstlisting}
 \begin{flushleft}
 
 \textbf{Find k}
@@ -601,7 +789,7 @@ def generate_H_W(self):
 Takes values sent by random generation or from a question and finds the answer. It then will update the question form.
 \end{flushleft}
 \textbf{Psuedocode}
-\begin{verbatim}
+\begin{lstlisting}[style=customc]
  FUNCTION findK(self, window):
             QtGui.QApplication.processEvents()
             n <- 0
@@ -613,15 +801,11 @@ Takes values sent by random generation or from a question and finds the answer. 
             window.label.setText(_translate("Form", "The conc of reactant A is" 
             + str("%.2E" %  conc_of_A) + 
             " moldm^-3. The conc of B is " + str("%.2E" % 
-            conc_of_B) + " moldm^-3\n"
-            "The order of A is " + str(
-            order_of_A) + " AND the order of B is "
-            + str( order_of_B) + ". The rate of 
-            reaction is " + str("%.2E" % rateOfReaction), None))
+            conc_of_B) + " moldm^-3\n" "The order of A is " + str(order_of_A) + " AND the order of B is " + str( order_of_B) + ". The rate of reaction is " + str("%.2E" % rateOfReaction), None))
  ENDFUNCTION
-\end{verbatim}
+\end{lstlisting}
 \textbf{Python Code}
-\begin{verbatim}
+\begin{lstlisting}[style=customc]
  def findK(self, window):
 
         QtGui.QApplication.processEvents()
@@ -641,23 +825,183 @@ Takes values sent by random generation or from a question and finds the answer. 
         + str(self.order_of_B) + ". The rate of reaction is " + str("%.2E" % 
         self.rateOfReaction) + " Find k of this
         reaction.", None))
-\end{verbatim}
+\end{lstlisting}
 
 
-\bigskip
+\section{Class Diagrams}
+As I have decided to use objects in my program and have finalised how I think they should work, I have made inheritance diagrams that contains all of my classes. 
+\subsection{Student}
+\FloatBarrier
+\begin{sidewaysfigure}
+\centering
+\includegraphics[scale = 0.75]{Student}
+\caption{The Student Class}
+\label{fig:StudentClass}
+\end{sidewaysfigure}
+\FloatBarrier
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.8in}|m{1.22956in}|m{2.42956in}|}
+\hline
+Field Name &
+Datatype &
+Description\\\hline
+Account Type &
+String &
+{}``S'' to signify the account type.\\\hline
+Username &
+String &
+The students username.\\\hline
+Password &
+String &
+The sudents password.\\\hline
+Studentid &
+Int &
+The students specific ID number.\\\hline
+Forename &
+String &
+The students forename\\\hline
+Middlename &
+String &
+The students middle name\\\hline
+Surname &
+String &
+The students surname \\\hline
+Form &
+String &
+The students form \\\hline
+Targetgrade &
+String &
+The students target grade\\\hline
+Questionstoanswer &
+Array &
+The questions that a student has been set by their teacher.\\\hline
+Answered &
+Array &
+A list of all the questions a student has answered\\\hline
+Percentage &
+Float &
+The percentage of questions the student has answered correctly\\\hline
+AnsweredCorrectly &
+Array &
+A list of questions a student has answered correctly\\\hline
+\end{supertabular}
+\end{center}
 
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{2.72956in}|m{2.72956in}|}
+\hline
+Method Name &
+Description\\\hline
+\_\_init\_\_ &
+Stores all of the variables sent to the class when an object is made.\\\hline
+percentage &
+Finds the percentage of questions the student has answered correctly.\\\hline
+findgrade &
+Compares the percentage of questions answered correctly with a set of standards to find the students grade.\\\hline
+questionAnswered &
+Removes a question from a students ``questionstoanswer'' once it has been correctly answered.\\\hline
+\end{supertabular}
+\end{center}
 
-\bigskip
+\subsection{Teacher}
+\begin{figure}
+\centering
+\includegraphics{Teacher}
+\caption{The Teacher Class}
+\label{fig:teacherclass}
+\end{figure}
 
+To make my code more concise I made a universal question window class, along with individual classes for each type of question. This class would be initialised every time a student wanted to do a question that they had been set, then make an individual object from the class that the question was.\\
+\subsection{Universal Question Window}
+\begin{figure}
+\centering
+\includegraphics{universalq}
+\caption{Universal Question Class}
+\label{fig:uniq}
+\end{figure}
+\FloatBarrier
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.8in}|m{1.22956in}|m{2.42956in}|}
+\hline
+Field Name &
+Data Type &
+Description\\\hline
+ID &
+Int &
+The ID number of the specific question.\\\hline
+questiontype &
+String &
+Tells the program which type of question the \\\hline
+values &
+Array &
+An array of numbers that, when the question type is known, the program will use to \\\hline
+self.conc\_of\_A &
+Float &
+A number used in the rate constant claculation\\\hline
+self.conc\_of\_B &
+Float &
+A number used in the rate constant claculation\\\hline
+self.order\_of\_A &
+Int &
+A number used in the rate constant claculation\\\hline
+Self.order\_of\_B &
+Int  &
+A number used in the rate constant claculation\\\hline
+Totalpop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+K &
+float &
+A number used in the rate constant claculation\\\hline
+Intermediary &
+float &
+A number used in the rate constant claculation\\\hline
+q\_sqrdaspop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+\end{supertabular}
+\end{center}
 
-\bigskip
-
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{3.38376in}|m{3.38376in}|}
+\hline
+Method &
+Description\\\hline
+\_\_init\_\_ &
+Stores  all  of  the  variables  sent  to  theclass when an object is made
+\\\hline
+Kquestion &
+Sets the numbers from ``values'' to the correct variables for the rate constant question.\\\hline
+hardy\_weinberg &
+Sets the numbers from ``values'' to the correct variables for the Hardy-Weinberg calculation.\\\hline
+Findk &
+Changes the text on a page to the rate constant question text, including the numbers from ``values''.\\\hline
+HWwindow &
+Changes the text on a page to the hardy-Weinberg question text, including the numbers from ``values''.\\\hline
+\end{supertabular}
+\end{center}
 \section{Security and Integrity}
 
 
 \bigskip
 
-As Python is an interpreted language, students could in theory open it as a text file. An easy way around this would to use the current controls to not allow students access to the program files. However the program requires read write access to files in order to work. \ However data can be backed up to a secure location once a week. As the files are very small, each time the data is backed up it can be assigned a date
+As Python is an interpreted language, students could in theory open it as a text file. An easy way around this would to use the current controls in schools to not allow students access to the program files. However the program requires read write access to files in order to work. Also pickle files are binary files so they are not easily human readable. \\ However data can be backed up to a secure location once a week. As the files are very small, each time the data is backed up it can be assigned a date.
 
 
 \bigskip
@@ -677,7 +1021,7 @@ I showed my end user an initial skeleton program that I had created. I responded
 
 \subsection{Command Line Prototype Code}
 
-\begin{verbatim}
+\begin{lstlisting}[style = customc]
 
 author = 'Oscar'
 import random
@@ -844,17 +1188,31 @@ def menu():
 \clearpage
 \textbf{Screenshots of CLI Prototype:}\\
 \bigskip
-\includegraphics{CLI01}\\
-\emph{CLI Main Menu}\\
-\includegraphics{CLI02}\\
-\emph{Attempting a question in CLI}\\
-\includegraphics{CLI03}\\
-\emph{Entering an incorrect answer}\\
-\bigskip
+\begin{figure}[h!]
+\centering
+\includegraphics{CLI01}
+\caption{CLI Main Menu}
+\label{fig:CLImm}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics{CLI02}
+\caption{Attempting a question in CLI}
+\label{fig:CLIQ}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics{CLI03}
+\caption{Entering an Incorrect Answer}
+\label{fig:my_label}
+\end{figure}
+
 
 After this I decided that if the student was only practising questions, they should not use up questions that teachers are marking them on. Therefore I created a function that generates random numbers, in a specific range, and rounds them to suit the question. This way, a student will never have encountered the questions they would be assessed on.
 
-\begin{verbatim}
+\begin{lstlisting}
 
 
 def generateK():
@@ -871,7 +1229,7 @@ def generateK():
     rateofreaction = round(rate, sig-int(floor(log10(rate)))-1)
     y = findKreaction (concofA, concofB, orderofA, orderofB, rateofreaction)
     return y
-\end{verbatim}
+\end{lstlisting}
 \begin{flushleft}
 
 This generates the numbers for the equation, creates a class using them, then returns it to the main program.
@@ -880,25 +1238,107 @@ After consulting my end user again, and by using their request of something “M
 
 \subsection{GUI Prototype}
 To prototype the GUI I hand drew some of my windows and annotated functions:
-\end{flushleft}
-\begin{figure}
-\centering
-\includegraphics{MainMenuOld}
-\caption{Early teacher main menu}
+\begin{figure}[h!]
+\includegraphics[width=\textwidth,page=4]{Oscarsdrawings.pdf}
+\caption{Drawing of Log In page}
+\label{fig:logindrawing}
 \end{figure}
 
-\bigskip
-I have also made a form window for the input of new users to the system. This window sends its' variables to a function which adds the new student and repickles the list. This function is only available to teacher accounts. They can also create new teacher accounts in a similar manner.
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics{CreateStudent}\\
+\includegraphics[width=\textwidth,page=1]{Oscarsdrawings.pdf}
+\caption{Drawing of Attempt Question page}
+\label{fig:attemptqdrawing}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth, page=2]{Oscarsdrawings.pdf}
+\caption{Drawing of Main Menu}
+\label{fig:maindrawing}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.3]{page3}
+\caption{Drawing of Student Performance page}
+\label{fig:performancedrawing}
+\end{figure}
+
+\end{flushleft}
+\FloatBarrier
+I also made an intermediate main menu before I decided on the best layout;
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 1.5]{MainMenuOld}
+\caption{Early teacher main menu}
+\end{figure}
+\FloatBarrier
+\bigskip
+As part of my program, there is a form for the input of new users to the system. This window sends its' variables to a function which adds the new student and re-pickles the list. This function is only available to teacher accounts. They can create new teacher accounts and new student accounts.
+
+\FloatBarrier
+\begin{figure}[h!]
+\centering
+\includegraphics{CreateStudent}
 \caption{The initial create student window}
 \end{figure}
-\begin{figure}
+\begin{figure}[h!]
 \centering
 \includegraphics{CreateStudent2}
 \caption{An account being created}
 \end{figure}
+\FloatBarrier
+\subsubsection{PyQT}
+To create my GUI I used a python package called "PyQT". This comes with a designer app which provides a drag and drop interface to place buttons, boxes, labels etc onto a form, then export them to a python file.\\
+\textbf{SCREENSHOTS HERE}\\
+The python code looks like this:
+\begin{lstlisting}[style=customc]
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(_translate("Form", "Logged in as " + username, None))
+        self.pushButton_3.setText(_translate("Form", "Set Questions", None))
+        self.pushButton_2.setText(_translate("Form", "Add Questions", None))
+        self.pushButton.setText(_translate("Form", "See Student Progress", None))
+        self.pushButton_4.setText(_translate("Form", "Add New Account", None))
+        self.editAcc.setText(_translate("Form", "Edit Accounts", None))
+        self.pushButton_6.setText(_translate("Form", "Make QSet", None))
+        self.pushButton_5.setText(_translate("Form", "Log Out", None))
+        self.pushButton_4.clicked.connect(self.showCreateNewAccountWindow)
+        self.pushButton_5.clicked.connect(self.close)
+        self.pushButton_5.clicked.connect(self.showLoginPage)
+        self.pushButton_2.clicked.connect(self.showNewq)
+        self.pushButton_3.clicked.connect(self.showSetQuestions)
+        self.pushButton_6.clicked.connect(self.makeQSet)
+        self.editAcc.clicked.connect(self.openEditStudents)
+\end{lstlisting}
+\bigskip
+\FloatBarrier
+
+\section{Test Strategy}
 
 
+\chapter{Testing}
+To test my program I will use a combination of black-box and white-box testing. However to get the most information and therefore tackle bugs or improve the efficiency of my code, I will use mostly white box testing. To do this, I will include print commands into my \emph{hardy\_{}weinberg} and \emph{Practice\_{}K\_{}Question} classes to see if the calculations are being done correctly, and to make sure that the program can cope with the values given. I will also test if my navigation works, if user account creation has acceptable validation.
+
+known error of overflow with certain values in rate constant equations, combated by testing in question creation.
+\begin{lstlisting}[style = customc]
+ try:
+     pow(FirstVal, ThirdVal) * (pow(SecondVal, FourthVal))
+                      
+except:
+      reply = QtGui.QMessageBox()
+      reply.setText("Please use smaller concentrations.")
+      reply.setIcon(3)
+      reply.addButton(QtGui.QPushButton('OK'), QtGui.QMessageBox.YesRole)
+
+      ret = reply.exec_()
+      valid = False
+
+
+\end{lstlisting}
+This means that if a number will cause an overflow error the program will inform you and not store these values.\\
+know error of rounding for Hardy Weinberg because rounding in python goes for the nearest even value.\\
+test for no pickle files.\\
+3rd party testing
 \end{document}

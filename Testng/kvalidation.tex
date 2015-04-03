@@ -1,0 +1,100 @@
+% This file was converted to LaTeX by Writer2LaTeX ver. 1.4
+% see http://writer2latex.sourceforge.net for more info
+\documentclass[letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{color}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=, pdfauthor=, pdfsubject=, pdfkeywords=}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{0.7874in}
+\setlength\oddsidemargin{0.7874in}
+\setlength\textheight{9.4251995in}
+\setlength\textwidth{6.9251995in}
+\setlength\footskip{0.0cm}
+\setlength\headheight{0cm}
+\setlength\headsep{0cm}
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{}
+  \renewcommand\@evenhead{}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{}
+  \renewcommand\thepage{\arabic{page}}
+}
+\makeatother
+\pagestyle{Standard}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\title{}
+\author{}
+\date{2015-04-02}
+\begin{document}
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.3059598in}|m{1.3059598in}|m{1.3066599in}|m{1.3059598in}|m{1.3066599in}|}
+\hline
+Field Name &
+Validation &
+Description &
+Error Message &
+Data Input\\\hline
+Conc of A &
+Must be a float / int &
+A concentration of a reactant. &
+{}``Please use numbers'' &
+jasdhgghads\\\hline
+~
+ &
+\multicolumn{1}{m{1.3059598in}}{Must not create a value of k which errs when run.} &
+ &
+{}``Please use smaller concentrations &
+Where k overflows when calculated.\\\hhline{--~--}
+Conc of B &
+Must be a float / int &
+A concentration of a reactant. &
+{}``Please use numbers'' &
+jasdhgghads\\\hline
+ &
+\multicolumn{1}{m{1.3059598in}}{Must not create a value of k which errs when run.} &
+ &
+{}``Please use smaller concentrations &
+Where k overflows when calculated.\\\hhline{~-~--}
+Order of A &
+Must be either 1 or \ 2 &
+The order of a reactant in the rate equation. &
+{}``Orders must be integers'' &
+{\textgreater}2 / s;dlkja / 1.2\\\hline
+Order of B &
+Must be either 1 or \ 2 &
+The order of a reactant in the rate equation. &
+{}``Orders must be integers'' &
+{\textgreater}2 / s;dlkja / 1.2\\\hline
+Rate of Reaction &
+Must be a float / int &
+The number of moles per second formed from the reaction, using the concentrations and order given above. &
+{}``Please use numbers'' &
+jasdhgghads\\\hline
+\end{supertabular}
+\end{center}
+
+\bigskip
+\end{document}

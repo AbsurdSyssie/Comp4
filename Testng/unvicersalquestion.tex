@@ -1,0 +1,126 @@
+% This file was converted to LaTeX by Writer2LaTeX ver. 1.4
+% see http://writer2latex.sourceforge.net for more info
+\documentclass[letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{color}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=, pdfauthor=, pdfsubject=, pdfkeywords=}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{0.7874in}
+\setlength\oddsidemargin{0.7874in}
+\setlength\textheight{9.4251995in}
+\setlength\textwidth{6.9251995in}
+\setlength\footskip{0.0cm}
+\setlength\headheight{0cm}
+\setlength\headsep{0cm}
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{}
+  \renewcommand\@evenhead{}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{}
+  \renewcommand\thepage{\arabic{page}}
+}
+\makeatother
+\pagestyle{Standard}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\title{}
+\author{}
+\date{2015-04-01}
+\begin{document}
+
+\bigskip
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.6525599in}|m{1.6525599in}|m{3.38376in}|}
+\hline
+Field Name &
+Data Type &
+Description\\\hline
+ID &
+Int &
+The ID number of the specific question.\\\hline
+questiontype &
+String &
+Tells the program which type of question the \\\hline
+values &
+Array &
+An array of numbers that, when the question type is known, the program will use to \\\hline
+self.conc\_of\_A &
+Float &
+A number used in the rate constant claculation\\\hline
+self.conc\_of\_B &
+Float &
+A number used in the rate constant claculation\\\hline
+self.order\_of\_A &
+Int &
+A number used in the rate constant claculation\\\hline
+Self.order\_of\_B &
+Int  &
+A number used in the rate constant claculation\\\hline
+Totalpop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+K &
+float &
+A number used in the rate constant claculation\\\hline
+Intermediary &
+float &
+A number used in the rate constant claculation\\\hline
+q\_sqrdaspop &
+int &
+A number used in the hardy-weinberg calculation.\\\hline
+\end{supertabular}
+\end{center}
+
+\bigskip
+
+
+\bigskip
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{2.72956in}|m{2.72956in}|}
+\hline
+Method &
+Description\\\hline
+\_\_init\_\_ &
+Stores  all  of  the  variables  sent  to  theclass when an object is made
+\\\hline
+Kquestion &
+Sets the numbers from ``values'' to the correct variables for the rate constant question.\\\hline
+hardy\_weinberg &
+Sets the numbers from ``values'' to the correct variables for the Hardy-Weinberg calculation.\\\hline
+Findk &
+Changes the text on a page to the rate constant question text, including the numbers from ``values''.\\\hline
+HWwindow &
+Changes the text on a page to the hardy-Weinberg question text, including the numbers from ``values''.\\\hline
+\end{supertabular}
+\end{center}
+
+\bigskip
+\end{document}

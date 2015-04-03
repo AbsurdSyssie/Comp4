@@ -5,17 +5,20 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.pdf" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.synctex.gz" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.synctex.gz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Thumbs.db" afterPath="$PROJECT_DIR$/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Thumbs.db" afterPath="$PROJECT_DIR$/ProjectDocumentation/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/images/Thumbs.db" afterPath="$PROJECT_DIR$/ProjectDocumentation/images/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/User Manual/Images/Thumbs.db" afterPath="$PROJECT_DIR$/User Manual/Images/Thumbs.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.aux" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.log" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.out" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.tex" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectDocumentation/Comp4.toc" afterPath="$PROJECT_DIR$/ProjectDocumentation/Comp4.toc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program/QSets.pickle" afterPath="$PROJECT_DIR$/Program/QSets.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program/questions.pickle" afterPath="$PROJECT_DIR$/Program/questions.pickle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Program/students.pickle" afterPath="$PROJECT_DIR$/Program/students.pickle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Comp4.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +27,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Comp4$MainWindow.coverage" NAME="MainWindow Coverage Results" MODIFIED="1427978613173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Program" />
+    <SUITE FILE_PATH="coverage/Comp4$MainWindowCurrent.coverage" NAME="MainWindowCurrent Coverage Results" MODIFIED="1427979988531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Program" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -36,11 +43,139 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdminTools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
+      <file leaf-file-name="Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py" pinned="false" current-in-tab="false">
+        <entry file="uml://Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>Python</ID>
+              <OriginalElement>#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py</OriginalElement>
+              <nodes>
+                <node x="2410.0" y="211.0">Program.MainWindowCurrent.AddQuestion</node>
+                <node x="827.0" y="398.0">Program.MainWindowCurrent.WorkList</node>
+                <node x="0.0" y="2226.0">Program.MainWindowCurrent.student</node>
+                <node x="1168.0" y="90.0">Program.MainWindowCurrent.createaccount</node>
+                <node x="2542.4182911117855" y="1275.015320292279">Program.MainWindowCurrent.LogInPage</node>
+                <node x="0.0" y="387.0">Program.MainWindowCurrent.Practice_Questions_Window</node>
+                <node x="924.0" y="1169.0">Program.MainWindowCurrent.MakeQSet</node>
+                <node x="0.0" y="1776.0">Program.MainWindowCurrent.Question</node>
+                <node x="1360.25" y="1024.0">QDialog</node>
+                <node x="1257.5" y="0.0">QWidget</node>
+                <node x="1436.0" y="1257.0">Program.MainWindowCurrent.EditStudents</node>
+                <node x="1839.0" y="1114.0">Program.MainWindowCurrent.hardy_weinberg</node>
+                <node x="0.0" y="2676.0">Program.MainWindowCurrent.teacher</node>
+                <node x="592.0" y="1908.0">Program.MainWindowCurrent.Question_Set</node>
+                <node x="0.0" y="1191.0">Program.MainWindowCurrent.SetQuestions</node>
+                <node x="2069.0" y="398.0">Program.MainWindowCurrent.Student_Main_Window</node>
+                <node x="366.0" y="332.0">Program.MainWindowCurrent.Teacher_Main_Window</node>
+                <node x="1376.0" y="2226.0">Program.MainWindowCurrent.findKreaction</node>
+                <node x="441.0" y="1213.0">Program.MainWindowCurrent.Practice_K_Window</node>
+                <node x="492.5" y="1696.0">object</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="Program.MainWindowCurrent.AddQuestion" target="QWidget">
+                  <point x="0.0" y="-323.5" />
+                  <point x="2740.5" y="50.0" />
+                  <point x="1331.75" y="50.0" />
+                  <point x="33.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.hardy_weinberg" target="QDialog">
+                  <point x="0.0" y="-268.5" />
+                  <point x="2176.0" y="1084.0" />
+                  <point x="1418.0" y="1084.0" />
+                  <point x="19.25" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Question" target="object">
+                  <point x="0.0" y="-202.5" />
+                  <point x="286.0" y="1751.0" />
+                  <point x="509.25" y="1751.0" />
+                  <point x="-16.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Practice_Questions_Window" target="QWidget">
+                  <point x="0.0" y="-147.5" />
+                  <point x="173.0" y="50.0" />
+                  <point x="1264.25" y="50.0" />
+                  <point x="-33.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.EditStudents" target="QDialog">
+                  <point x="0.0" y="-125.5" />
+                  <point x="1627.5" y="1094.0" />
+                  <point x="1405.1666666666667" y="1094.0" />
+                  <point x="6.4166666666667425" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.createaccount" target="QWidget">
+                  <point x="0.0" y="-444.5" />
+                  <point x="1608.5" y="70.0" />
+                  <point x="1304.75" y="70.0" />
+                  <point x="6.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.SetQuestions" target="QDialog">
+                  <point x="0.0" y="-191.5" />
+                  <point x="210.5" y="1074.0" />
+                  <point x="1366.6666666666667" y="1074.0" />
+                  <point x="-32.08333333333326" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Teacher_Main_Window" target="QWidget">
+                  <point x="0.0" y="-202.5" />
+                  <point x="586.5" y="60.0" />
+                  <point x="1277.75" y="60.0" />
+                  <point x="-20.25" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.WorkList" target="QWidget">
+                  <point x="0.0" y="-136.5" />
+                  <point x="987.5" y="70.0" />
+                  <point x="1291.25" y="70.0" />
+                  <point x="-6.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Question_Set" target="object">
+                  <point x="0.0" y="-70.5" />
+                  <point x="766.0" y="1751.0" />
+                  <point x="542.75" y="1751.0" />
+                  <point x="16.75" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Practice_K_Window" target="QDialog">
+                  <point x="0.0" y="-169.5" />
+                  <point x="672.5" y="1084.0" />
+                  <point x="1379.5" y="1084.0" />
+                  <point x="-19.25" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.Student_Main_Window" target="QWidget">
+                  <point x="0.0" y="-136.5" />
+                  <point x="2229.5" y="60.0" />
+                  <point x="1318.25" y="60.0" />
+                  <point x="20.25" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.LogInPage" target="QDialog">
+                  <point x="0.0" y="-169.5" />
+                  <point x="2723.5" y="1074.0" />
+                  <point x="1430.8333333333333" y="1074.0" />
+                  <point x="32.08333333333326" y="15.0" />
+                </edge>
+                <edge source="Program.MainWindowCurrent.MakeQSet" target="QDialog">
+                  <point x="0.0" y="-213.5" />
+                  <point x="1170.0" y="1094.0" />
+                  <point x="1392.3333333333333" y="1094.0" />
+                  <point x="-6.4166666666667425" y="15.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.1993455046503612" x="-75.99999999999997" y="1939.0" />
+              <SelectedNodes>
+                <node>Program.MainWindowCurrent.Question</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Inner Classes</Category>
+                <Category>Methods</Category>
+              </Categories>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindowCurrent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Program/MainWindowCurrent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6630" max-vertical-offset="9299">
-              <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
+            <state vertical-scroll-proportion="-9.76" vertical-offset="11520" max-vertical-offset="29954">
+              <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,20 +184,8 @@
       <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5631769" vertical-offset="22502" max-vertical-offset="30158">
-              <caret line="1342" column="16" selection-start-line="1342" selection-start-column="16" selection-end-line="1342" selection-end-column="16" />
-              <folding>
-                <element signature="e#21#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainWindow-Psudocode.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Program/MainWindow-Psudocode.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.62310606" vertical-offset="15702" max-vertical-offset="30124">
+              <caret line="945" column="29" selection-start-line="945" selection-start-column="29" selection-end-line="945" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -80,13 +203,17 @@
         <option value="$PROJECT_DIR$/Program/test.py" />
         <option value="$PROJECT_DIR$/Program/AdminTools.py" />
         <option value="$PROJECT_DIR$/Program/MainWindow.py" />
+        <option value="$PROJECT_DIR$/Program/MainWindowCurrent.py" />
       </list>
     </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -150,17 +277,18 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Diagrams" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.MainWindow">
+  <component name="RunManager" selected="Python.MainWindowCurrent">
     <configuration default="false" name="configure" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,6 +301,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/PyQt-win-gpl-4.11.3/configure.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -192,6 +321,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program/MainWindow.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -213,6 +343,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program/AdminTools.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -232,6 +363,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -239,49 +371,24 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
+    <configuration default="false" name="MainWindowCurrent" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Python34\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Program" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Comp4" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Program/MainWindowCurrent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -296,9 +403,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -311,6 +433,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -323,7 +446,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
+    <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -333,6 +456,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -340,6 +464,28 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -352,6 +498,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -361,18 +508,91 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Comp4" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.configure" />
       <item index="1" class="java.lang.String" itemvalue="Python.MainWindow" />
       <item index="2" class="java.lang.String" itemvalue="Python.AdminTools" />
       <item index="3" class="java.lang.String" itemvalue="Python.test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.MainWindowCurrent" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.MainWindow" />
-        <item index="1" class="java.lang.String" itemvalue="Python.AdminTools" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.configure" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.MainWindowCurrent" />
+        <item index="1" class="java.lang.String" itemvalue="Python.MainWindow" />
+        <item index="2" class="java.lang.String" itemvalue="Python.AdminTools" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.configure" />
       </list>
     </recent_temporary>
   </component>
@@ -397,47 +617,50 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1601686" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39823982" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264865" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16666667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39823982" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298193" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24850747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3276923" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24850747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -461,16 +684,432 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="uml://Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py</OriginalElement>
+          <nodes>
+            <node x="2410.0" y="211.0">Program.MainWindowCurrent.AddQuestion</node>
+            <node x="827.0" y="398.0">Program.MainWindowCurrent.WorkList</node>
+            <node x="0.0" y="2226.0">Program.MainWindowCurrent.student</node>
+            <node x="1168.0" y="90.0">Program.MainWindowCurrent.createaccount</node>
+            <node x="2542.4182911117855" y="1275.015320292279">Program.MainWindowCurrent.LogInPage</node>
+            <node x="0.0" y="387.0">Program.MainWindowCurrent.Practice_Questions_Window</node>
+            <node x="924.0" y="1169.0">Program.MainWindowCurrent.MakeQSet</node>
+            <node x="0.0" y="1776.0">Program.MainWindowCurrent.Question</node>
+            <node x="1360.25" y="1024.0">QDialog</node>
+            <node x="1257.5" y="0.0">QWidget</node>
+            <node x="1436.0" y="1257.0">Program.MainWindowCurrent.EditStudents</node>
+            <node x="1839.0" y="1114.0">Program.MainWindowCurrent.hardy_weinberg</node>
+            <node x="0.0" y="2676.0">Program.MainWindowCurrent.teacher</node>
+            <node x="592.0" y="1908.0">Program.MainWindowCurrent.Question_Set</node>
+            <node x="0.0" y="1191.0">Program.MainWindowCurrent.SetQuestions</node>
+            <node x="2069.0" y="398.0">Program.MainWindowCurrent.Student_Main_Window</node>
+            <node x="366.0" y="332.0">Program.MainWindowCurrent.Teacher_Main_Window</node>
+            <node x="1376.0" y="2226.0">Program.MainWindowCurrent.findKreaction</node>
+            <node x="441.0" y="1213.0">Program.MainWindowCurrent.Practice_K_Window</node>
+            <node x="492.5" y="1696.0">object</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Program.MainWindowCurrent.AddQuestion" target="QWidget">
+              <point x="0.0" y="-323.5" />
+              <point x="2740.5" y="50.0" />
+              <point x="1331.75" y="50.0" />
+              <point x="33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.hardy_weinberg" target="QDialog">
+              <point x="0.0" y="-268.5" />
+              <point x="2176.0" y="1084.0" />
+              <point x="1418.0" y="1084.0" />
+              <point x="19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question" target="object">
+              <point x="0.0" y="-202.5" />
+              <point x="286.0" y="1751.0" />
+              <point x="509.25" y="1751.0" />
+              <point x="-16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_Questions_Window" target="QWidget">
+              <point x="0.0" y="-147.5" />
+              <point x="173.0" y="50.0" />
+              <point x="1264.25" y="50.0" />
+              <point x="-33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.EditStudents" target="QDialog">
+              <point x="0.0" y="-125.5" />
+              <point x="1627.5" y="1094.0" />
+              <point x="1405.1666666666667" y="1094.0" />
+              <point x="6.4166666666667425" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.createaccount" target="QWidget">
+              <point x="0.0" y="-444.5" />
+              <point x="1608.5" y="70.0" />
+              <point x="1304.75" y="70.0" />
+              <point x="6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.SetQuestions" target="QDialog">
+              <point x="0.0" y="-191.5" />
+              <point x="210.5" y="1074.0" />
+              <point x="1366.6666666666667" y="1074.0" />
+              <point x="-32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Teacher_Main_Window" target="QWidget">
+              <point x="0.0" y="-202.5" />
+              <point x="586.5" y="60.0" />
+              <point x="1277.75" y="60.0" />
+              <point x="-20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.WorkList" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="987.5" y="70.0" />
+              <point x="1291.25" y="70.0" />
+              <point x="-6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question_Set" target="object">
+              <point x="0.0" y="-70.5" />
+              <point x="766.0" y="1751.0" />
+              <point x="542.75" y="1751.0" />
+              <point x="16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_K_Window" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="672.5" y="1084.0" />
+              <point x="1379.5" y="1084.0" />
+              <point x="-19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Student_Main_Window" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="2229.5" y="60.0" />
+              <point x="1318.25" y="60.0" />
+              <point x="20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.LogInPage" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="2723.5" y="1074.0" />
+              <point x="1430.8333333333333" y="1074.0" />
+              <point x="32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.MakeQSet" target="QDialog">
+              <point x="0.0" y="-213.5" />
+              <point x="1170.0" y="1094.0" />
+              <point x="1392.3333333333333" y="1094.0" />
+              <point x="-6.4166666666667425" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1993455046503612" x="-75.99999999999997" y="1939.0" />
+          <SelectedNodes>
+            <node>Program.MainWindowCurrent.Question</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29954">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py</OriginalElement>
+          <nodes>
+            <node x="2410.0" y="211.0">Program.MainWindowCurrent.AddQuestion</node>
+            <node x="827.0" y="398.0">Program.MainWindowCurrent.WorkList</node>
+            <node x="0.0" y="2226.0">Program.MainWindowCurrent.student</node>
+            <node x="1168.0" y="90.0">Program.MainWindowCurrent.createaccount</node>
+            <node x="2542.4182911117855" y="1275.015320292279">Program.MainWindowCurrent.LogInPage</node>
+            <node x="0.0" y="387.0">Program.MainWindowCurrent.Practice_Questions_Window</node>
+            <node x="0.0" y="1776.0">Program.MainWindowCurrent.Question</node>
+            <node x="924.0" y="1169.0">Program.MainWindowCurrent.MakeQSet</node>
+            <node x="1360.25" y="1024.0">QDialog</node>
+            <node x="1257.5" y="0.0">QWidget</node>
+            <node x="1436.0" y="1257.0">Program.MainWindowCurrent.EditStudents</node>
+            <node x="1839.0" y="1114.0">Program.MainWindowCurrent.hardy_weinberg</node>
+            <node x="0.0" y="2676.0">Program.MainWindowCurrent.teacher</node>
+            <node x="592.0" y="1908.0">Program.MainWindowCurrent.Question_Set</node>
+            <node x="0.0" y="1191.0">Program.MainWindowCurrent.SetQuestions</node>
+            <node x="2069.0" y="398.0">Program.MainWindowCurrent.Student_Main_Window</node>
+            <node x="366.0" y="332.0">Program.MainWindowCurrent.Teacher_Main_Window</node>
+            <node x="1376.0" y="2226.0">Program.MainWindowCurrent.findKreaction</node>
+            <node x="441.0" y="1213.0">Program.MainWindowCurrent.Practice_K_Window</node>
+            <node x="492.5" y="1696.0">object</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Program.MainWindowCurrent.hardy_weinberg" target="QDialog">
+              <point x="0.0" y="-268.5" />
+              <point x="2176.0" y="1084.0" />
+              <point x="1418.0" y="1084.0" />
+              <point x="19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_Questions_Window" target="QWidget">
+              <point x="0.0" y="-147.5" />
+              <point x="173.0" y="50.0" />
+              <point x="1264.25" y="50.0" />
+              <point x="-33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question" target="object">
+              <point x="0.0" y="-202.5" />
+              <point x="286.0" y="1751.0" />
+              <point x="509.25" y="1751.0" />
+              <point x="-16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.AddQuestion" target="QWidget">
+              <point x="0.0" y="-323.5" />
+              <point x="2740.5" y="50.0" />
+              <point x="1331.75" y="50.0" />
+              <point x="33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.EditStudents" target="QDialog">
+              <point x="0.0" y="-125.5" />
+              <point x="1627.5" y="1094.0" />
+              <point x="1405.1666666666667" y="1094.0" />
+              <point x="6.4166666666667425" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.createaccount" target="QWidget">
+              <point x="0.0" y="-444.5" />
+              <point x="1608.5" y="70.0" />
+              <point x="1304.75" y="70.0" />
+              <point x="6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.SetQuestions" target="QDialog">
+              <point x="0.0" y="-191.5" />
+              <point x="210.5" y="1074.0" />
+              <point x="1366.6666666666667" y="1074.0" />
+              <point x="-32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Teacher_Main_Window" target="QWidget">
+              <point x="0.0" y="-202.5" />
+              <point x="586.5" y="60.0" />
+              <point x="1277.75" y="60.0" />
+              <point x="-20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.WorkList" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="987.5" y="70.0" />
+              <point x="1291.25" y="70.0" />
+              <point x="-6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question_Set" target="object">
+              <point x="0.0" y="-70.5" />
+              <point x="766.0" y="1751.0" />
+              <point x="542.75" y="1751.0" />
+              <point x="16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_K_Window" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="672.5" y="1084.0" />
+              <point x="1379.5" y="1084.0" />
+              <point x="-19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Student_Main_Window" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="2229.5" y="60.0" />
+              <point x="1318.25" y="60.0" />
+              <point x="20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.LogInPage" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="2723.5" y="1074.0" />
+              <point x="1430.8333333333333" y="1074.0" />
+              <point x="32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.MakeQSet" target="QDialog">
+              <point x="0.0" y="-213.5" />
+              <point x="1170.0" y="1094.0" />
+              <point x="1392.3333333333333" y="1094.0" />
+              <point x="-6.4166666666667425" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1993455046503612" x="-76.0" y="1939.0" />
+          <SelectedNodes>
+            <node>Program.MainWindowCurrent.Question</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29937">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6630" max-vertical-offset="9299">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7140" max-vertical-offset="9299">
           <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22502" max-vertical-offset="30158">
+          <caret line="1342" column="16" selection-start-line="1342" selection-start-column="16" selection-end-line="1342" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py</OriginalElement>
+          <nodes>
+            <node x="2410.0" y="211.0">Program.MainWindowCurrent.AddQuestion</node>
+            <node x="827.0" y="398.0">Program.MainWindowCurrent.WorkList</node>
+            <node x="0.0" y="2226.0">Program.MainWindowCurrent.student</node>
+            <node x="1168.0" y="90.0">Program.MainWindowCurrent.createaccount</node>
+            <node x="2542.4182911117855" y="1275.015320292279">Program.MainWindowCurrent.LogInPage</node>
+            <node x="0.0" y="387.0">Program.MainWindowCurrent.Practice_Questions_Window</node>
+            <node x="924.0" y="1169.0">Program.MainWindowCurrent.MakeQSet</node>
+            <node x="0.0" y="1776.0">Program.MainWindowCurrent.Question</node>
+            <node x="1360.25" y="1024.0">QDialog</node>
+            <node x="1257.5" y="0.0">QWidget</node>
+            <node x="1436.0" y="1257.0">Program.MainWindowCurrent.EditStudents</node>
+            <node x="1839.0" y="1114.0">Program.MainWindowCurrent.hardy_weinberg</node>
+            <node x="0.0" y="2676.0">Program.MainWindowCurrent.teacher</node>
+            <node x="592.0" y="1908.0">Program.MainWindowCurrent.Question_Set</node>
+            <node x="0.0" y="1191.0">Program.MainWindowCurrent.SetQuestions</node>
+            <node x="2069.0" y="398.0">Program.MainWindowCurrent.Student_Main_Window</node>
+            <node x="366.0" y="332.0">Program.MainWindowCurrent.Teacher_Main_Window</node>
+            <node x="1376.0" y="2226.0">Program.MainWindowCurrent.findKreaction</node>
+            <node x="441.0" y="1213.0">Program.MainWindowCurrent.Practice_K_Window</node>
+            <node x="492.5" y="1696.0">object</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Program.MainWindowCurrent.hardy_weinberg" target="QDialog">
+              <point x="0.0" y="-268.5" />
+              <point x="2176.0" y="1084.0" />
+              <point x="1418.0" y="1084.0" />
+              <point x="19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.AddQuestion" target="QWidget">
+              <point x="0.0" y="-323.5" />
+              <point x="2740.5" y="50.0" />
+              <point x="1331.75" y="50.0" />
+              <point x="33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question" target="object">
+              <point x="0.0" y="-202.5" />
+              <point x="286.0" y="1751.0" />
+              <point x="509.25" y="1751.0" />
+              <point x="-16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_Questions_Window" target="QWidget">
+              <point x="0.0" y="-147.5" />
+              <point x="173.0" y="50.0" />
+              <point x="1264.25" y="50.0" />
+              <point x="-33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.EditStudents" target="QDialog">
+              <point x="0.0" y="-125.5" />
+              <point x="1627.5" y="1094.0" />
+              <point x="1405.1666666666667" y="1094.0" />
+              <point x="6.4166666666667425" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.createaccount" target="QWidget">
+              <point x="0.0" y="-444.5" />
+              <point x="1608.5" y="70.0" />
+              <point x="1304.75" y="70.0" />
+              <point x="6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.SetQuestions" target="QDialog">
+              <point x="0.0" y="-191.5" />
+              <point x="210.5" y="1074.0" />
+              <point x="1366.6666666666667" y="1074.0" />
+              <point x="-32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Teacher_Main_Window" target="QWidget">
+              <point x="0.0" y="-202.5" />
+              <point x="586.5" y="60.0" />
+              <point x="1277.75" y="60.0" />
+              <point x="-20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.WorkList" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="987.5" y="70.0" />
+              <point x="1291.25" y="70.0" />
+              <point x="-6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question_Set" target="object">
+              <point x="0.0" y="-70.5" />
+              <point x="766.0" y="1751.0" />
+              <point x="542.75" y="1751.0" />
+              <point x="16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_K_Window" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="672.5" y="1084.0" />
+              <point x="1379.5" y="1084.0" />
+              <point x="-19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Student_Main_Window" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="2229.5" y="60.0" />
+              <point x="1318.25" y="60.0" />
+              <point x="20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.LogInPage" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="2723.5" y="1074.0" />
+              <point x="1430.8333333333333" y="1074.0" />
+              <point x="32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.MakeQSet" target="QDialog">
+              <point x="0.0" y="-213.5" />
+              <point x="1170.0" y="1094.0" />
+              <point x="1392.3333333333333" y="1094.0" />
+              <point x="-6.4166666666667425" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1993455046503612" x="-76.0" y="2340.0" />
+          <SelectedNodes>
+            <node>Program.MainWindowCurrent.student</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindow-Psudocode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7208" max-vertical-offset="9367">
+          <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -478,9 +1117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="30158">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -488,7 +1124,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -496,17 +1131,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6630" max-vertical-offset="9299">
           <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29342">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="30158">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -514,15 +1145,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8568" max-vertical-offset="9299">
-          <caret line="508" column="12" selection-start-line="508" selection-start-column="12" selection-end-line="508" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6630" max-vertical-offset="9299">
+          <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -530,9 +1159,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29342">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindow-Psudocode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/AdminTools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8568" max-vertical-offset="9299">
+          <caret line="508" column="12" selection-start-line="508" selection-start-column="12" selection-end-line="508" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29342">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -540,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1751" max-vertical-offset="9299">
           <caret line="508" column="12" selection-start-line="508" selection-start-column="12" selection-end-line="508" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -548,9 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29308">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -558,7 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1751" max-vertical-offset="9299">
           <caret line="508" column="12" selection-start-line="508" selection-start-column="12" selection-end-line="508" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="29206">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,7 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9299">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,9 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="25560" max-vertical-offset="27387">
           <caret line="1522" column="74" selection-start-line="1522" selection-start-column="74" selection-end-line="1522" selection-end-column="74" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,7 +1229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -637,7 +1271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31212">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,17 +1278,148 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6630" max-vertical-offset="9299">
           <caret line="424" column="24" selection-start-line="424" selection-start-column="24" selection-end-line="424" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#C:/Users/Oscar/Documents/GitHub/Comp4/Program/MainWindowCurrent.py</OriginalElement>
+          <nodes>
+            <node x="2410.0" y="211.0">Program.MainWindowCurrent.AddQuestion</node>
+            <node x="827.0" y="398.0">Program.MainWindowCurrent.WorkList</node>
+            <node x="0.0" y="2226.0">Program.MainWindowCurrent.student</node>
+            <node x="1168.0" y="90.0">Program.MainWindowCurrent.createaccount</node>
+            <node x="2542.4182911117855" y="1275.015320292279">Program.MainWindowCurrent.LogInPage</node>
+            <node x="0.0" y="387.0">Program.MainWindowCurrent.Practice_Questions_Window</node>
+            <node x="924.0" y="1169.0">Program.MainWindowCurrent.MakeQSet</node>
+            <node x="0.0" y="1776.0">Program.MainWindowCurrent.Question</node>
+            <node x="1360.25" y="1024.0">QDialog</node>
+            <node x="1257.5" y="0.0">QWidget</node>
+            <node x="1436.0" y="1257.0">Program.MainWindowCurrent.EditStudents</node>
+            <node x="1839.0" y="1114.0">Program.MainWindowCurrent.hardy_weinberg</node>
+            <node x="0.0" y="2676.0">Program.MainWindowCurrent.teacher</node>
+            <node x="592.0" y="1908.0">Program.MainWindowCurrent.Question_Set</node>
+            <node x="0.0" y="1191.0">Program.MainWindowCurrent.SetQuestions</node>
+            <node x="2069.0" y="398.0">Program.MainWindowCurrent.Student_Main_Window</node>
+            <node x="366.0" y="332.0">Program.MainWindowCurrent.Teacher_Main_Window</node>
+            <node x="1376.0" y="2226.0">Program.MainWindowCurrent.findKreaction</node>
+            <node x="441.0" y="1213.0">Program.MainWindowCurrent.Practice_K_Window</node>
+            <node x="492.5" y="1696.0">object</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Program.MainWindowCurrent.AddQuestion" target="QWidget">
+              <point x="0.0" y="-323.5" />
+              <point x="2740.5" y="50.0" />
+              <point x="1331.75" y="50.0" />
+              <point x="33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.hardy_weinberg" target="QDialog">
+              <point x="0.0" y="-268.5" />
+              <point x="2176.0" y="1084.0" />
+              <point x="1418.0" y="1084.0" />
+              <point x="19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question" target="object">
+              <point x="0.0" y="-202.5" />
+              <point x="286.0" y="1751.0" />
+              <point x="509.25" y="1751.0" />
+              <point x="-16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_Questions_Window" target="QWidget">
+              <point x="0.0" y="-147.5" />
+              <point x="173.0" y="50.0" />
+              <point x="1264.25" y="50.0" />
+              <point x="-33.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.EditStudents" target="QDialog">
+              <point x="0.0" y="-125.5" />
+              <point x="1627.5" y="1094.0" />
+              <point x="1405.1666666666667" y="1094.0" />
+              <point x="6.4166666666667425" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.createaccount" target="QWidget">
+              <point x="0.0" y="-444.5" />
+              <point x="1608.5" y="70.0" />
+              <point x="1304.75" y="70.0" />
+              <point x="6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.SetQuestions" target="QDialog">
+              <point x="0.0" y="-191.5" />
+              <point x="210.5" y="1074.0" />
+              <point x="1366.6666666666667" y="1074.0" />
+              <point x="-32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Teacher_Main_Window" target="QWidget">
+              <point x="0.0" y="-202.5" />
+              <point x="586.5" y="60.0" />
+              <point x="1277.75" y="60.0" />
+              <point x="-20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.WorkList" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="987.5" y="70.0" />
+              <point x="1291.25" y="70.0" />
+              <point x="-6.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Question_Set" target="object">
+              <point x="0.0" y="-70.5" />
+              <point x="766.0" y="1751.0" />
+              <point x="542.75" y="1751.0" />
+              <point x="16.75" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Practice_K_Window" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="672.5" y="1084.0" />
+              <point x="1379.5" y="1084.0" />
+              <point x="-19.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.Student_Main_Window" target="QWidget">
+              <point x="0.0" y="-136.5" />
+              <point x="2229.5" y="60.0" />
+              <point x="1318.25" y="60.0" />
+              <point x="20.25" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.LogInPage" target="QDialog">
+              <point x="0.0" y="-169.5" />
+              <point x="2723.5" y="1074.0" />
+              <point x="1430.8333333333333" y="1074.0" />
+              <point x="32.08333333333326" y="15.0" />
+            </edge>
+            <edge source="Program.MainWindowCurrent.MakeQSet" target="QDialog">
+              <point x="0.0" y="-213.5" />
+              <point x="1170.0" y="1094.0" />
+              <point x="1392.3333333333333" y="1094.0" />
+              <point x="-6.4166666666667425" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1993455046503612" x="-75.99999999999997" y="1939.0" />
+          <SelectedNodes>
+            <node>Program.MainWindowCurrent.Question</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Methods</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Program/MainWindowCurrent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.76" vertical-offset="11520" max-vertical-offset="29954">
+          <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Program/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5631769" vertical-offset="22502" max-vertical-offset="30158">
-          <caret line="1342" column="16" selection-start-line="1342" selection-start-column="16" selection-end-line="1342" selection-end-column="16" />
-          <folding>
-            <element signature="e#21#62#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.62310606" vertical-offset="15702" max-vertical-offset="30124">
+          <caret line="945" column="29" selection-start-line="945" selection-start-column="29" selection-end-line="945" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
