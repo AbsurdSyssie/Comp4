@@ -21,25 +21,33 @@
 \tablehead{}
 \tabletail{}
 \tablelasttail{}
-\begin{supertabular}{|m{2.181cm}|m{10.276cm}|m{6.9240003cm}|m{2.658cm}|m{0.025999993cm}|}
+\begin{supertabular}{|m{1.1899999cm}|m{2.294cm}|m{3.827cm}|m{4.086cm}|m{1.573cm}|m{10.45cm}|}
 \hline
 Test number &
 Description &
 Data Type  &
 Expected Result &
-Pass/Fail\\\hline
+Pass/Fail &
+Cross Reference\\\hline
 1 &
 Checking that the login screen allows user to log in with their credentials. &
 Typical &
 System logs in using the user's data. &
-Pass\\\hline
+Pass &
+Image 1\newline
+Image 2\\\hline
 2 &
 Checking that the log in screen does not allow people to log in with any credentials. &
 Erroneous.\newline
 (Incorrect Password) &
 Error message appears.\newline
 (Your Username or Password is incorrect. Please try again.) &
-Pass\\\hline
+Pass &
+~
+
+~
+
+Image 3\\\hline
 3 &
 Checking that the program calculates `k' correctly. &
 Typical.
@@ -48,7 +56,12 @@ Typical.
 Answer ~calculated using correct steps ~and being the same as on a calculator (rounded to 3sigfig). &
 ~
 
-Pass\\\hline
+Pass &
+~
+
+image 4
+
+image 5\\\hline
 4 &
 Checking that the program accepts correct answers for `k' values. &
 Typical &
@@ -57,75 +70,111 @@ Answer
 rounded to 3 sig fig and entered in the correct format opens ``correct answer'' message box. &
 ~
 
-Pass\\\hline
+Pass &
+~
+
+~
+
+~
+
+image 6 image 7\\\hline
 5 &
 Checking that the program accepts correct answers for `k' values. &
 Erroneous (any incorrect answer, sdfdgido, 9.25\^{}-5). &
 Answer given compared to the correct answer, then ``incorrect answer'' message box opened. &
-Pass\\\hline
+Pass &
+~Image 8 image 9 image 10\\\hline
 6 &
 That an account must have a unique username, cannot have any unfilled fields apart from middle name and that a target grade between A-U. &
 Typical
 
 (Student,Jack,William,Montfort,salmon,JMontfort, 12EJP, A) &
 Student account allowed to be made, ``new student created'' message box opened. &
-Pass\\\hline
+Pass &
+~Image 11
+
+~
+\\\hline
 7 &
 Testing that accounts are saved when created. &
 Data entered in last test. &
 Correct student account details printed out. &
-Pass\\\hline
+Pass &
+Image 12 image 13\\\hline
 8 &
 Checking that only valid information can be input into the fields. &
 Erroneous
 
 (Target grade correct as this is picked up, but the rest are not). &
 Student account not made, error message displayed. &
-Pass\\\hline
+Pass &
+Image 14\\\hline
 9 &
 Clicking the ``Practise Questions'' button opens the ``Practise Questions'' window. &
 Typical
 
 (clicking the correct button) &
 Practise questions window opens. &
-Pass\\\hline
+Pass &
+Imagie 15\\\hline
 10 &
 That total population has to be bigger than the amount of heterozygous individuals when making a Hardy-Weinberg question. &
 Erroneous
 
 (Larger homozygous recessive,300, than total population , 32) &
 Question is not allowed to be created, error message opens. &
-Pass\\\hline
+Pass &
+Image 16\\\hline
 11 &
 That total population has to be bigger than the amount of heterozygous individuals when making a Hardy-Weinberg question. &
 Typical (total pop 32, no of homozygous recessive 10) &
 Question allowed to be created, confirmation message box. &
-Pass\\\hline
+Pass &
+~
+
+image 17\\\hline
 12 &
 That questions are stored correctly in questions.pickle &
 Data from last test &
 Correct question details printed from pickle. &
-Pass\\\hline
+Pass &
+~
+
+image 18
+
+~\\\hline
 13 &
 Testing that questions can be added to a QSet, that duplicate questions can't be added and that QSets can be saved if they fit the correct criteria. &
 Typical(1 : Hardy-Weinberg, 2 : Rate Constant) &
 Selected fields move to the ``New Set'' box, questions cannot be moved to the ``New Set'' box if they are already in the ``New Set'' box. A message box opens saying that a question set has been . &
-Pass\\\hline
+Pass &
+19 20 21\\\hline
 14 &
 Testing that a QSet is saved. &
 Typical(1 : Hardy-Weinberg, 2 : Rate Constant) &
 Correct QSet details printed out. &
-Pass\\\hline
+Pass &
+~
+
+22\\\hline
 15 &
 Test that a QSet must have a name to be created &
 No name entered. &
 Error message opens and QSet is not saved. &
-Pass\\\hline
+Pass &
+~~~~~~~~~~~~~~~~~ 23\\\hline
 16 &
 Test that a QSet must have questions in it to be created. &
 No questions put in ``New Set'' box &
 Error message opens and QSet is not saved. &
-Pass\\\hline
+Pass &
+24\\\hline
+17 &
+~ &
+~ &
+~ &
+~ &
+~\\\hline
 \end{supertabular}
 \end{flushleft}
 
